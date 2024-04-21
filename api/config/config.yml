@@ -1,0 +1,12 @@
+env: "local"
+http_server:
+  host: "api"
+  port: "8080"
+jwt:
+  secret: "cTMlMzQxUC1AMQ=="
+postgres:
+  address: "postgres"
+  db: "Skrifter"
+  user: "root"
+  password: "root"
+  port: "5432"
