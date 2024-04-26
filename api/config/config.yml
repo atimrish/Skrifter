@@ -3,10 +3,13 @@ http_server:
   host: "api"
   port: "8080"
 jwt:
-  secret: "cTMlMzQxUC1AMQ=="
+  secret: "ZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NQ=="
 postgres:
   address: "postgres"
   db: "Skrifter"
   user: "root"
   password: "root"
   port: "5432"
+storage_server:
+  host: "storage"
+  port: "8000"

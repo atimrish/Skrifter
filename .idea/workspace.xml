@@ -4,7 +4,53 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5a3bf19-5b02-493b-8ee3-6dfa65f58a45" name="Changes" comment="" />
+    <list default="true" id="a5a3bf19-5b02-493b-8ee3-6dfa65f58a45" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/api/app/actions/StorageOperations.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/app/controllers/GenreController/GenreController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/app/controllers/UserController/UserController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/cmd/seeder/seeder.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/frontend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/mongo/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/storage/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/favicon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/burger.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/header/Header.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/LoginPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/init.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Skrifter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Skrifter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/controllers/Role/RoleController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/Role/RoleController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/middleware/AuthorizedMiddleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/middleware/AuthorizedMiddleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/AgeRating.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/AgeRating.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Author.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Author.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Comment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/CommentReply.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/CommentReply.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/DiscussionReply.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/DiscussionReply.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Discussions.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Discussions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Favorite.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Favorite.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/FavoriteStatus.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/FavoriteStatus.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Genre.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Genre.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Product.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Product.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/ProductAuthor.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/ProductAuthor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/ProductGenre.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/ProductGenre.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/ProductType.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/ProductType.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Rating.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Rating.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Role.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Role.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/User.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/routes/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/routes/routes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/default.conf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,17 +60,32 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="62b7660f-f598-4456-9de6-63da3275d125" value="Blue" />
+    </colors>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="Dockerfile" />
         <option value="Go File" />
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file:///usr/lib/go-1.21" />
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+  </component>
+  <component name="GOROOT" url="file://$USER_HOME$/go/go1.21.9" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php">
     <include_path>
@@ -151,33 +212,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/var/www/Skrifter",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/var/www/Skrifter/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/snap/goland/281/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/api/app/models" />
@@ -191,15 +254,17 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PS-241.14494.237" />
-        <option value="bundled-php-predefined-ba97393d7c68-8f0632a2a215-com.jetbrains.php.sharedIndexes-PS-241.14494.237" />
+        <option value="bundled-gosdk-33c477a475b1-b97fc8a1e17c-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-241.14494.238" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-GO-241.14494.238" />
       </set>
     </attachedChunks>
   </component>
@@ -213,6 +278,7 @@
       <updated>1713551001115</updated>
       <workItem from="1713551002145" duration="2391000" />
       <workItem from="1713595460745" duration="15888000" />
+      <workItem from="1714061181383" duration="22000" />
     </task>
     <servers />
   </component>

@@ -9,7 +9,6 @@ import (
 )
 
 func GetRoles(w http.ResponseWriter, r *http.Request) {
-
 	db := actions.GetDb()
 	res := db.Find(models.Role{})
 	log.Println(res)

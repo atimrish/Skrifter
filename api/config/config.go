@@ -7,10 +7,11 @@ import (
 )
 
 type Config struct {
-	Env        string `yaml:"env" env-default:"config" env-required:"true"`
-	HttpServer `yaml:"http_server"`
-	Jwt        `yaml:"jwt"`
-	Postgres   `yaml:"postgres"`
+	Env           string `yaml:"env" env-default:"config" env-required:"true"`
+	HttpServer    `yaml:"http_server"`
+	Jwt           `yaml:"jwt"`
+	Postgres      `yaml:"postgres"`
+	StorageServer `yaml:"storage_server"`
 }
 
 type HttpServer struct {
@@ -28,6 +29,11 @@ type Postgres struct {
 	Db       string `yaml:"db"`
 	Password string `yaml:"password"`
 	Port     string `yaml:"port"`
+}
+
+type StorageServer struct {
+	Host string `yaml:"host" env-default:"localhost"`
+	Port string `yaml:"port" env-default:"8000"`
 }
 
 func InitConfig() *Config {

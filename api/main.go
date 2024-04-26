@@ -2,6 +2,7 @@ package main
 
 import (
 	"api/cmd/migrate"
+	"api/cmd/seeder"
 	"api/cmd/server"
 	"flag"
 	"fmt"
@@ -18,6 +19,9 @@ func main() {
 		break
 	case "migrate":
 		migrate.Up()
+		break
+	case "seed":
+		seeder.Seed()
 		break
 	default:
 		fmt.Println("no actions matched")

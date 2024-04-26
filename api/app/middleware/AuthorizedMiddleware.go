@@ -15,6 +15,7 @@ func Authorised(next http.Handler) http.Handler {
 			err = json.NewEncoder(w).Encode(map[string]string{
 				"message": "не авторизован",
 			})
+			return
 		}
 
 		_, err = actions.GetPayloadJWT(cookie.Value)
@@ -23,6 +24,7 @@ func Authorised(next http.Handler) http.Handler {
 			err = json.NewEncoder(w).Encode(map[string]string{
 				"message": "не авторизован",
 			})
+			return
 		}
 
 		next.ServeHTTP(w, r)

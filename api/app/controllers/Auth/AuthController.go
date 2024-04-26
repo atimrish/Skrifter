@@ -78,7 +78,8 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		HttpOnly:   true,
 	}
 
-	r.AddCookie(&cookie)
+	http.SetCookie(w, &cookie)
+
 	refreshToken := actions.MakeJWT(payload)
 
 	err = json.NewEncoder(w).Encode(map[string]string{
@@ -158,7 +159,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		HttpOnly:   true,
 	}
 
-	r.AddCookie(&cookie)
+	http.SetCookie(w, &cookie)
 	refreshToken := actions.MakeJWT(payload)
 
 	w.Header().Set("Content-Type", "application/json")
@@ -187,4 +188,38 @@ func Logout(w http.ResponseWriter, r *http.Request) {
 	})
 
 	actions.IfLogFatal(err)
+}
+
+func RefreshToken(w http.ResponseWriter, r *http.Request) {
+	cookie, err := r.Cookie("access_token")
+	actions.IfLogFatal(err)
+
+	type RefreshTokenRequest struct {
+		RefreshToken string `json:"refresh_token"`
+	}
+
+	body := actions.ReadRequestBody(r)
+	var req RefreshTokenRequest
+	err = json.Unmarshal(body, &req)
+	actions.IfLogFatal(err)
+	accessToken, refreshToken := actions.RefreshToken(cookie.Value, req.RefreshToken)
+
+	newCookie := http.Cookie{
+		Name:       "access_token",
+		Value:      accessToken,
+		Path:       "/",
+		Domain:     "/",
+		Expires:    time.Now().Add(time.Minute * 15),
+		RawExpires: "",
+		MaxAge:     900,
+		Secure:     true,
+		HttpOnly:   true,
+	}
+
+	http.SetCookie(w, &newCookie)
+
+	w.Header().Set("Content-Type", "application/json")
+	err = json.NewEncoder(w).Encode(map[string]string{
+		"refresh_token": refreshToken,
+	})
 }
