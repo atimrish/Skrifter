@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: "FiraMono";
+    src: url("./assets/fonts/FiraMono/FiraMono-Regular.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "NevermindCompact";
+    src: url("./assets/fonts/NevermindCompact/NeverMindCompact-Regular.ttf") format("truetype");
+  }
+
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

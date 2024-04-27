@@ -5,51 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a3bf19-5b02-493b-8ee3-6dfa65f58a45" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/api/app/actions/StorageOperations.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/app/controllers/GenreController/GenreController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/app/controllers/UserController/UserController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/cmd/seeder/seeder.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/frontend/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/mongo/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/storage/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/favicon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/burger.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/header/Header.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/LoginPage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/init.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Skrifter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Skrifter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/layouts/MainLayout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/LoginPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/MainPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/burger/Burger.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/heading/Heading.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/logo/Logo.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/text-input/ActiveTextInput.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/text-input/TextInput.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/init/router/router.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/controllers/Role/RoleController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/Role/RoleController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/middleware/AuthorizedMiddleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/middleware/AuthorizedMiddleware.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/AgeRating.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/AgeRating.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/Author.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Author.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/Comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Comment.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/CommentReply.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/CommentReply.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/DiscussionReply.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/DiscussionReply.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/Discussions.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Discussions.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/Favorite.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Favorite.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/FavoriteStatus.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/FavoriteStatus.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/Genre.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Genre.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/Product.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Product.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/ProductAuthor.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/ProductAuthor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/ProductGenre.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/ProductGenre.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/ProductType.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/ProductType.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/Rating.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Rating.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/Role.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Role.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/models/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/User.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/routes/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/routes/routes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/burger.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/images/burger.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/images/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/helpers/wrapper/Wrapper.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
