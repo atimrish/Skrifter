@@ -4,12 +4,19 @@ import (
 	"api/app/actions"
 	"api/app/models"
 	"encoding/json"
+	"gorm.io/gorm"
 	"log"
 	"net/http"
 )
 
 func GetRoles(w http.ResponseWriter, r *http.Request) {
 	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
 	res := db.Find(models.Role{})
 	log.Println(res)
 }
@@ -30,6 +37,12 @@ func AddRole(w http.ResponseWriter, r *http.Request) {
 	}
 
 	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
 	db.Create(&role)
 
 	w.Header().Set("Content-Type", "application/json")

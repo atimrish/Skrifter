@@ -5,6 +5,7 @@ import (
 	"api/app/models"
 	"fmt"
 	_ "github.com/lib/pq"
+	"gorm.io/gorm"
 )
 
 /*
@@ -48,6 +49,11 @@ func Up() {
 		&models.FavoriteStatus{},
 		&models.Favorite{},
 	)
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
 
 	actions.IfLogFatal(err)
 

@@ -12,6 +12,7 @@ type Config struct {
 	Jwt           `yaml:"jwt"`
 	Postgres      `yaml:"postgres"`
 	StorageServer `yaml:"storage_server"`
+	Mongo         `yaml:"mongo"`
 }
 
 type HttpServer struct {
@@ -34,6 +35,14 @@ type Postgres struct {
 type StorageServer struct {
 	Host string `yaml:"host" env-default:"localhost"`
 	Port string `yaml:"port" env-default:"8000"`
+}
+
+type Mongo struct {
+	Db       string `yaml:"db"`
+	User     string `yaml:"user"`
+	Password string `yaml:"password"`
+	Address  string `yaml:"address"`
+	Port     string `yaml:"port"`
 }
 
 func InitConfig() *Config {

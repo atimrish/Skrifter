@@ -11,22 +11,25 @@ func Authorised(next http.Handler) http.Handler {
 
 		cookie, err := r.Cookie("access_token")
 		if err != nil {
-			w.Header().Set("Content-Type", "application/json")
-			err = json.NewEncoder(w).Encode(map[string]string{
-				"message": "не авторизован",
-			})
+			unauthorizedResponse(w)
 			return
 		}
 
 		_, err = actions.GetPayloadJWT(cookie.Value)
 		if err != nil {
-			w.Header().Set("Content-Type", "application/json")
-			err = json.NewEncoder(w).Encode(map[string]string{
-				"message": "не авторизован",
-			})
+			unauthorizedResponse(w)
 			return
 		}
 
 		next.ServeHTTP(w, r)
 	})
+}
+
+func unauthorizedResponse(w http.ResponseWriter) {
+	w.WriteHeader(403)
+	w.Header().Set("Content-Type", "application/json")
+	err := json.NewEncoder(w).Encode(map[string]string{
+		"message": "не авторизован",
+	})
+	actions.IfLogFatal(err)
 }

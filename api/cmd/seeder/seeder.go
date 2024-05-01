@@ -4,10 +4,16 @@ import (
 	"api/app/actions"
 	"api/app/models"
 	"fmt"
+	"gorm.io/gorm"
 )
 
 func Seed() {
 	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
 
 	//возрастной рейтинг
 	db.Create(&models.AgeRating{

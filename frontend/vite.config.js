@@ -1,10 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'node:url'
+import viteTsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+      react(),
+      viteTsconfigPaths()
+  ],
   server: {
     host: true,
     port: 3000
@@ -22,6 +26,10 @@ export default defineConfig({
       {
         find: '@assets',
         replacement: fileURLToPath(new URL('./src/assets', import.meta.url))
+      },
+      {
+        find: '@config',
+        replacement: fileURLToPath(new URL('./src/config', import.meta.url))
       },
     ]
   }

@@ -5,6 +5,7 @@ import (
 	"api/app/models"
 	"encoding/json"
 	"github.com/go-chi/chi/v5"
+	"gorm.io/gorm"
 	"log"
 	"mime/multipart"
 	"net/http"
@@ -23,6 +24,12 @@ func UpdatePhoto(w http.ResponseWriter, r *http.Request) {
 
 	log.Println("getDb")
 	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
 	log.Println("takeUser")
 
 	cookie, err := r.Cookie("access_token")
@@ -66,6 +73,42 @@ func UpdatePhoto(w http.ResponseWriter, r *http.Request) {
 	actions.IfLogFatal(err)
 }
 
+func DeletePhoto(w http.ResponseWriter, r *http.Request) {
+	cookie, err := r.Cookie("access_token")
+	actions.IfLogFatal(err)
+
+	payload, err := actions.GetPayloadJWT(cookie.Value)
+	actions.IfLogFatal(err)
+
+	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
+	var user models.User
+	db.Take(&user, "id = ?", payload.UserId)
+
+	if user.Photo == "" {
+		w.Header().Set("Content-Type", "application/json")
+		err = json.NewEncoder(w).Encode(map[string]string{
+			"message": "нет фото профиля, нечего удалять",
+		})
+		return
+	}
+
+	actions.DeleteFromStorage(user.Photo)
+	user.Photo = ""
+	db.Save(user)
+
+	w.Header().Set("Content-Type", "application/json")
+	err = json.NewEncoder(w).Encode(map[string]string{
+		"message": "фото профиля удалено",
+	})
+
+}
+
 func UpdateDescription(w http.ResponseWriter, r *http.Request) {
 
 	type UpdateDescriptionRequest struct {
@@ -85,6 +128,12 @@ func UpdateDescription(w http.ResponseWriter, r *http.Request) {
 	actions.IfLogFatal(err)
 
 	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
 	var user models.User
 	db.Take(&user, "id = ?", payload.UserId)
 	user.Description = req.Description
@@ -104,6 +153,12 @@ func GetUserInfo(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 
 	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
 	res := db.Take(&user, "id = ?", userId)
 
 	w.Header().Set("Content-Type", "application/json")
@@ -129,10 +184,18 @@ func GetUserInfoByToken(w http.ResponseWriter, r *http.Request) {
 	actions.IfLogFatal(err)
 
 	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
 	var user models.User
 	res := db.Take(&user, "id = ?", payload.UserId)
 
 	w.Header().Set("Content-Type", "application/json")
+
+	log.Println(user)
 
 	if res.RowsAffected == 0 {
 		w.WriteHeader(http.StatusNotFound)

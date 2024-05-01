@@ -13,3 +13,9 @@ postgres:
 storage_server:
   host: "storage"
   port: "8000"
+mongo:
+  db: "Skrifter"
+  user: "root"
+  password: "root"
+  address: "mongo"
+  port: "27017"

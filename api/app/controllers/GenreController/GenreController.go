@@ -5,11 +5,18 @@ import (
 	"api/app/models"
 	"encoding/json"
 	"github.com/go-chi/chi/v5"
+	"gorm.io/gorm"
 	"net/http"
 )
 
 func GetAll(w http.ResponseWriter, r *http.Request)  {
 	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
 	var genres []models.Genre
 	db.Find(&genres)
 
@@ -20,6 +27,12 @@ func GetAll(w http.ResponseWriter, r *http.Request)  {
 func GetById(w http.ResponseWriter, r *http.Request)  {
 	id := chi.URLParam(r, "id")
 	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
 	var genre models.Genre
 	res := db.Find(&genre, "id = ?", id)
 

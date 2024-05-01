@@ -4,7 +4,10 @@ import (
 	"api/app/actions"
 	"api/app/models"
 	"encoding/json"
+	"fmt"
 	JWT "github.com/golang-jwt/jwt/v5"
+	"gorm.io/gorm"
+	"log"
 	"math/rand"
 	"net/http"
 	"time"
@@ -24,11 +27,18 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	var user models.User
 	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
 	res := db.Take(&user, "login = ?", req.Login)
 
 	w.Header().Set("Content-Type", "application/json")
 	if (res.RowsAffected < 1) || (!actions.CheckPassword(req.Password, user.Password)) {
 
+		w.WriteHeader(422)
 		err = json.NewEncoder(w).Encode(map[string]string{
 			"message": "error",
 		})
@@ -70,11 +80,10 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		Name:       "access_token",
 		Value:      accessToken,
 		Path:       "/",
-		Domain:     "/",
-		Expires:    time.Now().Add(time.Minute * 15),
+		Expires:    time.Now().Add(time.Hour * 2),
 		RawExpires: "",
 		MaxAge:     0,
-		Secure:     true,
+		Secure:     false,
 		HttpOnly:   true,
 	}
 
@@ -103,7 +112,10 @@ func Register(w http.ResponseWriter, r *http.Request) {
 
 	var req RegisterRequest
 	err := json.Unmarshal(body, &req)
-	actions.IfLogFatal(err)
+	if err != nil {
+		actions.UnprocessableContent(w)
+		return
+	}
 
 	var user = models.User{
 		Login:       req.Login,
@@ -115,6 +127,12 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	}
 
 	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
 	db.Create(&user)
 
 	tokenIdentity := rand.Int()
@@ -151,11 +169,10 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		Name:       "access_token",
 		Value:      accessToken,
 		Path:       "/",
-		Domain:     "/",
-		Expires:    time.Now().Add(time.Minute * 15),
+		Expires:    time.Now().Add(time.Hour * 2),
 		RawExpires: "",
 		MaxAge:     900,
-		Secure:     true,
+		Secure:     false,
 		HttpOnly:   true,
 	}
 
@@ -175,9 +192,8 @@ func Logout(w http.ResponseWriter, r *http.Request) {
 		Name:     "access_token",
 		Value:    "",
 		Path:     "/",
-		Domain:   "/",
 		MaxAge:   -1,
-		Secure:   true,
+		Secure:   false,
 		HttpOnly: true,
 	}
 	http.SetCookie(w, &cookie)
@@ -192,7 +208,10 @@ func Logout(w http.ResponseWriter, r *http.Request) {
 
 func RefreshToken(w http.ResponseWriter, r *http.Request) {
 	cookie, err := r.Cookie("access_token")
-	actions.IfLogFatal(err)
+	if err != nil {
+		actions.UnprocessableContent(w)
+		return
+	}
 
 	type RefreshTokenRequest struct {
 		RefreshToken string `json:"refresh_token"`
@@ -208,11 +227,10 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 		Name:       "access_token",
 		Value:      accessToken,
 		Path:       "/",
-		Domain:     "/",
-		Expires:    time.Now().Add(time.Minute * 15),
+		Expires:    time.Now().Add(time.Hour * 2),
 		RawExpires: "",
 		MaxAge:     900,
-		Secure:     true,
+		Secure:     false,
 		HttpOnly:   true,
 	}
 
@@ -222,4 +240,43 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 	err = json.NewEncoder(w).Encode(map[string]string{
 		"refresh_token": refreshToken,
 	})
+}
+///TODO отправка одним запросом по всем полям
+func CheckUserExists(w http.ResponseWriter, r *http.Request) {
+
+	type CheckUserExistsForm struct {
+		Field string `json:"field"`
+		Value string `json:"value"`
+	}
+
+	body := actions.ReadRequestBody(r)
+
+	var form CheckUserExistsForm
+
+	err:= json.Unmarshal(body, &form)
+	actions.IfLogFatal(err)
+
+	db := actions.GetDb()
+
+	defer func(db *gorm.DB) {
+		sqlDb, _ := db.DB()
+		sqlDb.Close()
+	}(db)
+
+	var user models.User
+	query := fmt.Sprintf("%s = '%s'", form.Field, form.Value)
+	res := db.Take(&user, query)
+
+	log.Println("rows aff: ", res.RowsAffected)
+
+	if res.RowsAffected > 0 {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(422)
+		json.NewEncoder(w).Encode(map[string]string{
+			"message": "поле занято",
+		})
+		return
+	}
+
+	w.WriteHeader(200)
 }

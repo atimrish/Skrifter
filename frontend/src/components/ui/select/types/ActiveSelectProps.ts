@@ -1,0 +1,3 @@
+type ActiveSelectProps = SelectProps & {
+
+}

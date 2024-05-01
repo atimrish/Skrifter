@@ -1,8 +1,10 @@
 package routes
 
 import (
+	"api/app/controllers/AgeRatingController"
 	"api/app/controllers/Auth"
 	"api/app/controllers/GenreController"
+	"api/app/controllers/ProductTypeController"
 	"api/app/controllers/Role"
 	"api/app/controllers/UserController"
 	"api/app/middleware"
@@ -33,6 +35,7 @@ func initRoutes(r *chi.Mux) {
 		r.Put("/users/update-photo", UserController.UpdatePhoto)
 		r.Put("/users/update-description", UserController.UpdateDescription)
 		r.Get("/users/me", UserController.GetUserInfoByToken)
+		r.Delete("/users/delete-photo", UserController.DeletePhoto)
 	})
 
 	r.Post("/login", Auth.Login)
@@ -43,6 +46,15 @@ func initRoutes(r *chi.Mux) {
 	//TODO информация о пользлвателе
 	r.Get("/users/{id}", UserController.GetUserInfo)
 
+	r.Post("/users/check-exists", Auth.CheckUserExists)
+
+	///TODO жанры
 	r.Get("/genres", GenreController.GetAll)
 	r.Get("/genres/{id}", GenreController.GetById)
+
+	///TODO возрастной рейтинг
+	r.Get("/age-rating", AgeRatingController.GetAll)
+
+	///TODO типы продукта
+	r.Get("/product-type", ProductTypeController.GetAll)
 }
