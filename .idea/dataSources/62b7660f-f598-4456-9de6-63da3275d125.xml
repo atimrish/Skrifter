@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="Skrifter@localhost">
-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
       <Grants>1||-9223372036854775808|c|G
@@ -4832,8 +4832,7 @@ true posixrules
       <Comment>standard public schema</Comment>
       <Current>1</Current>
       <IntrospectionStateNumber>818</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2024-04-28.20:11:41.133</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-04-28.16:11:42</LocalIntrospectionTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-04-28.16:11:42</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4841,7 +4840,7 @@ true posixrules
     <sequence id="265" parent="264" name="age_ratings_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16429</ObjectId>
-      <SequenceIdentity>1(6)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>751</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4849,7 +4848,7 @@ true posixrules
     <sequence id="266" parent="264" name="authors_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16409</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>747</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4857,7 +4856,7 @@ true posixrules
     <sequence id="267" parent="264" name="comment_replies_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16475</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>761</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4865,7 +4864,7 @@ true posixrules
     <sequence id="268" parent="264" name="comments_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16465</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>759</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4873,7 +4872,7 @@ true posixrules
     <sequence id="269" parent="264" name="discussion_replies_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16495</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>765</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4881,7 +4880,7 @@ true posixrules
     <sequence id="270" parent="264" name="discussions_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16485</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>763</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4889,7 +4888,7 @@ true posixrules
     <sequence id="271" parent="264" name="favorite_statuses_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16523</ObjectId>
-      <SequenceIdentity>1(6)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>771</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4897,7 +4896,7 @@ true posixrules
     <sequence id="272" parent="264" name="favorites_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16533</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>773</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4905,7 +4904,7 @@ true posixrules
     <sequence id="273" parent="264" name="genres_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16505</ObjectId>
-      <SequenceIdentity>1(22)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>767</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4913,7 +4912,7 @@ true posixrules
     <sequence id="274" parent="264" name="product_authors_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16449</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>755</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4921,7 +4920,7 @@ true posixrules
     <sequence id="275" parent="264" name="product_genres_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16515</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>769</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4929,7 +4928,7 @@ true posixrules
     <sequence id="276" parent="264" name="product_types_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16419</ObjectId>
-      <SequenceIdentity>1(6)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>749</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4937,7 +4936,7 @@ true posixrules
     <sequence id="277" parent="264" name="products_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16439</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>753</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4945,7 +4944,7 @@ true posixrules
     <sequence id="278" parent="264" name="ratings_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16457</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>757</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4953,7 +4952,7 @@ true posixrules
     <sequence id="279" parent="264" name="roles_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16389</ObjectId>
-      <SequenceIdentity>1(4)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>743</StateNumber>
       <OwnerName>root</OwnerName>
@@ -4961,7 +4960,7 @@ true posixrules
     <sequence id="280" parent="264" name="users_id_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>16399</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>745</StateNumber>
       <OwnerName>root</OwnerName>

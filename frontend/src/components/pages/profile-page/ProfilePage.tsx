@@ -42,6 +42,10 @@ const ProfilePage = () => {
                         </ActiveLink>
                     </div>
 
+                    <div className="text-center font-main text-[16px] my-[30px]">
+                        {userData.description}
+                    </div>
+
                     <UiButton
                         onClick={logOut}
                     >Выйти</UiButton>

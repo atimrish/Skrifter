@@ -7,7 +7,7 @@ import MakeRequest from "@components/ui/form/libs/MakeRequest.ts";
 import FirstRegisterStage from "@pages/register-page/stages/FirstRegisterStage.tsx";
 import SecondRegisterStage from "@pages/register-page/stages/SecondRegisterStage.tsx";
 import ActiveLink from "@components/ui/link/ActiveLink.tsx";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function RegisterPage() {
 
@@ -30,12 +30,16 @@ export default function RegisterPage() {
         })
     }
 
+    const navigate = useNavigate();
 
     const onSubmit = async () => {
         const res = await MakeRequest({
             action: '/register',
             method: "POST",
-            body: JSON.stringify(formState),
+            body: JSON.stringify({
+                ...formState,
+                year_of_birth: +formState.year_of_birth,
+            }),
             headers: {
                 contentType: "application/json"
             }
@@ -43,7 +47,11 @@ export default function RegisterPage() {
 
         const json = await res.json()
 
-        localStorage.setItem("refresh_token", json.refresh_token)
+        if (res.status === 200) {
+            localStorage.setItem("refresh_token", json.refresh_token)
+            navigate('/profile/my')
+        }
+
     }
 
     return (

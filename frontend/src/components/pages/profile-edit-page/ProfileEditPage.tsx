@@ -153,14 +153,17 @@ const ProfileEditPage = () => {
                         method={"POST"}
                     >
                         <ActiveTextInput
+                            value={''}
                             placeholder={'Старый пароль'}
                         />
 
                         <ActiveTextInput
+                            value={''}
                             placeholder={'Новый пароль'}
                         />
 
                         <ActiveTextInput
+                            value={''}
                             placeholder={'Подтвердите пароль'}
                         />
 

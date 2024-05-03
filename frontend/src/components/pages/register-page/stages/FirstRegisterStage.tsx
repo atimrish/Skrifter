@@ -94,6 +94,11 @@ const FirstRegisterStage = (props : RegisterStageProps) => {
                 value={props.formState.login}
                 errored={errored.login}
             />
+            {errored.login && (
+                <div
+                    className="text-red font-mono text-center my-[-20px]"
+                >Поле занято</div>
+            )}
 
             <ActiveTextInput
                 placeholder={'Никнейм'}
@@ -101,6 +106,11 @@ const FirstRegisterStage = (props : RegisterStageProps) => {
                 value={props.formState.nickname}
                 errored={errored.nickname}
             />
+            {errored.nickname && (
+                <div
+                    className="text-red font-mono text-center mt-[-10px]"
+                >Поле занято</div>
+            )}
 
             <ActiveTextInput
                 placeholder={'Email'}
@@ -108,6 +118,11 @@ const FirstRegisterStage = (props : RegisterStageProps) => {
                 value={props.formState.email}
                 errored={errored.email}
             />
+            {errored.email && (
+                <div
+                    className="text-red font-mono text-center mt-[-10px]"
+                >Поле занято</div>
+            )}
 
             <ActiveNumberInput
                 placeholder={'Год рождения'}

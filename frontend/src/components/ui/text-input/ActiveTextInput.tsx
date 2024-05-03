@@ -5,14 +5,18 @@ export default function ActiveTextInput(props: ActiveTextInputProps) {
 
     const [plStyles, setPlStyles] = useState({});
 
+    const [focused, setFocused] = useState(false);
+
     const onFocus = () => {
+        setFocused(true);
         setPlStyles({
             top: '-20px',
-            fontSize: '14px'
+            fontSize: '14px',
         })
     }
 
     const onFocusout = () => {
+        setFocused(false);
         setPlStyles({
             top: '10px',
             fontSize: '20px'
@@ -45,7 +49,10 @@ export default function ActiveTextInput(props: ActiveTextInputProps) {
                         text-gray
                         -z-10
                     "
-                    style={plStyles}
+                    style={{
+                        ...plStyles,
+                        display: (!focused && (props.value.length > 0)) ? "none" : "block",
+                    }}
                 >{props.placeholder}</div>
                 <TextInput
                     value={props.value}
