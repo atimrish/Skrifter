@@ -5,7 +5,6 @@ import (
 	"api/app/models"
 	"encoding/json"
 	"gorm.io/gorm"
-	"log"
 	"net/http"
 )
 
@@ -17,8 +16,11 @@ func GetRoles(w http.ResponseWriter, r *http.Request) {
 		sqlDb.Close()
 	}(db)
 
-	res := db.Find(models.Role{})
-	log.Println(res)
+	var roles []models.Role
+	db.Find(&roles)
+
+	err := json.NewEncoder(w).Encode(roles)
+	actions.IfLogFatal(err)
 }
 
 func AddRole(w http.ResponseWriter, r *http.Request) {

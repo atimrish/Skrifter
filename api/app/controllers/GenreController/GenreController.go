@@ -9,7 +9,7 @@ import (
 	"net/http"
 )
 
-func GetAll(w http.ResponseWriter, r *http.Request)  {
+func GetAll(w http.ResponseWriter, r *http.Request) {
 	db := actions.GetDb()
 
 	defer func(db *gorm.DB) {
@@ -24,7 +24,7 @@ func GetAll(w http.ResponseWriter, r *http.Request)  {
 	json.NewEncoder(w).Encode(genres)
 }
 
-func GetById(w http.ResponseWriter, r *http.Request)  {
+func GetById(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 	db := actions.GetDb()
 

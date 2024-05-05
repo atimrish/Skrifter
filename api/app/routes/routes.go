@@ -3,7 +3,9 @@ package routes
 import (
 	"api/app/controllers/AgeRatingController"
 	"api/app/controllers/Auth"
+	"api/app/controllers/AuthorController"
 	"api/app/controllers/GenreController"
+	"api/app/controllers/ProductController"
 	"api/app/controllers/ProductTypeController"
 	"api/app/controllers/Role"
 	"api/app/controllers/UserController"
@@ -18,8 +20,6 @@ func InitRouter() *chi.Mux {
 }
 
 func initRoutes(r *chi.Mux) {
-
-	///TODO продукт
 	///TODO автор
 
 	///TODO роли
@@ -57,4 +57,18 @@ func initRoutes(r *chi.Mux) {
 
 	///TODO типы продукта
 	r.Get("/product-type", ProductTypeController.GetAll)
+
+	///TODO продукт
+
+	r.Group(func(r chi.Router) {
+		r.Use(middleware.Authorised)
+		r.Use(middleware.Admin)
+		r.Post("/product", ProductController.AddProduct)
+
+		r.Post("/author", AuthorController.AddAuthor)
+
+	})
+
+	r.Get("/author", AuthorController.GetAll)
+
 }

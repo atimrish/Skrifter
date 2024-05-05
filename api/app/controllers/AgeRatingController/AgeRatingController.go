@@ -20,7 +20,7 @@ func GetAll(w http.ResponseWriter, r *http.Request) {
 
 	db.Find(&data)
 
-	err :=json.NewEncoder(w).Encode(data)
+	err := json.NewEncoder(w).Encode(data)
 	actions.IfLogFatal(err)
 	w.Header().Set("Content-Type", "application/json")
 	return

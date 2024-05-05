@@ -1,3 +1,3 @@
 type ImageProps = {
-    src: string;
+    src: ArrayBuffer | string | null;
 }

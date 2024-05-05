@@ -9,6 +9,7 @@ import ProfilePage from "@pages/profile-page/ProfilePage.tsx";
 import ProfileEditPage from "@pages/profile-edit-page/ProfileEditPage.tsx";
 import ProductPage from "@pages/product-page/ProductPage.tsx";
 import AdminPage from "@pages/admin-page/AdminPage.tsx";
+import CreateAuthor from "@pages/admin-page/CreateAuthor.tsx";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
     {
         "path": "/admin",
         element: <AdminPage/>
+    },
+    {
+        "path": "/admin/author",
+        element: <CreateAuthor/>,
     }
 ])
 

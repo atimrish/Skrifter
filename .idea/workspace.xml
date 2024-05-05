@@ -5,13 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a3bf19-5b02-493b-8ee3-6dfa65f58a45" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/35f6e114-3670-4c4b-abbc-ebf1ba9edb00.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/35f6e114-3670-4c4b-abbc-ebf1ba9edb00.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/app/controllers/AuthorController/AuthorController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/app/middleware/AdminMiddleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/CreateAuthor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/image-input/ImageInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/image-input/types/ImageInputProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/35f6e114-3670-4c4b-abbc-ebf1ba9edb00.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/profile-edit-page/ProfileEditPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/profile-edit-page/ProfileEditPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/profile-page/ProfilePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/profile-page/ProfilePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/register-page/RegisterPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/register-page/RegisterPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/register-page/stages/FirstRegisterStage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/register-page/stages/FirstRegisterStage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/text-input/ActiveTextInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/text-input/ActiveTextInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/actions/JwtOperations.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/actions/JwtOperations.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/actions/ReadRequestBody.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/actions/ReadRequestBody.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/routes/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/routes/routes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/AdminPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/AdminPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/image/types/ImageProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/image/types/ImageProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/select/ActiveSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/select/ActiveSelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/select/types/ActiveSelectProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/select/types/ActiveSelectProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/select/types/SelectProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/select/types/SelectProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/init/router/router.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/init/router/router.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"github.com/go-chi/chi/v5"
 	"gorm.io/gorm"
-	"log"
 	"mime/multipart"
 	"net/http"
 	"path/filepath"
@@ -15,22 +14,15 @@ import (
 )
 
 func UpdatePhoto(w http.ResponseWriter, r *http.Request) {
-	log.Println("Update photo")
 	err := r.ParseMultipartForm(32 << 20)
 	actions.IfLogFatal(err)
 
-	userId := chi.URLParam(r, "id")
-	log.Println("getUrlParam " + userId)
-
-	log.Println("getDb")
 	db := actions.GetDb()
 
 	defer func(db *gorm.DB) {
 		sqlDb, _ := db.DB()
 		sqlDb.Close()
 	}(db)
-
-	log.Println("takeUser")
 
 	cookie, err := r.Cookie("access_token")
 	actions.IfLogFatal(err)
@@ -41,13 +33,11 @@ func UpdatePhoto(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 	db.Take(&user, "id = ?", payload.UserId)
 
-	log.Println("getFormPhoto")
 	file, header, err := r.FormFile("photo")
 	actions.IfLogFatal(err)
 
 
 	filename := strconv.FormatInt(time.Now().Unix(), 10) + filepath.Ext(header.Filename)
-	log.Println("setFilename: " + filename)
 
 	if user.Photo == "" {
 		path := "user/" + filename
@@ -194,8 +184,6 @@ func GetUserInfoByToken(w http.ResponseWriter, r *http.Request) {
 	res := db.Take(&user, "id = ?", payload.UserId)
 
 	w.Header().Set("Content-Type", "application/json")
-
-	log.Println(user)
 
 	if res.RowsAffected == 0 {
 		w.WriteHeader(http.StatusNotFound)

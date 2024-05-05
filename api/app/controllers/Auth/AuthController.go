@@ -7,7 +7,6 @@ import (
 	"fmt"
 	JWT "github.com/golang-jwt/jwt/v5"
 	"gorm.io/gorm"
-	"log"
 	"math/rand"
 	"net/http"
 	"time"
@@ -55,7 +54,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	payload := actions.CustomClaims{
 		UserId:        user.ID,
 		TokenIdentity: tokenIdentity,
-		IsAdmin:       false,
+		RoleId:        user.RoleId,
 		RegisteredClaims: JWT.RegisteredClaims{
 			ExpiresAt: &expAccess,
 		},
@@ -70,7 +69,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	payload = actions.CustomClaims{
 		UserId:        user.ID,
 		TokenIdentity: tokenIdentity,
-		IsAdmin:       false,
+		RoleId:        user.RoleId,
 		RegisteredClaims: JWT.RegisteredClaims{
 			ExpiresAt: &expRefresh,
 		},
@@ -144,7 +143,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	payload := actions.CustomClaims{
 		UserId:        user.ID,
 		TokenIdentity: tokenIdentity,
-		IsAdmin:       false,
+		RoleId:        1,
 		RegisteredClaims: JWT.RegisteredClaims{
 			ExpiresAt: &expAccess,
 		},
@@ -159,7 +158,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	payload = actions.CustomClaims{
 		UserId:        user.ID,
 		TokenIdentity: tokenIdentity,
-		IsAdmin:       false,
+		RoleId:        1,
 		RegisteredClaims: JWT.RegisteredClaims{
 			ExpiresAt: &expRefresh,
 		},
@@ -241,7 +240,8 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 		"refresh_token": refreshToken,
 	})
 }
-///TODO отправка одним запросом по всем полям
+
+// /TODO отправка одним запросом по всем полям
 func CheckUserExists(w http.ResponseWriter, r *http.Request) {
 
 	type CheckUserExistsForm struct {
@@ -253,7 +253,7 @@ func CheckUserExists(w http.ResponseWriter, r *http.Request) {
 
 	var form CheckUserExistsForm
 
-	err:= json.Unmarshal(body, &form)
+	err := json.Unmarshal(body, &form)
 	actions.IfLogFatal(err)
 
 	db := actions.GetDb()
@@ -266,8 +266,6 @@ func CheckUserExists(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 	query := fmt.Sprintf("%s = '%s'", form.Field, form.Value)
 	res := db.Take(&user, query)
-
-	log.Println("rows aff: ", res.RowsAffected)
 
 	if res.RowsAffected > 0 {
 		w.Header().Set("Content-Type", "application/json")

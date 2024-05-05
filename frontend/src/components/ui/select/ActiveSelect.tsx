@@ -7,11 +7,6 @@ const ActiveSelect = (props: ActiveSelectProps) => {
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const [selected, setSelected] = useState({
-        value: 0,
-        text: 'Выберите ...'
-    })
-
     return (
         <>
             <div
@@ -20,7 +15,7 @@ const ActiveSelect = (props: ActiveSelectProps) => {
             >
                 <div className="w-[328px] h-[46px] border border-gray rounded-[10px] bg-transparent appearance-none">
                     <div>
-                        <Option value={selected.value}>{selected.text}</Option>
+                        <Option value={props.selected.value}>{props.selected.text}</Option>
                     </div>
                     <div
                         className="overflow-hidden border border-gray bg-white rounded-[10px] absolute top-[50px] w-[100%] max-h-[138px] overflow-y-scroll z-20 "
@@ -33,7 +28,7 @@ const ActiveSelect = (props: ActiveSelectProps) => {
                             if (React.isValidElement(child)) {
                                 return React.cloneElement(child, {
                                     onClick: () => {
-                                        setSelected({
+                                        props.setSelected({
                                             value: child.props.value,
                                             text: child.props.children
                                         })

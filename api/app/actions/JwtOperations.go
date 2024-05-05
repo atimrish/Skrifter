@@ -14,7 +14,7 @@ var jwtSecret = config.InitConfig().Jwt.Secret
 type CustomClaims struct {
 	UserId        uint `json:"user_id"`
 	TokenIdentity int  `json:"token_identity"`
-	IsAdmin       bool `json:"is_admin"`
+	RoleId        int `json:"role_id"`
 	JWT.RegisteredClaims
 }
 
@@ -61,7 +61,7 @@ func RefreshToken(accessToken, refreshToken string) (string, string) {
 		payload := CustomClaims{
 			UserId:        accessPayload.UserId,
 			TokenIdentity: tokenIdentity,
-			IsAdmin:       false,
+			RoleId:        accessPayload.RoleId,
 			RegisteredClaims: JWT.RegisteredClaims{
 				ExpiresAt: &expAccess,
 			},
