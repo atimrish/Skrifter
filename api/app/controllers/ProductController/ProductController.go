@@ -42,15 +42,30 @@ func AddProduct(w http.ResponseWriter, r *http.Request) {
 		sqlDb.Close()
 	}(db)
 
+	var product models.Product
+	product.Title = req.Title
+	product.Description = req.Description
+	product.YearOfIssue = req.YearOfIssue
+	product.AgeRatingId = req.AgeRatingId
 
-
-	product := models.Product{
-		Title:         req.Title,
-		CoverPhoto:    "",
-		Description:   "",
-		YearOfIssue:   0,
-		AgeRatingId:   0,
-		ProductTypeId: 0,
+	switch req.ProductTypeId {
+	case BOOK:
+		///TODO
+		break
+	case COMICS:
+		///TODO
+		break;
+	case MANGA:
+		///TODO
+		break
+	case AUDIO:
+		///TODO
+		break
+	case PODCAST:
+		///TODO:
+		break
 	}
+
+
 
 }
