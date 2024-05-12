@@ -1,4 +1,3 @@
-import MainLayout from "@components/layouts/MainLayout.tsx";
 import Wrapper from "@components/helpers/wrapper/Wrapper.tsx";
 import Heading from "@components/ui/heading/Heading.tsx";
 import Form from "@components/ui/form/Form.tsx";
@@ -8,6 +7,7 @@ import FirstRegisterStage from "@pages/register-page/stages/FirstRegisterStage.t
 import SecondRegisterStage from "@pages/register-page/stages/SecondRegisterStage.tsx";
 import ActiveLink from "@components/ui/link/ActiveLink.tsx";
 import {Link, useNavigate} from "react-router-dom";
+import AuthLayout from "@components/layouts/auth-layout/AuthLayout.tsx";
 
 export default function RegisterPage() {
 
@@ -56,49 +56,67 @@ export default function RegisterPage() {
 
     return (
         <>
-            <MainLayout>
+            <AuthLayout>
                 <Wrapper>
-                    <Heading
-                        text="Регистрация"
-                        number={1}
-                        className="text-[32px] font-[FiraMono] text-center my-[50px]"
-                    />
-                    <Form
-                        onSubmit={onSubmit}
-                        action={'/register'}
-                        method={"POST"}
-                    >
-                        <div className="transition-all ease-in-out duration-1000">
-                            {
-                                stage === 1 ?
-                                    <FirstRegisterStage
-                                        formState={formState}
-                                        setStage={setStage}
-                                        setFormField={setFormField}
-                                        stage={stage}
-                                    />
-                                    :
-                                    <SecondRegisterStage
-                                        formState={formState}
-                                        setStage={setStage}
-                                        setFormField={setFormField}
-                                        stage={stage}
-                                    />
-                            }
-                        </div>
 
-                        <div
-                            className="font-mono text-center my-[20px]"
-                        >Есть аккаунт? <ActiveLink>
-                            <Link to={'/login'}>
-                                Авторизируйтесь
-                            </Link>
-                        </ActiveLink>
-                        </div>
+                    <div className="
+                    flex
+                    xl:w-[1130px]
+                    justify-between
+                    mx-auto
+                    rounded-[10px]
+                    overflow-hidden
+                    items-center
+                    xl:shadow
+                    ">
+                        <div className="xl:block hidden h-[900px] bg-gray w-[674px]">
 
-                    </Form>
+                        </div>
+                        <div className="xl:px-[60px]">
+                            <Heading
+                                text="Регистрация"
+                                number={1}
+                                className="text-[32px] font-[FiraMono] text-center my-[50px]"
+                            />
+                            <Form
+                                onSubmit={onSubmit}
+                                action={'/register'}
+                                method={"POST"}
+                            >
+                                <div className="w-[328px]">
+                                    <div className="transition-all ease-in-out duration-1000">
+                                        {
+                                            stage === 1 ?
+                                                <FirstRegisterStage
+                                                    formState={formState}
+                                                    setStage={setStage}
+                                                    setFormField={setFormField}
+                                                    stage={stage}
+                                                />
+                                                :
+                                                <SecondRegisterStage
+                                                    formState={formState}
+                                                    setStage={setStage}
+                                                    setFormField={setFormField}
+                                                    stage={stage}
+                                                />
+                                        }
+                                    </div>
+
+                                    <div
+                                        className="font-mono text-center my-[20px]"
+                                    >Есть аккаунт? <ActiveLink>
+                                        <Link to={'/login'}>
+                                            Авторизируйтесь
+                                        </Link>
+                                    </ActiveLink>
+                                    </div>
+                                </div>
+                            </Form>
+                        </div>
+                    </div>
                 </Wrapper>
-            </MainLayout>
+            </AuthLayout>
         </>
     )
 

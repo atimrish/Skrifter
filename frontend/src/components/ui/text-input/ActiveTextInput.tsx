@@ -27,13 +27,12 @@ export default function ActiveTextInput(props: ActiveTextInputProps) {
         <>
             <div
                 className={"relative " +
-                    "w-[328px] " +
+                    "w-[100%] " +
                     "h-[52px] " +
                     "border " +
                     "border-gray " +
                     "rounded-[10px] " +
                     "group my-8 " +
-                    " xl:w-[464px] " +
                     (props.errored ? 'border-red ' : '')}
             >
                 <div

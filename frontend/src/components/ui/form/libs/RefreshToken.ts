@@ -12,8 +12,11 @@ const RefreshToken = async () => {
             body: JSON.stringify(body)
         })
 
-        const json = await response.json()
-        localStorage.setItem('refresh_token', json.refresh_token)
+        if (response.ok) {
+            const json = await response.json()
+            localStorage.setItem('refresh_token', json.refresh_token)
+        }
+
     } catch (err) {
         console.error(err);
     }

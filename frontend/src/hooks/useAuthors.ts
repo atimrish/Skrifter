@@ -1,10 +1,18 @@
 import {useEffect, useState} from "react";
 import MakeRequest from "@components/ui/form/libs/MakeRequest.ts";
 
-
+type Author = {
+    ID: number,
+    surname: string,
+    name: string,
+    patronymic: string,
+    year_of_birth: number,
+    nickname: string,
+    photo: string
+}
 
 const useAgeRating = () => {
-    const [authors, setAuthors] = useState([])
+    const [authors, setAuthors] = useState<Author[]>([])
 
     useEffect(() => {
 

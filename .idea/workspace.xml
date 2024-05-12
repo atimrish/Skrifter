@@ -5,10 +5,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a3bf19-5b02-493b-8ee3-6dfa65f58a45" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/api/app/controllers/CommentController/CommentController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/app/controllers/DiscussionController/DiscussionController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/cmd/test/test.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/images/Cross.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/comment-list/types/CommentListProps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/discussion-list/types/DiscussionListProps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/icons/cross/Cross.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/layouts/auth-layout/AuthLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/layouts/auth-layout/types/AuthLayoutProps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/comment-page/CommentPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/discussion-page/DiscussionPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/modal/ActiveModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/modal/Modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/modal/types/ModalProps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useCommentsByProductId.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useDiscussionsByProductId.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useProduct.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/pg_catalog.0S1ZNQ.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/actions/PostgresOperations.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/actions/PostgresOperations.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/middleware/AdminMiddleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/middleware/AdminMiddleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Author.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Author.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Comment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/DiscussionReply.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/DiscussionReply.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Discussions.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Discussions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Genre.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Genre.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Product.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Product.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/ProductAuthor.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/ProductAuthor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/ProductGenre.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/ProductGenre.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/User.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/User.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/routes/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/routes/routes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/cmd/test/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/cmd/test/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/api/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/comment-list/CommentList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/comment-list/CommentList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/discussion-list/DiscussionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/discussion-list/DiscussionList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/layouts/extend-layout/ExtendLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/layouts/extend-layout/ExtendLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/layouts/extend-layout/types/ExtendLayoutProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/layouts/extend-layout/types/ExtendLayoutProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/product-page/ProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/product-page/ProductPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/register-page/RegisterPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/register-page/RegisterPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/register-page/stages/SecondRegisterStage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/register-page/stages/SecondRegisterStage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/button/FormButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/button/FormButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/data-select/ActiveDataSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/data-select/ActiveDataSelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/form/libs/RefreshToken.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/form/libs/RefreshToken.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/text-input/ActiveTextInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/text-input/ActiveTextInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/textarea/ActiveTextarea.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/textarea/ActiveTextarea.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useAuthors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useAuthors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useUserInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useUserInfo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/init/router/router.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/init/router/router.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +90,7 @@
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="false" />
   </component>
-  <component name="GOROOT" url="file://$USER_HOME$/go/go1.21.9" />
+  <component name="GOROOT" url="file://$USER_HOME$/go/go1.21.1" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -184,7 +238,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/var/www/Skrifter/frontend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/var/www/Skrifter/api/cmd/test&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -202,6 +256,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api/cmd/test" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/api/app/models" />
       <recent name="$PROJECT_DIR$/docker" />
@@ -244,6 +301,14 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="javascript:npm:react" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:tailwindcss" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:vite" />
+    <option featureType="com.intellij.configurationType" implementationName="PHPUnitRunConfigurationType" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:postcss" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

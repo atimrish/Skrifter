@@ -23,9 +23,9 @@ func Admin(next http.Handler) http.Handler {
 
 func forbidden(w http.ResponseWriter) {
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusForbidden)
 	json.NewEncoder(w).Encode(map[string]string{
 		"message": "действие запрещено",
 	})
-	w.WriteHeader(403)
 	return
 }

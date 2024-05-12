@@ -1,4 +1,3 @@
-import MainLayout from "../layouts/MainLayout.tsx";
 import Heading from "@components/ui/heading/Heading.tsx"
 import Wrapper from "@components/helpers/wrapper/Wrapper.tsx";
 import Form from "@components/ui/form/Form.tsx";
@@ -8,6 +7,7 @@ import {useState} from "react";
 import MakeRequest from "@components/ui/form/libs/MakeRequest.ts";
 import ActiveLink from "@components/ui/link/ActiveLink.tsx";
 import {Link, useNavigate} from "react-router-dom";
+import AuthLayout from "@components/layouts/auth-layout/AuthLayout.tsx";
 
 export default function LoginPage() {
 
@@ -66,57 +66,74 @@ export default function LoginPage() {
 
     return (
         <>
-            <MainLayout>
+            <AuthLayout>
                 <Wrapper>
-                    <Heading
-                        text="Вход"
-                        number={1}
-                        className="text-[32px] font-[FiraMono] text-center my-[50px]"
-                    />
-                    <Form
-                        onSubmit={onSubmit}
-                        action={"/login"}
-                        method={"POST"}
-                    >
-                        <ActiveTextInput
-                            placeholder={'Логин'}
-                            onChange={e => setLogin(e.target.value)}
-                            value={formState.login}
-                            errored={errored.login}
-                        />
-                        <ActiveTextInput
-                            placeholder={'Пароль'}
-                            type={"password"}
-                            onChange={e => setPassword(e.target.value)}
-                            value={formState.password}
-                            errored={errored.password}
-                        />
+                    <div className="
+                    flex
+                    xl:w-[1130px]
+                    justify-between
+                    mx-auto
+                    rounded-[10px]
+                    overflow-hidden
+                    items-center
+                    xl:shadow
+                    ">
+                        <div className="xl:block hidden h-[900px] bg-gray w-[674px]">
 
-                        {errored.login && (
-                            <div
-                                className="text-red font-mono text-center"
-                            >Неверный логин или пароль</div>
-                        )}
-
-
-                        <FormButton
-                            type="submit"
-                            className="mt-10 bg-gray"
-                        >Войти</FormButton>
-
-                        <div
-                            className="font-mono text-center my-[20px]"
-                        >Нет аккаунта? <ActiveLink>
-                        <Link to={'/register'}>
-                            Создайте его
-                        </Link>
-                        </ActiveLink>
                         </div>
+                        <div className="xl:px-[60px]">
+                            <Heading
+                                text="Вход"
+                                number={1}
+                                className="text-[32px] font-[FiraMono] text-center my-[50px]"
+                            />
+                            <Form
+                                onSubmit={onSubmit}
+                                action={"/login"}
+                                method={"POST"}
+                            >
+                            <div className="w-[328px]">
+                                <ActiveTextInput
+                                    placeholder={'Логин'}
+                                    onChange={e => setLogin(e.target.value)}
+                                    value={formState.login}
+                                    errored={errored.login}
+                                />
+                                <ActiveTextInput
+                                    placeholder={'Пароль'}
+                                    type={"password"}
+                                    onChange={e => setPassword(e.target.value)}
+                                    value={formState.password}
+                                    errored={errored.password}
+                                />
 
-                    </Form>
+                                {errored.login && (
+                                    <div
+                                        className="text-red font-mono text-center"
+                                    >Неверный логин или пароль</div>
+                                )}
 
+                                <FormButton
+                                    type="submit"
+                                    className="mt-10 bg-gray"
+                                >Войти</FormButton>
+
+                                <div
+                                    className="font-mono text-center my-[20px]"
+                                >Нет аккаунта? <ActiveLink>
+                                    <Link to={'/register'}>
+                                        Создайте его
+                                    </Link>
+                                </ActiveLink>
+                                </div>
+                            </div>
+
+
+                            </Form>
+                        </div>
+                    </div>
                 </Wrapper>
-            </MainLayout>
+            </AuthLayout>
         </>
     )
 }

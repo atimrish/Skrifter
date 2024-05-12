@@ -4,6 +4,8 @@ import (
 	"api/app/controllers/AgeRatingController"
 	"api/app/controllers/Auth"
 	"api/app/controllers/AuthorController"
+	"api/app/controllers/CommentController"
+	"api/app/controllers/DiscussionController"
 	"api/app/controllers/GenreController"
 	"api/app/controllers/ProductController"
 	"api/app/controllers/ProductTypeController"
@@ -36,6 +38,9 @@ func initRoutes(r *chi.Mux) {
 		r.Put("/users/update-description", UserController.UpdateDescription)
 		r.Get("/users/me", UserController.GetUserInfoByToken)
 		r.Delete("/users/delete-photo", UserController.DeletePhoto)
+
+		r.Post("/product/{id}/comment", CommentController.Add)
+		r.Post("/product/{id}/discussion", DiscussionController.Add)
 	})
 
 	r.Post("/login", Auth.Login)
@@ -71,4 +76,11 @@ func initRoutes(r *chi.Mux) {
 
 	r.Get("/author", AuthorController.GetAll)
 
+	r.Get("/product", ProductController.GetAll)
+	r.Get("/product/{id}", ProductController.GetById)
+
+	r.Get("/comment", CommentController.GetAll)
+	r.Get("/product/{id}/comment", CommentController.GetByProductId)
+
+	r.Get("/product/{id}/discussion", DiscussionController.GetByProductId)
 }

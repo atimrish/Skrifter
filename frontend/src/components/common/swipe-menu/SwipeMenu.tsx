@@ -41,14 +41,10 @@ const SwipeMenu = (props: SwipeMenuProps) => {
                                         )
                                 }
 
-
-
                             </div>
-
                             <div onClick={props.onClose}>
                                 <GoBack/>
                             </div>
-
                         </div>
                     </Wrapper>
                 </div>
@@ -89,7 +85,7 @@ const SwipeMenu = (props: SwipeMenuProps) => {
                             </div>
 
                             <div className="my-[15px]">
-                                <Link to={'/'} className="text-[24px] font-mono font-bold">Поиск</Link>
+                                <Link to={'/search'} className="text-[24px] font-mono font-bold">Поиск</Link>
                             </div>
                         </div>
 

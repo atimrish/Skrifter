@@ -4,5 +4,5 @@ import "gorm.io/gorm"
 
 type Genre struct {
 	gorm.Model
-	Name string
+	Name       string `json:"name,omitempty"`
 }

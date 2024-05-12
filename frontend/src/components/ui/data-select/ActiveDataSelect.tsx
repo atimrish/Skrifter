@@ -30,7 +30,7 @@ const ActiveDataSelect = (props: ActiveDataSelectProps) => {
                     {rendered.map(item => <DataItem
                         selected={item.selected ?? false }
                         value={item.ID}
-                        name={item.Name}
+                        name={item.name}
                         key={item.ID}
                         onClick={() => {
                             props.setItems(props.items.map(i => {

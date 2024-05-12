@@ -10,39 +10,64 @@ import ProfileEditPage from "@pages/profile-edit-page/ProfileEditPage.tsx";
 import ProductPage from "@pages/product-page/ProductPage.tsx";
 import AdminPage from "@pages/admin-page/AdminPage.tsx";
 import CreateAuthor from "@pages/admin-page/CreateAuthor.tsx";
+import CommentPage from "@pages/comment-page/CommentPage.tsx";
+import DiscussionPage from "@pages/discussion-page/DiscussionPage.tsx";
+import SearchPage from "@pages/search-page/SearchPage.tsx";
+import FeedbackPage from "@pages/feedback-page/FeedbackPage.tsx";
+import FavoritePage from "@pages/favorite-page/FavoritePage.tsx";
 
 const router = createBrowserRouter([
     {
-        "path": "/",
+        path: "/",
         element: <MainPage/>
     },
     {
-        "path": "/login",
+        path: "/login",
         element: <LoginPage/>
     },
     {
-        "path": "/register",
+        path: "/register",
         element: <RegisterPage/>
     },
     {
-        "path": "/profile/my",
+        path: "/profile/my",
         element: <ProfilePage/>
     },
     {
-        "path": "/profile/edit",
+        path: "/profile/edit",
         element: <ProfileEditPage/>
     },
     {
-        "path": "/product",
+        path: "/product/:id",
         element: <ProductPage/>
     },
     {
-        "path": "/admin",
+        path: "/product/:id/comments",
+        element: <CommentPage/>
+    },
+    {
+        path: "/product/:id/discussions",
+        element: <DiscussionPage/>
+    },
+    {
+        path: "/admin",
         element: <AdminPage/>
     },
     {
-        "path": "/admin/author",
+        path: "/admin/author",
         element: <CreateAuthor/>,
+    },
+    {
+        path: "/search",
+        element: <SearchPage/>,
+    },
+    {
+        path: "/feedback",
+        element: <FeedbackPage/>,
+    },
+    {
+        path: "/favorite",
+        element: <FavoritePage/>,
     }
 ])
 

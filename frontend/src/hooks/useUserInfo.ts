@@ -21,12 +21,12 @@ const useUserInfo = () => {
             })
 
             setUserData({
-                login: res.Login,
-                nickname: res.Nickname,
-                email: res.Email,
-                photo: res.Photo,
-                description: res.Description,
-                year_of_birth: res.YearOfBirth,
+                login: res.login,
+                nickname: res.nickname,
+                email: res.email,
+                photo: res.photo,
+                description: res.description,
+                year_of_birth: res.year_of_birth,
             })
 
         }

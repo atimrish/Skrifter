@@ -4,7 +4,7 @@ const ActiveTextarea = (props: ActiveTextareaProps) => {
     return (
         <>
             <Textarea
-                className={"w-[328px] xl:w-[464px] border border-gray rounded-[10px] font-mono outline-none p-[10px]"}
+                className={"w-[100%] xl:w-[464px] border border-gray rounded-[10px] font-mono outline-none p-[10px] " + props.className}
                 value={props.value}
                 onChange={props.onChange}
                 placeholder={props.placeholder}

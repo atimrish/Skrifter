@@ -18,3 +18,8 @@ func GetDb() *gorm.DB {
 
 	return db
 }
+
+func CloseDb(db *gorm.DB) {
+	sqlDb, _ := db.DB()
+	sqlDb.Close()
+}

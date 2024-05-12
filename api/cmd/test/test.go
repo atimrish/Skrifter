@@ -1,40 +1,14 @@
 package test
 
 import (
+	"api/app/actions"
+	"code.sajari.com/docconv/v2"
 	"log"
-	"reflect"
 )
 
-func Test()  {
-
-	type Test struct {
-		A string `form:"a_tag"`
-		B int `form:"b_tag"`
-	}
-
-	var test = new(Test)
-
-	tags := reflect.TypeOf(*test)
-
-	for i := 0; i < tags.NumField(); i++ {
-		log.Println(tags.Field(i).Tag.Get("form"))
-	}
-
-	obj := reflect.ValueOf(test).Elem()
-
-	for i := 0; i < obj.NumField(); i++ {
-		field := obj.Field(i)
-
-		switch field.Type().String() {
-		case "string":
-			field.SetString("test")
-			break
-		case "int":
-			field.SetInt(123)
-			break
-		}
-	}
-
-	log.Println(obj)
-
+func Test() {
+	res, err := docconv.ConvertPath("./cmd/test/pdf-test.pdf")
+	actions.IfLogFatal(err)
+	
+	log.Println(res.Body)
 }

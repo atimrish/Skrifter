@@ -9,23 +9,35 @@ import Heading from "@components/ui/heading/Heading.tsx";
 import RatingBlock from "@components/common/rating-block/RatingBlock.tsx";
 import CommentList from "@components/common/comment-list/CommentList.tsx";
 import DiscussionList from "@components/common/discussion-list/DiscussionList.tsx";
+import {useParams} from "react-router";
+import useProduct from "../../../hooks/useProduct.ts";
 
 const ProductPage = () => {
+
+    const {id} = useParams();
+
+    const [product] = useProduct(+id)
+
+    if (!product) {
+        return 404;
+    }
+
     return (
         <>
             <MainLayout>
                 <div className="w-[232px] h-[312px] mx-auto bg-gray rounded-[10px] overflow-hidden my-[30px]">
-                    <Image src={''}/>
+                    <Image src={'/storage/product/cover_photos/' + product.cover_photo}/>
                 </div>
 
                 <Wrapper>
-                    <div className="font-mono text-center text-[24px]">Название</div>
+                    <div className="font-mono text-center text-[24px]">{product.title}</div>
 
-                    <div className="font-mono text-center text-[14px] text-gray my-[10px]">2001 г.</div>
+                    <div className="font-mono text-center text-[14px] text-gray my-[10px]">{product.year_of_issue} г.</div>
 
                     <div
                         className="font-mono text-center text-[16px] text-dark-gray my-[10px]"
-                    >Какой-то автор,какой-то автор, какой-то автор
+                    >
+                        {product.authors.map(i =>  <span>{`${i.surname} ${i.name} ${i.patronymic}`}</span>)}
                     </div>
 
                     <div className="my-[20px]">
@@ -41,7 +53,6 @@ const ProductPage = () => {
 
                     <div className="my-[20px]">
                         <div className="flex justify-between items-center">
-
                             <div className="flex flex-col items-center w-[26%]">
                                 <UiButton
                                     className={" w-[54px] h-[54px] rounded-full relative "}
@@ -50,11 +61,8 @@ const ProductPage = () => {
                                         <Favorite/>
                                     </div>
                                 </UiButton>
-
                                 <div className="text-[14px] font-mono text-center my-[10px]">Избранное</div>
-
                             </div>
-
                             <div className="flex flex-col items-center w-[26%]">
                                 <UiButton
                                     className={" w-[54px] h-[54px] rounded-full relative "}
@@ -74,55 +82,46 @@ const ProductPage = () => {
                                         <Rating/>
                                     </div>
                                 </UiButton>
-
                                 <div className="text-[14px] font-mono text-center my-[10px]">Оценить</div>
                             </div>
-
-
                         </div>
                     </div>
 
                 </Wrapper>
-
                 <Wrapper>
                     <Heading
                         number={2}
                         className={"text-center font-mono text-[24px] my-[30px] "}
                         text={"Описание"}
                     />
-
-                    <div className="font-main text-[16px]">
-                        Лишь представители современных социальных резервов, вне зависимости от их уровня, должны быть превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Прежде всего, убеждённость некоторых оппонентов представляет собой интересный эксперимент проверки кластеризации усилий. Равным образом, граница обучения кадров предполагает независимые способы реализации стандартных подходов.
-                    </div>
-
+                    <div className="font-main text-[16px]">{product.description}</div>
                     <Heading
                         number={2}
                         className={"text-center font-mono text-[24px] my-[30px] "}
                         text={"Рейтинг"}
                     />
-
-
                     <RatingBlock
                         value={9.48}
                         count={1233}
                     />
-
                     <Heading
                         number={2}
                         className={"text-center font-mono text-[24px] my-[30px] "}
                         text={"Комментарии"}
                     />
-
-                    <CommentList/>
-
+                    <CommentList
+                        productId={+id}
+                        maxCount={3}
+                    />
                     <Heading
                         number={2}
                         className={"text-center font-mono text-[24px] my-[30px] "}
                         text={"Обсуждения"}
                     />
-
-
-                    <DiscussionList/>
+                    <DiscussionList
+                        productId={+id}
+                        maxCount={3}
+                    />
 
                 </Wrapper>
 

@@ -13,7 +13,6 @@ export default function Header() {
         left: '-100vw',
     });
 
-
     const onClose = () => {
         setStyles({
             left: '-100vw',

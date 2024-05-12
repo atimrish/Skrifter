@@ -241,7 +241,6 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// /TODO отправка одним запросом по всем полям
 func CheckUserExists(w http.ResponseWriter, r *http.Request) {
 
 	type CheckUserExistsForm struct {

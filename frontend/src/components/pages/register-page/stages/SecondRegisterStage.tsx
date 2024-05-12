@@ -20,7 +20,7 @@ const SecondRegisterStage = (props : RegisterStageProps) => {
                 value={props.formState.password_confirmation}
             />
 
-            <div className="flex items-center">
+            <div className="flex items-center max-w-[328px]">
                 <ActiveCheckbox
                     id={'checked'}
                     onChange={(e) => props.setFormField('checked', e.target.checked)}
