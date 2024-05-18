@@ -12,6 +12,7 @@ import {useState} from "react";
 import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
 import {useNavigate} from "react-router-dom";
 import useUserInfo from "../../../hooks/useUserInfo.ts";
+import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
 
 const ProfileEditPage = () => {
 
@@ -19,6 +20,13 @@ const ProfileEditPage = () => {
 
     const navigate = useNavigate();
 
+    const [notify, setNotify] = useState<
+        {
+            title: string,
+            description: string
+        } | null
+        >(null);
+    
     const [userData, setUserData] = useUserInfo()
     const onFileChange = async (e: Event) => {
         const reader = new FileReader();
@@ -37,6 +45,15 @@ const ProfileEditPage = () => {
             action: "/users/update-photo",
             body: formData,
         })
+        
+        setNotify({
+            title: 'Успешно',
+            description: 'Фото профиля обновлено'
+        })
+
+        setTimeout(() => {
+            setNotify(null)
+        }, 3000)
     }
 
     const deletePhoto = async () => {
@@ -45,6 +62,15 @@ const ProfileEditPage = () => {
             action: "/users/delete-photo",
         })
         setProfileImage('')
+
+        setNotify({
+            title: 'Успешно',
+            description: 'Фото профиля удалено'
+        })
+
+        setTimeout(() => {
+            setNotify(null)
+        }, 3000)
     }
 
     let timeout = null
@@ -209,7 +235,7 @@ const ProfileEditPage = () => {
                         <ActiveCheckbox/>
                     </div>
 
-
+                    {notify && (<SuccessNotify {...notify}/>)}
                 </Wrapper>
 
             </ExtendLayout>

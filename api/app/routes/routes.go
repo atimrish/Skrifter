@@ -6,6 +6,7 @@ import (
 	"api/app/controllers/AuthorController"
 	"api/app/controllers/CommentController"
 	"api/app/controllers/DiscussionController"
+	"api/app/controllers/FavoriteStatusesController"
 	"api/app/controllers/GenreController"
 	"api/app/controllers/ProductController"
 	"api/app/controllers/ProductTypeController"
@@ -41,6 +42,7 @@ func initRoutes(r *chi.Mux) {
 
 		r.Post("/product/{id}/comment", CommentController.Add)
 		r.Post("/product/{id}/discussion", DiscussionController.Add)
+		r.Post("/check-admin", Auth.CheckAdmin)
 	})
 
 	r.Post("/login", Auth.Login)
@@ -83,4 +85,7 @@ func initRoutes(r *chi.Mux) {
 	r.Get("/product/{id}/comment", CommentController.GetByProductId)
 
 	r.Get("/product/{id}/discussion", DiscussionController.GetByProductId)
+
+	///
+	r.Get("/favorite-statuses", FavoriteStatusesController.GetAll)
 }

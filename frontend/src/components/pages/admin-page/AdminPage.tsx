@@ -16,6 +16,7 @@ import FormButton from "@components/ui/button/FormButton.tsx";
 import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
 import ImageInput from "@components/ui/image-input/ImageInput.tsx";
 import useAuthors from "../../../hooks/useAuthors.ts";
+import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
 
 const AdminPage = () => {
     const [ageRating] = useAgeRating()
@@ -37,12 +38,12 @@ const AdminPage = () => {
         value: 0,
         text: 'Выберите ...'
     })
-
     const [selectedProductType, setSelectedProductType] = useState({
         value: 0,
         text: 'Выберите ...'
     })
 
+    const [notify, setNotify] = useState(false)
     const [authors, setAuthors] = useAuthors()
 
     const onSubmit = async () => {
@@ -65,6 +66,14 @@ const AdminPage = () => {
             method: "POST",
             body: formData,
         })
+
+        setNotify(true)
+
+        setTimeout(() => {
+            setNotify(false)
+        }, 3000)
+
+
     }
 
     return (
@@ -203,6 +212,7 @@ const AdminPage = () => {
                             </Form>
                         </div>
                     </div>
+                    {notify && (<SuccessNotify title={'Успешно'} description={'Продукт создан'}/>)}
                 </Wrapper>
             </MainLayout>
         </>

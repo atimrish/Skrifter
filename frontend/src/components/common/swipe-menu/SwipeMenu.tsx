@@ -1,14 +1,17 @@
-import {Link} from "react-router-dom";
+import {Link, NavLink, useNavigate} from "react-router-dom";
 import GoBack from "@components/icons/go-back/GoBack.tsx";
 import Wrapper from "@components/helpers/wrapper/Wrapper.tsx";
 import ActiveSearchInput from "@components/ui/search-input/ActiveSearchInput.tsx";
 import Feedback from "@components/icons/feedback/Feedback.tsx";
 import useUserInfo from "../../../hooks/useUserInfo.ts";
 import Image from "@components/ui/image/Image.tsx";
+import {useState} from "react";
 
 const SwipeMenu = (props: SwipeMenuProps) => {
 
     const [userInfo] = useUserInfo()
+    const navigate = useNavigate();
+    const [search, setSearch] = useState("");
 
     return (
         <>
@@ -20,7 +23,6 @@ const SwipeMenu = (props: SwipeMenuProps) => {
                     <Wrapper>
                         <div className="flex items-center justify-between h-[50px]">
                             <div>
-
                                 {
                                     (userInfo.nickname == undefined) ?
                                         (
@@ -40,7 +42,6 @@ const SwipeMenu = (props: SwipeMenuProps) => {
                                             </div>
                                         )
                                 }
-
                             </div>
                             <div onClick={props.onClose}>
                                 <GoBack/>
@@ -52,7 +53,11 @@ const SwipeMenu = (props: SwipeMenuProps) => {
                 <div>
                     <Wrapper>
                         <div className="my-[20px]">
-                            <ActiveSearchInput/>
+                            <ActiveSearchInput
+                                onSearch={() => navigate(`/search?q=${search}`)}
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                            />
                         </div>
 
                         <div>
@@ -77,7 +82,7 @@ const SwipeMenu = (props: SwipeMenuProps) => {
                             </div>
 
                             <div className="my-[15px]">
-                                <Link to={'/'} className="text-[24px] font-mono font-bold">Избранное</Link>
+                                <Link to={'/favorite'} className="text-[24px] font-mono font-bold">Избранное</Link>
                             </div>
 
                             <div className="my-[15px]">
@@ -94,12 +99,14 @@ const SwipeMenu = (props: SwipeMenuProps) => {
 
                 <div className="absolute bottom-0 left-0 w-[100%] h-[72px] border-t">
                     <Wrapper>
-                        <div className="flex items-center">
-                            <div className="mr-4">
-                                <Feedback/>
+                        <NavLink to={'/feedback'}>
+                            <div className="flex items-center">
+                                <div className="mr-4">
+                                    <Feedback/>
+                                </div>
+                                <div className="font-mono text-[24px]">Обратная связь</div>
                             </div>
-                            <div className="font-mono text-[24px]">Обратная связь</div>
-                        </div>
+                        </NavLink>
                     </Wrapper>
                 </div>
 

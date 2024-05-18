@@ -11,16 +11,21 @@ import CommentList from "@components/common/comment-list/CommentList.tsx";
 import DiscussionList from "@components/common/discussion-list/DiscussionList.tsx";
 import {useParams} from "react-router";
 import useProduct from "../../../hooks/useProduct.ts";
+import {useState} from "react";
+import ActiveModal from "@components/ui/modal/ActiveModal.tsx";
 
 const ProductPage = () => {
 
     const {id} = useParams();
 
     const [product] = useProduct(+id)
+    const [ratingModal, setRatingModal] = useState<boolean>(false)
+    const [favoriteModal, setFavoriteModal] = useState<boolean>(false)
 
     if (!product) {
         return 404;
     }
+
 
     return (
         <>
@@ -37,7 +42,7 @@ const ProductPage = () => {
                     <div
                         className="font-mono text-center text-[16px] text-dark-gray my-[10px]"
                     >
-                        {product.authors.map(i =>  <span>{`${i.surname} ${i.name} ${i.patronymic}`}</span>)}
+                        {product.authors.map(i => `${i.surname} ${i.name} ${i.patronymic}`).join(', ')}
                     </div>
 
                     <div className="my-[20px]">
@@ -56,6 +61,7 @@ const ProductPage = () => {
                             <div className="flex flex-col items-center w-[26%]">
                                 <UiButton
                                     className={" w-[54px] h-[54px] rounded-full relative "}
+                                    onClick={() => setFavoriteModal(true)}
                                 >
                                     <div className="absolute w-[26px] h-[26px] top-[14px] left-[14px] ">
                                         <Favorite/>
@@ -77,6 +83,7 @@ const ProductPage = () => {
                             <div className="flex flex-col items-center w-[26%]">
                                 <UiButton
                                     className={" w-[54px] h-[54px] rounded-full relative "}
+                                    onClick={() => setRatingModal(true)}
                                 >
                                     <div className="absolute w-[28px] h-[28px] top-[13px] left-[13px] ">
                                         <Rating/>
@@ -124,6 +131,45 @@ const ProductPage = () => {
                     />
 
                 </Wrapper>
+
+                <ActiveModal
+                    setIsOpen={setRatingModal}
+                    isOpen={ratingModal}
+                >
+                    <div className="py-[10px]">
+                        <Heading
+                            number={2}
+                            className={'text-center font-mono text-[24px] my-[30px] '}
+                            text={'Выберите оценку'}
+                        />
+
+                        <div className="flex w-[100%] justify-between">
+                            <div className="w-[32px] h-[32px]">
+                                <Rating/>
+                            </div>
+                            <div className="w-[32px] h-[32px]">
+                                <Rating/>
+                            </div>
+                            <div className="w-[32px] h-[32px]">
+                                <Rating/>
+                            </div>
+                            <div className="w-[32px] h-[32px]">
+                                <Rating/>
+                            </div>
+                            <div className="w-[32px] h-[32px]">
+                                <Rating/>
+                            </div>
+                        </div>
+                    </div>
+                </ActiveModal>
+
+                <ActiveModal
+                    setIsOpen={setFavoriteModal}
+                    isOpen={favoriteModal}
+                >
+                    <div>модальное окно добавления в избранное</div>
+                </ActiveModal>
+
 
             </MainLayout>
         </>

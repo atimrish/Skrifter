@@ -58,8 +58,6 @@ export default function LoginPage() {
             return
         }
 
-
-
         localStorage.setItem("refresh_token", json.refresh_token)
         navigate("/profile/my")
     }
@@ -77,6 +75,7 @@ export default function LoginPage() {
                     overflow-hidden
                     items-center
                     xl:shadow
+                    xl:mt-[60px]
                     ">
                         <div className="xl:block hidden h-[900px] bg-gray w-[674px]">
 

@@ -5,10 +5,12 @@ import ActiveTextarea from "@components/ui/textarea/ActiveTextarea.tsx";
 import {useState} from "react";
 import Form from "@components/ui/form/Form.tsx";
 import FormButton from "@components/ui/button/FormButton.tsx";
+import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
 
 const FeedbackPage = () => {
 
     const [text, setText] = useState("");
+    const [notify, setNotify] = useState(false);
 
     return (
         <>
@@ -22,7 +24,13 @@ const FeedbackPage = () => {
                     <Form
                         action={'/feedback'}
                         method={'POST'}
-                        onSubmit={async () => {}}
+                        onSubmit={async () => {
+                            setNotify(true)
+
+                            setTimeout(() => {
+                                setNotify(false)
+                            }, 3000)
+                        }}
                     >
                         <ActiveTextarea
                             value={text}
@@ -34,6 +42,7 @@ const FeedbackPage = () => {
                             className={"bg-light-gray my-[30px]"}
                         >Отправить</FormButton>
                     </Form>
+                    {notify && (<SuccessNotify title={'Успешно'} description={'Обращение отправлено'}/>)}
                 </Wrapper>
             </MainLayout>
         </>

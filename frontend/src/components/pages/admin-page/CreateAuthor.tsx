@@ -8,9 +8,10 @@ import ActiveNumberInput from "@components/ui/number-Input/ActiveNumberInput.tsx
 import {useState} from "react";
 import FormButton from "@components/ui/button/FormButton.tsx";
 import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
+import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
 
 const CreateAuthor = () => {
-
+    const [notify, setNotify] = useState<boolean>(false)
     const [formState, setFormState] = useState({
         surname: '',
         name: '',
@@ -21,18 +22,21 @@ const CreateAuthor = () => {
     })
 
     const onSubmit = async () => {
-
         const formData = new FormData()
-
         for (const key in formState) {
             formData.append(key, formState[key])
         }
-
         await MakeAuthRequest({
             action: '/author',
             method: "POST",
             body: formData
         })
+
+        setNotify(true)
+
+        setTimeout(() => {
+            setNotify(false)
+        }, 3000)
     }
 
     return (
@@ -61,7 +65,7 @@ const CreateAuthor = () => {
                                 }}
                                 className={"w-[326px] h-[326px] bg-gray rounded-[10px] border-gray overflow-hidden relative mr-[20px] mb-[20px] shrink-0"}
                             />
-                            <div>
+                            <div className="w-[328px]">
                                 <div className="mt-[-30px]">
                                     <ActiveTextInput
                                         placeholder={'Фамилия'}
@@ -110,9 +114,7 @@ const CreateAuthor = () => {
                         <FormButton>Добавить</FormButton>
 
                     </Form>
-
-
-
+                    {notify && (<SuccessNotify title={'Успешно'} description={'Автор добавлен'}/>)}
                 </Wrapper>
             </MainLayout>
         </>

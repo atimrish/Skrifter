@@ -7,6 +7,7 @@ import (
 	"fmt"
 	JWT "github.com/golang-jwt/jwt/v5"
 	"gorm.io/gorm"
+	"log"
 	"math/rand"
 	"net/http"
 	"time"
@@ -276,4 +277,24 @@ func CheckUserExists(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.WriteHeader(200)
+}
+
+func CheckAdmin(w http.ResponseWriter, r *http.Request) {
+	cookie, err := r.Cookie("access_token")
+	actions.IfLogFatal(err)
+	payload, err := actions.GetPayloadJWT(cookie.Value)
+	log.Println("test")
+	actions.IfLogFatal(err)
+
+	var res bool
+
+	if payload.RoleId == 3 {
+		res = true
+	} else {
+		res = false
+	}
+
+	json.NewEncoder(w).Encode(map[string]any{
+		"result": res,
+	})
 }

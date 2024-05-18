@@ -5,6 +5,9 @@ const Image = (props: ImageProps) => {
                 src={props.src}
                 alt=""
                 className="w-[100%] h-[100%] object-center object-cover"
+                style={{
+                    display: (props.src) ? 'block' : 'none',
+                }}
             />
         </>
     )

@@ -15,6 +15,8 @@ import DiscussionPage from "@pages/discussion-page/DiscussionPage.tsx";
 import SearchPage from "@pages/search-page/SearchPage.tsx";
 import FeedbackPage from "@pages/feedback-page/FeedbackPage.tsx";
 import FavoritePage from "@pages/favorite-page/FavoritePage.tsx";
+import ReadPage from "@pages/read-page/ReadPage.tsx";
+import AuthorPage from "@pages/author-page/AuthorPage.tsx";
 
 const router = createBrowserRouter([
     {
@@ -68,6 +70,14 @@ const router = createBrowserRouter([
     {
         path: "/favorite",
         element: <FavoritePage/>,
+    },
+    {
+        path: "/product/:id/read",
+        element: <ReadPage/>,
+    },
+    {
+        path: "/author",
+        element: <AuthorPage/>,
     }
 ])
 

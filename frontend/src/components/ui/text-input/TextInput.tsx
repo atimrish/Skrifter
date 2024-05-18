@@ -8,6 +8,7 @@ export default function TextInput(props: TextInputProps) {
                 className={props.className}
                 onFocus={props.onFocus}
                 onBlur={props.onFocusout}
+                style={props.styles}
             />
         </>
     );

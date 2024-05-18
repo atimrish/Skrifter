@@ -11,6 +11,7 @@ import FormButton from "@components/ui/button/FormButton.tsx";
 import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
 import useCommentsByProductId from "../../../hooks/useCommentsByProductId.ts";
 import Comment from "@components/ui/comment/Comment.tsx";
+import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
 
 const CommentPage = () => {
     const {id} = useParams();
@@ -19,8 +20,7 @@ const CommentPage = () => {
     const [modal, setModal] = useState(false)
     const [text, setText] = useState("")
     const [comments] = useCommentsByProductId(+id)
-
-    console.log(comments)
+    const [notify, setNotify] = useState<boolean>(false)
 
     const onCommentAdd = async () => {
         const res = await MakeAuthRequest({
@@ -36,6 +36,11 @@ const CommentPage = () => {
 
         if (res.status === "true") {
             setModal(false)
+            setNotify(true)
+
+            setTimeout(() => {
+                setModal(false)
+            }, 3000)
         }
     }
 
@@ -100,7 +105,7 @@ const CommentPage = () => {
                             )
                         }
                     </div>
-
+                    {notify && (<SuccessNotify title={'Успешно'} description={'Комментарий добавлен'}/>)}
                 </Wrapper>
             </ExtendLayout>
         </>
