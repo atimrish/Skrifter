@@ -100,7 +100,6 @@ func DeletePhoto(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdateDescription(w http.ResponseWriter, r *http.Request) {
-
 	type UpdateDescriptionRequest struct {
 		Description string `json:"description"`
 	}
@@ -195,5 +194,38 @@ func GetUserInfoByToken(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = json.NewEncoder(w).Encode(user)
+	actions.IfLogFatal(err)
+}
+
+func UpdateNickname(w http.ResponseWriter, r *http.Request) {
+	type UpdateNicknameRequest struct {
+		Nickname string `json:"nickname"`
+	}
+
+	body := actions.ReadRequestBody(r)
+
+	var req UpdateNicknameRequest
+	err := json.Unmarshal(body, &req)
+	actions.IfLogFatal(err)
+
+	cookie, err := r.Cookie("access_token")
+	actions.IfLogFatal(err)
+
+	payload, err := actions.GetPayloadJWT(cookie.Value)
+	actions.IfLogFatal(err)
+
+	db := actions.GetDb()
+	defer actions.CloseDb(db)
+
+	var user models.User
+	db.Take(&user, "id = ?", payload.UserId)
+	user.Nickname = req.Nickname
+	db.Save(&user)
+
+	w.Header().Set("Content-Type", "application/json")
+	err = json.NewEncoder(w).Encode(map[string]string{
+		"message": "никнейм изменен",
+	})
+
 	actions.IfLogFatal(err)
 }

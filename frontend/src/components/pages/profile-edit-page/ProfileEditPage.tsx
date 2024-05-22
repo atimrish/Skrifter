@@ -73,15 +73,14 @@ const ProfileEditPage = () => {
         }, 3000)
     }
 
-    let timeout = null
+    let timeoutDescription = null
 
     const updateDescription = async (e) => {
-        clearTimeout(timeout)
+        clearTimeout(timeoutDescription)
         setUserData({
             ...userData,
             description: e.target.value,
         })
-
 
         const req = async () => {
             await MakeAuthRequest({
@@ -95,12 +94,25 @@ const ProfileEditPage = () => {
                 }
             })
         }
-
-
-        timeout = setTimeout(req, 2000)
     }
 
+    const updateNickame = async (e) => {
+        setUserData({
+            ...userData,
+            nickname: e.target.value,
+        })
 
+        await MakeAuthRequest({
+            method: "PUT",
+            action: "/users/update-nickname",
+            body: JSON.stringify({
+                nickname: userData.nickname
+            }),
+            headers: {
+                contentType: "application/json"
+            }
+        })
+    }
 
 
     return (
@@ -152,7 +164,7 @@ const ProfileEditPage = () => {
 
                     <ActiveTextInput
                         value={userData.nickname}
-                        onChange={() => {}}
+                        onChange={updateNickame}
                     />
 
                     <Heading

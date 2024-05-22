@@ -27,9 +27,9 @@ const FavoritePage = () => {
                         className="my-[20px]"
                     >
                         <FavoriteItem
-                            photo={''}
-                            title={'Тест'}
-                            authors={['Ntfdsf', 'Rew']}
+                            photo={'/storage/product/cover_photos/1716364180.jpg'}
+                            title={'Детство'}
+                            authors={['Максим Горький']}
                         />
                     </div>
 

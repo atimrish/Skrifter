@@ -37,6 +37,7 @@ func initRoutes(r *chi.Mux) {
 		///TODO действия с аккаунтом пользователя
 		r.Put("/users/update-photo", UserController.UpdatePhoto)
 		r.Put("/users/update-description", UserController.UpdateDescription)
+		r.Put("/users/update-nickname", UserController.UpdateNickname)
 		r.Get("/users/me", UserController.GetUserInfoByToken)
 		r.Delete("/users/delete-photo", UserController.DeletePhoto)
 
