@@ -6,10 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="a5a3bf19-5b02-493b-8ee3-6dfa65f58a45" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/controllers/UserController/UserController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/UserController/UserController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/routes/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/routes/routes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/favorite-page/FavoritePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/favorite-page/FavoritePage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/profile-edit-page/ProfileEditPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/profile-edit-page/ProfileEditPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/cmd/test/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/cmd/test/test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/api/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/swipe-menu/SwipeMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/swipe-menu/SwipeMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/main-page/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/main-page/MainPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/storage/test/test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +189,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/var/www/Skrifter/storage&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/var/www/Skrifter/storage/test&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -204,6 +208,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/storage/test" />
       <recent name="$PROJECT_DIR$/storage" />
       <recent name="$PROJECT_DIR$/api/cmd/test" />
     </key>

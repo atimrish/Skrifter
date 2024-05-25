@@ -18,6 +18,7 @@ export default {
             'transparent': 'transparent',
             'white': '#FFFFFF',
             'dark-gray': '#575757',
+            'black': '#161619',
         }
     },
     plugins: [],

@@ -5,7 +5,9 @@ EXPOSE 8080
 WORKDIR /srv
 
 RUN ls -la
-RUN apk add --no-cache go poppler-utils wv unrtf tidyhtml
+RUN apk add --no-cache go poppler-utils wv unrtf tidyhtml tzdata
+
+ENV TZ=Europe/Astrakhan
 
 CMD ["go", "mod", "download"]
 CMD ["go", "run", "main.go", "--action=migrate"]

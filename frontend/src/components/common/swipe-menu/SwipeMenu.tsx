@@ -66,19 +66,19 @@ const SwipeMenu = (props: SwipeMenuProps) => {
                             </div>
 
                             <div className="my-[15px]">
-                                <Link to={'/'} className="text-[24px] font-mono font-bold">Книги</Link>
+                                <Link to={'/search?type=book'} className="text-[24px] font-mono font-bold">Книги</Link>
                             </div>
 
                             <div className="my-[15px]">
-                                <Link to={'/'} className="text-[24px] font-mono font-bold">Комиксы</Link>
+                                <Link to={'/search?type=comics'} className="text-[24px] font-mono font-bold">Комиксы</Link>
                             </div>
 
                             <div className="my-[15px]">
-                                <Link to={'/'} className="text-[24px] font-mono font-bold">Аудиокниги</Link>
+                                <Link to={'/search?type=aubio'} className="text-[24px] font-mono font-bold">Аудиокниги</Link>
                             </div>
 
                             <div className="my-[15px]">
-                                <Link to={'/'} className="text-[24px] font-mono font-bold">Подкасты</Link>
+                                <Link to={'/search?type=podcast'} className="text-[24px] font-mono font-bold">Подкасты</Link>
                             </div>
 
                             <div className="my-[15px]">

@@ -27,11 +27,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 	var user models.User
 	db := actions.GetDb()
-
-	defer func(db *gorm.DB) {
-		sqlDb, _ := db.DB()
-		sqlDb.Close()
-	}(db)
+	defer actions.CloseDb(db)
 
 	res := db.Take(&user, "login = ?", req.Login)
 
