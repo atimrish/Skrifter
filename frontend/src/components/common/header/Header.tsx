@@ -57,7 +57,7 @@ export default function Header() {
                             </div>
 
                             <UiButton
-                                className={" w-[96px] "}
+                                className={" w-[96px] bg-[#EAEAEA] transition-all duration-300 hover:bg-black hover:text-white ease-out "}
                             >войти</UiButton>
                         </div>
                     </div>

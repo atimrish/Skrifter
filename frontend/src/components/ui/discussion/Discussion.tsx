@@ -15,7 +15,7 @@ const Discussion = (props: DiscussionProps) => {
                     <div className="ml-[15px] text-[14px] font-mono leading-[14px]">{props.timeAgo}</div>
                 </div>
 
-                <div className="flex items-start mb-[15px]">
+                <div className="flex items-start mb-[15px] justify-between">
                     <div className="text-[16px] font-mono font-bold ">{props.title}</div>
                     <div className="flex items-center">
                         <div className="w-[16px] h-[16px]">

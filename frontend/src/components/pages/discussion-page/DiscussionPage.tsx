@@ -20,6 +20,8 @@ const DiscussionPage = () => {
     const [text, setText] = useState("")
     const [discussion] = useDiscussionsByProductId(+id)
 
+    console.log(discussion)
+
     const onDiscussionAdd = async () => {
         const res = await MakeAuthRequest({
             method: "POST",
@@ -89,8 +91,8 @@ const DiscussionPage = () => {
                                 <Discussion
                                     userPhoto={'/storage/' + i.user.photo}
                                     userName={i.user.nickname}
-                                    timeAgo={'test'}
-                                    title={i.title}
+                                    timeAgo={'5 дней назад'}
+                                    title={i.text}
                                     repliesCount={0}
                                 />
                             </div>
