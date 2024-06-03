@@ -1,15 +1,72 @@
 import ReadLayout from "@components/layouts/read-layout/ReadLayout.tsx";
 import Wrapper from "@components/helpers/wrapper/Wrapper.tsx";
+import useProduct from "../../../hooks/useProduct.ts";
+import {useParams} from "react-router";
+import {useNavigate, useSearchParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import parse from 'html-react-parser';
+import './style/read.css';
 
 const ReadPage = () => {
+    const {id} = useParams();
+    const [product] = useProduct(+id)
+    const [searchParams, setSearchParams] = useSearchParams({p: '1'});
+    const [content, setContent] = useState<string | Element | Element[] | null>(null);
+    const [page, setPage] = useState(+searchParams.get('p'));
+    const navigate = useNavigate();
+
+    const getPage = async () => {
+        if (product) {
+            const dir = product.ext.source.split("/")[2]
+            const res = await fetch(`/storage/book-page?dir=${dir}&p=${page}`)
+            const text = await res.text();
+            const parsed = parse(text);
+
+            if (Array.isArray(parsed)) {
+                parsed.forEach(i => {
+                    console.log(i.props)
+                })
+            }
+
+            setContent(parsed)
+        }
+    }
+
+    useEffect(() => {
+        (async () => {await getPage()})()
+    }, [page]);
+
+    const body = document.body
+
+    body.onclick = (e) => {
+        const middle = body.clientWidth / 2
+
+        if (e.clientX >  middle) {
+            console.log('right')
+            setPage(page + 1)
+        } else {
+            console.log('left')
+            if (page <= 1) {
+                return
+            }
+            setPage(page - 1)
+        }
+
+    }
+
     return (
         <>
-            <ReadLayout>
+            <ReadLayout
+                title={product?.title}
+                currentPage={page}
+                backAction={() => navigate(`/product/${id}`)}
+            >
                 <Wrapper>
-                    Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: высокое качество позиционных исследований способствует повышению качества новых принципов формирования материально-технической и кадровой базы.
-                    А также диаграммы связей и по сей день остаются уделом либералов, которые жаждут быть превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Cовременные технологии достигли такого уровня, что высокотехнологичная концепция общественного уклада предоставляет широкие возможности для поэтапного и последовательного развития общества.
-                    Учитывая ключевые сценарии поведения, высокотехнологичная концепция общественного уклада играет важную роль в формировании кластеризации усилий.
-                    Повседневная практика показывает, что синтетическое тестирование создаёт предпосылки для благоприятных перспектив. Равным образом, сплочённость команды профессионалов позволяет оценить значение дальнейших направлений развития.
+                    <div
+                        className="mx-auto"
+                    >
+                        {content}
+                    </div>
                 </Wrapper>
             </ReadLayout>
         </>

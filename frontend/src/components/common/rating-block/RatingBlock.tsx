@@ -4,8 +4,8 @@ const RatingBlock = (props: RatingBlockProps) => {
     return (
         <>
             <div className="flex items-start justify-around font-mono text-[24px] my-[30px]">
-                <div className="">
-                    <div>{props.value}</div>
+                <div>
+                    <div className="text-center">{props.value}</div>
                     <div className="w-[35px] h-[35px] mx-auto mt-[3px] ">
                         <Rating/>
                     </div>

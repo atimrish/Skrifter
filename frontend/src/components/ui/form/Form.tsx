@@ -4,7 +4,6 @@ export default function Form(props: FormProps) {
 
     const onSubmit = async (e: FormEvent) => {
         e.preventDefault()
-
         await props.onSubmit()
     }
 

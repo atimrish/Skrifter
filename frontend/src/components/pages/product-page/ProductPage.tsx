@@ -13,19 +13,33 @@ import {useParams} from "react-router";
 import useProduct from "../../../hooks/useProduct.ts";
 import {useState} from "react";
 import ActiveModal from "@components/ui/modal/ActiveModal.tsx";
+import {useNavigate} from "react-router-dom";
+import RatingModal from "@components/common/rating-modal/RatingModal.tsx";
+import InfoModal from "@components/common/info-modal/InfoModal.tsx";
 
 const ProductPage = () => {
 
+    const navigate = useNavigate();
     const {id} = useParams();
 
     const [product] = useProduct(+id)
     const [ratingModal, setRatingModal] = useState<boolean>(false)
     const [favoriteModal, setFavoriteModal] = useState<boolean>(false)
+    const [infoModal, setInfoModal] = useState<boolean>(false)
 
     if (!product) {
         return 404;
     }
 
+
+    const rating = {
+        count: product.ratings.length,
+        value: product.ratings.reduce((acc, cur) => acc + cur.value, 0) / product.ratings.length,
+    }
+
+    const download = () => {
+        window.open('/storage/' + product.ext.source, "_blank");
+    }
 
     return (
         <>
@@ -46,13 +60,20 @@ const ProductPage = () => {
                     </div>
 
                     <div className="my-[20px]">
-                        <UiButton>Читать</UiButton>
+                        <UiButton
+                            onClick={() => {
+                                navigate(`/product/${id}/read`)
+                            }}
+                        >Читать</UiButton>
                     </div>
 
                     <div className="my-[20px]">
                         <div className="flex justify-between items-center">
                             <UiButton className={" w-[47%] "}>Главы</UiButton>
-                            <UiButton className={" w-[47%] "}>Инфо</UiButton>
+                            <UiButton
+                                className={" w-[47%] "}
+                                onClick={() => setInfoModal(true)}
+                            >Инфо</UiButton>
                         </div>
                     </div>
 
@@ -69,7 +90,10 @@ const ProductPage = () => {
                                 </UiButton>
                                 <div className="text-[14px] font-mono text-center my-[10px]">Избранное</div>
                             </div>
-                            <div className="flex flex-col items-center w-[26%]">
+                            <div
+                                className="flex flex-col items-center w-[26%]"
+                                onClick={download}
+                            >
                                 <UiButton
                                     className={" w-[54px] h-[54px] rounded-full relative "}
                                 >
@@ -108,8 +132,8 @@ const ProductPage = () => {
                         text={"Рейтинг"}
                     />
                     <RatingBlock
-                        value={9.48}
-                        count={1233}
+                        value={rating.value}
+                        count={rating.count}
                     />
                     <Heading
                         number={2}
@@ -132,36 +156,11 @@ const ProductPage = () => {
 
                 </Wrapper>
 
-                <ActiveModal
+                <RatingModal
                     setIsOpen={setRatingModal}
                     isOpen={ratingModal}
-                >
-                    <div className="py-[10px]">
-                        <Heading
-                            number={2}
-                            className={'text-center font-mono text-[24px] my-[30px] '}
-                            text={'Выберите оценку'}
-                        />
-
-                        <div className="flex w-[100%] justify-between">
-                            <div className="w-[32px] h-[32px]">
-                                <Rating/>
-                            </div>
-                            <div className="w-[32px] h-[32px]">
-                                <Rating/>
-                            </div>
-                            <div className="w-[32px] h-[32px]">
-                                <Rating/>
-                            </div>
-                            <div className="w-[32px] h-[32px]">
-                                <Rating/>
-                            </div>
-                            <div className="w-[32px] h-[32px]">
-                                <Rating/>
-                            </div>
-                        </div>
-                    </div>
-                </ActiveModal>
+                    product_id={product.ID}
+                />
 
                 <ActiveModal
                     setIsOpen={setFavoriteModal}
@@ -170,6 +169,11 @@ const ProductPage = () => {
                     <div>модальное окно добавления в избранное</div>
                 </ActiveModal>
 
+                <InfoModal
+                    setIsOpen={setInfoModal}
+                    isOpen={infoModal}
+                    product={product}
+                />
 
             </MainLayout>
         </>

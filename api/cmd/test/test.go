@@ -1,10 +1,14 @@
 package test
 
 import (
+	"api/app/actions"
+	"code.sajari.com/docconv/v2"
 	"fmt"
-	"time"
 )
 
 func Test() {
-	fmt.Println(time.Now())
+	r, err := docconv.ConvertPath("cmd/test/source.pdf")
+	docconv.
+	actions.IfLogFatal(err)
+	fmt.Println(r.Meta)
 }

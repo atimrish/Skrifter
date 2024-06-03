@@ -8,6 +8,7 @@ import MakeRequest from "@components/ui/form/libs/MakeRequest.ts";
 import ActiveLink from "@components/ui/link/ActiveLink.tsx";
 import {Link, useNavigate} from "react-router-dom";
 import AuthLayout from "@components/layouts/auth-layout/AuthLayout.tsx";
+import Image from "@components/ui/image/Image.tsx";
 
 export default function LoginPage() {
 
@@ -74,17 +75,17 @@ export default function LoginPage() {
                     rounded-[10px]
                     overflow-hidden
                     items-center
-                    xl:shadow
-                    xl:mt-[60px]
+                    xl:shadow-2xl
+                    xl:mt-[30px]
                     ">
                         <div className="xl:block hidden h-[900px] bg-gray w-[674px]">
-
+                            <Image src={'src/assets/images/login-back.svg'}/>
                         </div>
                         <div className="xl:px-[60px]">
                             <Heading
                                 text="Вход"
                                 number={1}
-                                className="text-[32px] font-[FiraMono] text-center my-[50px]"
+                                className="text-[32px] font-mono text-center my-[50px]"
                             />
                             <Form
                                 onSubmit={onSubmit}

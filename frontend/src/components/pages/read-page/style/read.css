@@ -1,0 +1,8 @@
+p {
+    position: static!important;
+    word-break: break-all;
+    white-space: normal!important;
+    overflow-wrap: normal;
+    hyphens: auto;
+    word-wrap: break-word;
+}

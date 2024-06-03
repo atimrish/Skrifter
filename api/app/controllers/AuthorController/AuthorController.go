@@ -30,7 +30,7 @@ func AddAuthor(w http.ResponseWriter, r *http.Request) {
 	actions.IfLogFatal(err)
 	filename := strconv.FormatInt(time.Now().Unix(), 10) + filepath.Ext(header.Filename)
 	path := "author/" + filename
-	actions.AddToStorage(file, path, filename)
+	actions.AddToStorage(file, path, filename, "add-file")
 
 	var author models.Author
 	author.Photo = path

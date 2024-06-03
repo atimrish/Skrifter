@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"fmt"
 	"io"
+	"log"
 	"mime/multipart"
 	"net/http"
 	"strings"
@@ -12,12 +13,12 @@ import (
 
 var conf = config.InitConfig().StorageServer
 
-func AddToStorage(file multipart.File, path, filename string)  {
+func AddToStorage(file multipart.File, path, filename, action string)  {
 	addr := fmt.Sprintf(
 		"http://%s:%s/%s",
 		conf.Host,
 		conf.Port,
-		"add-file",
+		action,
 	)
 
 	var body bytes.Buffer
@@ -36,13 +37,16 @@ func AddToStorage(file multipart.File, path, filename string)  {
 	req.Header.Set("Content-Type", writer.FormDataContentType())
 	IfLogFatal(err)
 	client := http.Client{}
-	_, err = client.Do(req)
+	res, err := client.Do(req)
 	IfLogFatal(err)
+
+	log.Println("status: ", res.Status, " filename: ", filename)
+
 }
 
 func UpdateStoredFile(file multipart.File, oldPath, newPath, filename string)  {
 	DeleteFromStorage(oldPath)
-	AddToStorage(file, newPath, filename)
+	AddToStorage(file, newPath, filename, "add-file")
 }
 
 func DeleteFromStorage(path string)  {

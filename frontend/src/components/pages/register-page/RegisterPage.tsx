@@ -8,6 +8,7 @@ import SecondRegisterStage from "@pages/register-page/stages/SecondRegisterStage
 import ActiveLink from "@components/ui/link/ActiveLink.tsx";
 import {Link, useNavigate} from "react-router-dom";
 import AuthLayout from "@components/layouts/auth-layout/AuthLayout.tsx";
+import Image from "@components/ui/image/Image.tsx";
 
 export default function RegisterPage() {
 
@@ -67,10 +68,11 @@ export default function RegisterPage() {
                     rounded-[10px]
                     overflow-hidden
                     items-center
-                    xl:shadow
+                    xl:shadow-2xl
+                    xl:mt-[30px]
                     ">
                         <div className="xl:block hidden h-[900px] bg-gray w-[674px]">
-
+                            <Image src={'./src/assets/images/register-back.svg'} />
                         </div>
                         <div className="xl:px-[60px]">
                             <Heading

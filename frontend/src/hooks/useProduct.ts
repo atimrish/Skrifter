@@ -11,10 +11,12 @@ type Product = {
     cover_photo: string,
     year_of_issue: number,
     age_rating_id: number
-    authors: Array<Author>
+    authors: Array<string>
+    ratings: Array<unknown>
+    ext: Object
 }
 
-const useAgeRating = (id: number) => {
+const useProduct = (id: number) => {
     const [product, setProducts] = useState<Product>()
 
     useEffect(() => {
@@ -36,4 +38,4 @@ const useAgeRating = (id: number) => {
     return [product, setProducts]
 }
 
-export default useAgeRating;
+export default useProduct;

@@ -41,7 +41,7 @@ func UpdatePhoto(w http.ResponseWriter, r *http.Request) {
 
 	if user.Photo == "" {
 		path := "user/" + filename
-		actions.AddToStorage(file, path, filename)
+		actions.AddToStorage(file, path, filename, "add-file")
 		user.Photo = path
 	} else {
 		newPath := "user/" + filename

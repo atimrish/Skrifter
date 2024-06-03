@@ -3,12 +3,13 @@ package ProductController
 import (
 	"api/app/actions"
 	"api/app/models"
+	"api/app/models/ext_product_data"
 	"encoding/json"
 	"github.com/go-chi/chi/v5"
-	"gorm.io/gorm"
 	"log"
 	"net/http"
 	"path/filepath"
+	"reflect"
 	"strconv"
 	"time"
 )
@@ -42,18 +43,14 @@ func AddProduct(w http.ResponseWriter, r *http.Request) {
 	actions.ReadFormDataBody(r, &req)
 
 	db := actions.GetDb()
-
-	defer func(db *gorm.DB) {
-		sqlDb, _ := db.DB()
-		sqlDb.Close()
-	}(db)
+	defer actions.CloseDb(db)
 
 	file, header, err := r.FormFile("cover_photo")
 	actions.IfLogFatal(err)
 
 	filename := strconv.FormatInt(time.Now().Unix(), 10) + filepath.Ext(header.Filename)
 	path := "product/cover_photos/" + filename
-	actions.AddToStorage(file, path, filename)
+	actions.AddToStorage(file, path, filename, "add-file")
 
 	var product models.Product
 	product.Title = req.Title
@@ -83,7 +80,8 @@ func AddProduct(w http.ResponseWriter, r *http.Request) {
 
 	switch req.ProductTypeId {
 	case BOOK:
-
+		product.MongoId = storeBook(r)
+		break
 	case COMICS:
 
 	case MANGA:
@@ -94,6 +92,7 @@ func AddProduct(w http.ResponseWriter, r *http.Request) {
 
 	}
 
+	db.Save(&product)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(map[string]string{
@@ -104,12 +103,38 @@ func AddProduct(w http.ResponseWriter, r *http.Request) {
 func GetAll(w http.ResponseWriter, r *http.Request) {
 	var products []models.Product
 
+	queryParams := r.URL.Query()
 	db := actions.GetDb()
 	defer actions.CloseDb(db)
 
-	log.Println(r.URL.Query())
+	productType := ""
+	if len(queryParams["type"]) > 0 {
+		productType = queryParams["type"][0]
+	}
 
-	db.Find(&products)
+	log.Println(reflect.TypeOf(productType))
+
+	switch productType {
+	case "book":
+		db.Find(&products, "product_type_id = ?", BOOK)
+		break
+	case "comics":
+		db.Find(&products, "product_type_id = ?", COMICS)
+		break
+	case "manga":
+		db.Find(&products, "product_type_id = ?", MANGA)
+		break
+	case "audio":
+		db.Find(&products, "product_type_id = ?", AUDIO)
+		break
+	case "podcast":
+		db.Find(&products, "product_type_id = ?", PODCAST)
+		break
+	default:
+		db.Find(&products)
+		break
+	}
+
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(products)
@@ -128,7 +153,24 @@ func GetById(w http.ResponseWriter, r *http.Request) {
 		Preload("Genres").
 		Preload("Comments").
 		Preload("Discussions").
+		Preload("Ratings").
 		Find(&product, "id = ?", id)
+
+	switch product.ProductTypeId {
+	case BOOK:
+		var bookExt ext_product_data.Book
+		bookExt.Get(product.MongoId)
+		product.Ext = bookExt
+		break
+	case COMICS:
+		break
+	case MANGA:
+		break
+	case AUDIO:
+		break
+	case PODCAST:
+		break
+	}
 
 	w.Header().Set("Content-Type", "application/json")
 	if res.RowsAffected < 1 {
@@ -140,4 +182,29 @@ func GetById(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode(product)
+}
+
+func storeBook(r *http.Request) string {
+	type StoreBookRequest struct {
+		ReadTime string `form:"read_time"`
+	}
+
+	var req StoreBookRequest
+	actions.ReadFormDataBody(r, &req)
+
+	file, header, err := r.FormFile("book_file")
+	actions.IfLogFatal(err)
+
+	nowString := strconv.FormatInt(time.Now().Unix(), 10)
+
+	filename := "source" + filepath.Ext(header.Filename)
+	path := "product/source/" + nowString + "/" + filename
+	actions.AddToStorage(file, path, filename, "add-book")
+
+	var bookExt ext_product_data.Book
+	bookExt.ReadTime = req.ReadTime
+	bookExt.Source = path
+	bookExt.AddBookExt()
+
+	return bookExt.ID.Hex()
 }

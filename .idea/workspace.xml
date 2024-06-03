@@ -5,14 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a3bf19-5b02-493b-8ee3-6dfa65f58a45" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/api/app/controllers/RatingController/RatingController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/images/login-back.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/info-modal/InfoModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/info-modal/types/InfoModalProps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/product-container/ProductContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/rating-modal/RatingModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/rating-modal/types/RatingModalProps.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/additional-params/book-params/BookParams.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/additional-params/types/AdminAdditionalParams.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/read-page/style/read.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ui/file-input/ActiveFileInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useProducts.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/test/source.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/pg_catalog.0S1ZNQ.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/Auth/AuthController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/actions/StorageOperations.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/actions/StorageOperations.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/controllers/AuthorController/AuthorController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/AuthorController/AuthorController.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/controllers/UserController/UserController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/UserController/UserController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Product.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Product.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/Rating.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/Rating.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/models/ext_product_data/Book.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/models/ext_product_data/Book.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/routes/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/routes/routes.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/cmd/test/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/cmd/test/test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/api/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/api/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/swipe-menu/SwipeMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/swipe-menu/SwipeMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/main-page/MainPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/main-page/MainPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/api/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/nginx/default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/nginx/default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/storage/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/storage/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/product/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/product/Product.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/product/types/ProductProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/product/types/ProductProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/rating-block/RatingBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/rating-block/RatingBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/helpers/wrapper/Wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/helpers/wrapper/Wrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/layouts/read-layout/ReadLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/layouts/read-layout/ReadLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/layouts/read-layout/types/ReadLayoutProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/layouts/read-layout/types/ReadLayoutProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/LoginPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/AdminPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/AdminPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/product-page/ProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/product-page/ProductPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/read-page/ReadPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/read-page/ReadPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/register-page/RegisterPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/register-page/RegisterPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/search-page/SearchPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/search-page/SearchPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/file-input/FileInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/file-input/FileInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/file-input/types/FileInputProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/file-input/types/FileInputProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/form/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/form/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/image-input/ImageInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/image-input/ImageInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useProduct.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useProduct.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/storage/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/storage/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/storage/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/storage/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/storage/test/test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,15 +79,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Dockerfile" />
-        <option value="Go File" />
         <option value="JavaScript File" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="false" />
   </component>
-  <component name="GOROOT" url="file://$USER_HOME$/go/go1.21.9" />
+  <component name="GOROOT" url="file://$USER_HOME$/go/go1.21.1" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -176,41 +222,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/var/www/Skrifter/storage/test&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/var/www/Skrifter/frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/var/www/Skrifter/api/cmd/test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "go.sdk",
+    "ts.external.directory.path": "/var/www/Skrifter/frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;,
-      &quot;mongo&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "mongo"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api/cmd/test" />
       <recent name="$PROJECT_DIR$/storage/test" />
       <recent name="$PROJECT_DIR$/storage" />
-      <recent name="$PROJECT_DIR$/api/cmd/test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/storage/test" />

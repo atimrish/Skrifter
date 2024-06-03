@@ -14,7 +14,10 @@ type Product struct {
 
 	Comments    []Comment    `json:"comments"`
 	Discussions []Discussion `json:"discussions"`
+	Ratings     []Rating     `json:"ratings"`
 
 	Authors []Author `gorm:"many2many:product_authors;" json:"authors"`
 	Genres  []Genre  `gorm:"many2many:product_genres;" json:"genres"`
+
+	Ext interface{} `gorm:"-" json:"ext,omitempty"`
 }

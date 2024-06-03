@@ -40,6 +40,7 @@ const ImageInput = (props: ImageInputProps) => {
                         onChange={onChange}
                         value={''}
                         id={'product-photo'}
+                        accept={'image/*'}
                     />
                 </div>
             </div>

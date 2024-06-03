@@ -17,6 +17,7 @@ import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
 import ImageInput from "@components/ui/image-input/ImageInput.tsx";
 import useAuthors from "../../../hooks/useAuthors.ts";
 import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
+import BookParams from "@pages/admin-page/additional-params/book-params/BookParams.tsx";
 
 const AdminPage = () => {
     const [ageRating] = useAgeRating()
@@ -197,16 +198,7 @@ const AdminPage = () => {
                                         className={" text-[24px] font-mono my-[40px]"}
                                         text={'Доп параметры'}
                                     />
-                                    <div className="mt-[-32px]">
-                                        <ActiveTextInput
-                                            placeholder={'Примерное время чтения'}
-                                            value={formState.title}
-                                            onChange={(e) => setFormState({
-                                                ...formState,
-                                                title: e.target.value,
-                                            })}
-                                        />
-                                    </div>
+                                    <BookParams formState={formState} setFormState={setFormState} />
                                 </div>
                                 <FormButton>Создать</FormButton>
                             </Form>

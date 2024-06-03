@@ -10,6 +10,7 @@ import (
 	"api/app/controllers/GenreController"
 	"api/app/controllers/ProductController"
 	"api/app/controllers/ProductTypeController"
+	"api/app/controllers/RatingController"
 	"api/app/controllers/Role"
 	"api/app/controllers/UserController"
 	"api/app/middleware"
@@ -44,6 +45,9 @@ func initRoutes(r *chi.Mux) {
 		r.Post("/product/{id}/comment", CommentController.Add)
 		r.Post("/product/{id}/discussion", DiscussionController.Add)
 		r.Post("/check-admin", Auth.CheckAdmin)
+
+		///TODO: рейтинг
+		r.Post("/product/{id}/rating", RatingController.AddRating)
 	})
 
 	r.Post("/login", Auth.Login)
@@ -67,7 +71,6 @@ func initRoutes(r *chi.Mux) {
 	r.Get("/product-type", ProductTypeController.GetAll)
 
 	///TODO продукт
-
 	r.Group(func(r chi.Router) {
 		r.Use(middleware.Authorised)
 		r.Use(middleware.Admin)

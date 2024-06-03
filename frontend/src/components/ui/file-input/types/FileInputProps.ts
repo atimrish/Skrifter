@@ -3,4 +3,5 @@ type FileInputProps = {
     value: any;
     id: string;
     className?: string;
+    accept?: string;
 }

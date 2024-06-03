@@ -7,6 +7,7 @@ const FileInput = (props: FileInputProps) => {
                 onChange={props.onChange}
                 value={props.value}
                 className={props.className}
+                accept={props.accept}
             />
         </>
     )

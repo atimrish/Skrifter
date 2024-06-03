@@ -16,6 +16,7 @@ require (
 )
 
 require (
+	code.sajari.com/docconv v1.3.8 // indirect
 	github.com/BurntSushi/toml v1.2.1 // indirect
 	github.com/JalfResi/justext v0.0.0-20221106200834-be571e3e3052 // indirect
 	github.com/PuerkitoBio/goquery v1.5.1 // indirect
