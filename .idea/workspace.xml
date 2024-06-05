@@ -5,26 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a3bf19-5b02-493b-8ee3-6dfa65f58a45" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/additional-params/audiobook-params/AudiobookParams.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/additional-params/comics-params/ComicsParams.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/additional-params/manga-params/MangaParams.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/additional-params/podcast-params/PodcastParams.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/Skrifter.Kom8kg/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/35f6e114-3670-4c4b-abbc-ebf1ba9edb00.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/35f6e114-3670-4c4b-abbc-ebf1ba9edb00.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/62b7660f-f598-4456-9de6-63da3275d125.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/cmd/test/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/cmd/test/test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/AdminPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/admin-page/AdminPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/app/controllers/ProductController/ProductController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/product-container/ProductContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/product-container/ProductContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/product/Product.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/product/Product.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/layouts/read-layout/ReadLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/layouts/read-layout/ReadLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/product-page/ProductPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/product-page/ProductPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/read-page/ReadPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/read-page/ReadPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/search-page/SearchPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/search-page/SearchPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/data-select/ActiveDataSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/data-select/ActiveDataSelect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/select/ActiveSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/select/ActiveSelect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/select/types/ActiveSelectProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/select/types/ActiveSelectProps.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useProducts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useProducts.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

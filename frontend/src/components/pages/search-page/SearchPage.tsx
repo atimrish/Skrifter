@@ -8,7 +8,6 @@ import {useSearchParams} from "react-router-dom";
 
 const SearchPage = () => {
 
-    console.log('test')
     const [searchParams, setSearchParams] = useSearchParams({type: 'all'});
     const [products] = useProducts(searchParams.get('type'))
 
@@ -38,7 +37,7 @@ const SearchPage = () => {
                             return {
                                 id: i.ID,
                                 title: i.title,
-                                authors: ['test'],
+                                authors: i.authors.map(i => `${i.surname} ${i.name} ${i.patronymic}`),
                                 rating: 4.5,
                                 cover_photo: '/storage/product/cover_photos/' + i.cover_photo,
                             }

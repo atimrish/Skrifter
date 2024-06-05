@@ -24,7 +24,12 @@ const ReadPage = () => {
 
             if (Array.isArray(parsed)) {
                 parsed.forEach(i => {
-                    console.log(i.props)
+                    console.log(i)
+
+                    if (i.type === "img") {
+                        console.log(i.prototype)
+                    }
+
                 })
             }
 

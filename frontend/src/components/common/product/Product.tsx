@@ -12,7 +12,7 @@ const Product = (props: ProductProps) => {
                 <div className="flex flex-col justify-between">
                     <div>
                         <div>{props.title}</div>
-                        <div className="text-gray">{props.authors}</div>
+                        <div className="text-gray">{props.authors.join(', ')}</div>
 
                         <div className="flex items-center my-[10px]">
                             <div className="w-[29px] h-[29px] mr-[5px]">

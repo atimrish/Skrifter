@@ -22,7 +22,7 @@ const ReadLayout = (props: ReadLayoutProps) => {
 
             <div
                 style={{
-                    height: "auto",
+                    minHeight: "calc(100vh - 64px - 104px - 10px)",
                 }}
             >
                 {Children.map(props.children, (child: ReactNode) => child)}

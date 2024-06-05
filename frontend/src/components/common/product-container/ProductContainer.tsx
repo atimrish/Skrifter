@@ -16,7 +16,7 @@ const ProductContainer = ({p}: {p: Array<ProductProps> }) => {
                                 key={i.id}
                                 title={i.title}
                                 rating={4.3}
-                                authors={['asd']}
+                                authors={i.authors}
                                 cover_photo={i.cover_photo}
                             />
                         </div>

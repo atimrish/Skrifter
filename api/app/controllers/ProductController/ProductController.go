@@ -6,10 +6,8 @@ import (
 	"api/app/models/ext_product_data"
 	"encoding/json"
 	"github.com/go-chi/chi/v5"
-	"log"
 	"net/http"
 	"path/filepath"
-	"reflect"
 	"strconv"
 	"time"
 )
@@ -112,28 +110,34 @@ func GetAll(w http.ResponseWriter, r *http.Request) {
 		productType = queryParams["type"][0]
 	}
 
-	log.Println(reflect.TypeOf(productType))
+	ctx := db.Model(&models.Product{}).
+		Preload("Authors").
+		Preload("Genres").
+		Preload("Comments").
+		Preload("Discussions").
+		Preload("Ratings")
 
 	switch productType {
 	case "book":
-		db.Find(&products, "product_type_id = ?", BOOK)
+		ctx.Find(&products, "product_type_id = ?", BOOK)
 		break
 	case "comics":
-		db.Find(&products, "product_type_id = ?", COMICS)
+		ctx.Find(&products, "product_type_id = ?", COMICS)
 		break
 	case "manga":
-		db.Find(&products, "product_type_id = ?", MANGA)
+		ctx.Find(&products, "product_type_id = ?", MANGA)
 		break
 	case "audio":
-		db.Find(&products, "product_type_id = ?", AUDIO)
+		ctx.Find(&products, "product_type_id = ?", AUDIO)
 		break
 	case "podcast":
-		db.Find(&products, "product_type_id = ?", PODCAST)
+		ctx.Find(&products, "product_type_id = ?", PODCAST)
 		break
 	default:
-		db.Find(&products)
+		ctx.Find(&products)
 		break
 	}
+
 
 
 	w.Header().Set("Content-Type", "application/json")

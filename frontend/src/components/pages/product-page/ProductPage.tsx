@@ -54,7 +54,7 @@ const ProductPage = () => {
                     <div className="font-mono text-center text-[14px] text-gray my-[10px]">{product.year_of_issue} г.</div>
 
                     <div
-                        className="font-mono text-center text-[16px] text-dark-gray my-[10px]"
+                        className="font-mono text-center text-[16px] text-dark-gray my-[10px] text-ellipsis overflow-x-hidden"
                     >
                         {product.authors.map(i => `${i.surname} ${i.name} ${i.patronymic}`).join(', ')}
                     </div>
@@ -64,14 +64,15 @@ const ProductPage = () => {
                             onClick={() => {
                                 navigate(`/product/${id}/read`)
                             }}
+                            className={" bg-light-gray "}
                         >Читать</UiButton>
                     </div>
 
                     <div className="my-[20px]">
-                        <div className="flex justify-between items-center">
-                            <UiButton className={" w-[47%] "}>Главы</UiButton>
+                        <div className="flex justify-between items-center ">
+                            <UiButton className={" w-[47%] bg-light-gray "}>Главы</UiButton>
                             <UiButton
-                                className={" w-[47%] "}
+                                className={" w-[47%] bg-light-gray "}
                                 onClick={() => setInfoModal(true)}
                             >Инфо</UiButton>
                         </div>
@@ -81,7 +82,7 @@ const ProductPage = () => {
                         <div className="flex justify-between items-center">
                             <div className="flex flex-col items-center w-[26%]">
                                 <UiButton
-                                    className={" w-[54px] h-[54px] rounded-full relative "}
+                                    className={" w-[54px] h-[54px] rounded-full relative bg-light-gray "}
                                     onClick={() => setFavoriteModal(true)}
                                 >
                                     <div className="absolute w-[26px] h-[26px] top-[14px] left-[14px] ">
@@ -95,7 +96,7 @@ const ProductPage = () => {
                                 onClick={download}
                             >
                                 <UiButton
-                                    className={" w-[54px] h-[54px] rounded-full relative "}
+                                    className={" w-[54px] h-[54px] rounded-full relative bg-light-gray "}
                                 >
                                     <div className="absolute w-[28px] h-[28px] top-[13px] left-[13px] ">
                                         <Download/>
@@ -106,7 +107,7 @@ const ProductPage = () => {
 
                             <div className="flex flex-col items-center w-[26%]">
                                 <UiButton
-                                    className={" w-[54px] h-[54px] rounded-full relative "}
+                                    className={" w-[54px] h-[54px] rounded-full relative bg-light-gray "}
                                     onClick={() => setRatingModal(true)}
                                 >
                                     <div className="absolute w-[28px] h-[28px] top-[13px] left-[13px] ">
