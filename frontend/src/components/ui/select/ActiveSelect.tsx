@@ -32,6 +32,9 @@ const ActiveSelect = (props: ActiveSelectProps) => {
                                             value: child.props.value,
                                             text: child.props.children
                                         })
+                                        if (props.onChange) {
+                                            props.onChange()
+                                        }
                                     }
                                 })
                             }

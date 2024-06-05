@@ -18,6 +18,10 @@ import ImageInput from "@components/ui/image-input/ImageInput.tsx";
 import useAuthors from "../../../hooks/useAuthors.ts";
 import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
 import BookParams from "@pages/admin-page/additional-params/book-params/BookParams.tsx";
+import ComicsParams from "@pages/admin-page/additional-params/comics-params/ComicsParams.tsx";
+import MangaParams from "@pages/admin-page/additional-params/manga-params/MangaParams.tsx";
+import AudiobookParams from "@pages/admin-page/additional-params/audiobook-params/AudiobookParams.tsx";
+import PodcastParams from "@pages/admin-page/additional-params/podcast-params/PodcastParams.tsx";
 
 const AdminPage = () => {
     const [ageRating] = useAgeRating()
@@ -74,8 +78,9 @@ const AdminPage = () => {
             setNotify(false)
         }, 3000)
 
-
     }
+
+    const [extParams, setExtParams] = useState<any>(null)
 
     return (
         <>
@@ -184,7 +189,31 @@ const AdminPage = () => {
                                     />
                                     <ActiveSelect
                                         selected={selectedProductType}
-                                        setSelected={setSelectedProductType}>
+                                        setSelected={setSelectedProductType}
+                                        onChange={() => {
+                                            console.log(selectedProductType.value)
+                                            switch (selectedProductType.value) {
+                                                case 1:
+                                                    setExtParams(<BookParams formState={formState} setFormState={setFormState} />)
+                                                    break
+                                                case 2:
+                                                    setExtParams(<ComicsParams/>)
+                                                    break
+                                                case 3:
+                                                    setExtParams(<MangaParams/>)
+                                                    break
+                                                case 4:
+                                                    setExtParams(<AudiobookParams/>)
+                                                    break
+                                                case 5:
+                                                    setExtParams(<PodcastParams/>)
+                                                    break
+                                                default:
+                                                    setExtParams('доп параметры не выбраны')
+                                                    break
+                                            }
+                                        }}
+                                    >
                                         {productTypes.map((item) => (
                                             <Option value={item.ID} key={item.ID}>{item.Name}</Option>
                                         ))}
@@ -198,7 +227,7 @@ const AdminPage = () => {
                                         className={" text-[24px] font-mono my-[40px]"}
                                         text={'Доп параметры'}
                                     />
-                                    <BookParams formState={formState} setFormState={setFormState} />
+                                    {extParams}
                                 </div>
                                 <FormButton>Создать</FormButton>
                             </Form>

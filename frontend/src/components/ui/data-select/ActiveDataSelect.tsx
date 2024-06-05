@@ -8,7 +8,7 @@ const ActiveDataSelect = (props: ActiveDataSelectProps) => {
 
     const [match, setMatch] = useState("")
 
-    const rendered = props.items.filter(item => (new RegExp(match, "i")).test(item.Name))
+    const rendered = props.items.filter(item => (new RegExp(match, "i")).test(item.name))
 
     return (
         <>

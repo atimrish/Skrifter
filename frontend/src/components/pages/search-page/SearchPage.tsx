@@ -4,11 +4,13 @@ import ActiveSearchInput from "@components/ui/search-input/ActiveSearchInput.tsx
 import Heading from "@components/ui/heading/Heading.tsx";
 import useProducts from "../../../hooks/useProducts.ts";
 import ProductContainer from "@components/common/product-container/ProductContainer.tsx";
+import {useSearchParams} from "react-router-dom";
 
 const SearchPage = () => {
 
     console.log('test')
-    const [products] = useProducts()
+    const [searchParams, setSearchParams] = useSearchParams({type: 'all'});
+    const [products] = useProducts(searchParams.get('type'))
 
     console.log(products)
 

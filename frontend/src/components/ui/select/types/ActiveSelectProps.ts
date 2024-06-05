@@ -4,4 +4,5 @@ type ActiveSelectProps = SelectProps & {
         text: string;
     };
     setSelected: (value: any) => void;
+    onChange?: () => void;
 }

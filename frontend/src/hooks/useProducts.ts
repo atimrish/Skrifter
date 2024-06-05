@@ -15,14 +15,14 @@ type Product = {
     ext: Object
 }
 
-const useProducts = () => {
+const useProducts = (type = 'all') => {
     const [product, setProducts] = useState<Product[]>([])
 
     useEffect(() => {
         const fetchData = async () => {
             const res = await MakeRequest({
                 method: "GET",
-                action: `/product`,
+                action: `/product?type=${type}`,
             })
 
             let json = await res.json()
