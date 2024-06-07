@@ -39,6 +39,15 @@ const ReadPage = () => {
 
     useEffect(() => {
         (async () => {await getPage()})()
+
+        if (product) {
+            const dir = product.ext.source.split("/")[2]
+            const content = document.querySelector('#content')
+
+            content.querySelectorAll('img').forEach(i => {
+                i.setAttribute('src', `/storage/product/source/${dir}/pages/${i.getAttribute('src')}`);
+            })
+        }
     }, [page]);
 
     const body = document.body
@@ -69,6 +78,7 @@ const ReadPage = () => {
                 <Wrapper>
                     <div
                         className="mx-auto"
+                        id="content"
                     >
                         {content}
                     </div>

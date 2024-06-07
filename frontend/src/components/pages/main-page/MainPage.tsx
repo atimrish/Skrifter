@@ -4,8 +4,28 @@ import Wrapper from "@components/helpers/wrapper/Wrapper.tsx";
 import Heading from "@components/ui/heading/Heading.tsx";
 import Product from "@components/common/product/Product.tsx";
 import HorizontalSwipe from "@components/ui/horizontal-slide/HorizontalSwipe.tsx";
+import useProducts from "../../../hooks/useProducts.ts";
+import {useNavigate} from "react-router-dom";
+import Rating from "@components/icons/rating/Rating.tsx";
+import Logo from "@components/icons/logo/Logo.tsx";
 
 export default function MainPage() {
+
+    const [products] = useProducts()
+
+    const popularProducts = products.sort((a ,b) => {
+        return a.ratings.length > b.ratings.length ? -1 : 1
+    })
+
+    const mostRatingProducts = products.sort((a, b) => {
+        const f = a.ratings.reduce((acc, cur) => acc + cur.value, 0) / a.ratings.length
+        const s = b.ratings.reduce((acc, cur) => acc + cur.value, 0) / a.ratings.length
+
+        return f > s ? -1 : 1
+    }).slice(0,2)
+
+    const navigate = useNavigate();
+
     return (
         <>
             <MainLayout>
@@ -50,71 +70,25 @@ export default function MainPage() {
                             <div>{'Смотреть все'} &nbsp; {'>>'}</div>
                         </div>
                         <HorizontalSwipe>
-                            <div className="mr-[20px]">
-                                <Product
-                                    title={'Тест'}
-                                    authors={['Вава', 'ddd']}
-                                    rating={9.2}
-                                />
-                            </div>
-                            <div className="mr-[10px]">
-                                <Product
-                                    title={'Тест'}
-                                    authors={['Вава', 'ddd']}
-                                    rating={9.2}
-                                />
-                            </div>
-                            <div className="mr-[10px]">
-                                <Product
-                                    title={'Тест'}
-                                    authors={['Вава', 'ddd']}
-                                    rating={9.2}
-                                />
-                            </div>
-                            <div className="mr-[10px]">
-                                <Product
-                                    title={'Тест'}
-                                    authors={['Вава', 'ddd']}
-                                    rating={9.2}
-                                />
-                            </div>
-                            <div className="mr-[10px]">
-                                <Product
-                                    title={'Тест'}
-                                    authors={['Вава', 'ddd']}
-                                    rating={9.2}
-                                />
-                            </div>
-                            <div className="mr-[10px]">
-                                <Product
-                                    title={'Тест'}
-                                    authors={['Вава', 'ddd']}
-                                    rating={9.2}
-                                />
-                            </div>
-
-                            <div className="mr-[10px]">
-                                <Product
-                                    title={'Тест'}
-                                    authors={['Вава', 'ddd']}
-                                    rating={9.2}
-                                />
-                            </div>
-                            <div className="mr-[10px]">
-                                <Product
-                                    title={'Тест'}
-                                    authors={['Вава', 'ddd']}
-                                    rating={9.2}
-                                />
-                            </div>
-                            <div className="mr-[10px]">
-                                <Product
-                                    title={'Тест'}
-                                    authors={['Вава', 'ddd']}
-                                    rating={9.2}
-                                />
-                            </div>
-
+                            {
+                                popularProducts.map(i => {
+                                    const rating = i.ratings.reduce((acc, cur) => acc + cur.value, 0) / i.ratings.length
+                                    return (
+                                        <div
+                                            className="mr-[20px]" key={i.ID}
+                                            onClick={() => navigate(`/product/${i.ID}`)}
+                                        >
+                                            <Product
+                                                cover_photo={'/storage/product/cover_photos/' + i.cover_photo}
+                                                title={i.title}
+                                                authors={i.authors.map(j => `${j.surname} ${j.name} ${j.patronymic}`)}
+                                                rating={isNaN(rating) ? 0 : rating}
+                                            />
+                                        </div>
+                                    )
+                                    }
+                                )
+                            }
                         </HorizontalSwipe>
                     </Wrapper>
                 </section>
@@ -122,20 +96,53 @@ export default function MainPage() {
                 <section className="bg-[#EBD1AE] py-[50px]">
                     <Wrapper>
                         <div className="flex justify-between items-center">
-                            <Heading number={2} className={'text-[36px] font-mono font-bold'} text={'Вам понравится'}/>
+                        <Heading number={2} className={'text-[36px] font-mono font-bold'} text={'Вам понравится'}/>
                             <div>Больше &nbsp; {'>>'}</div>
                         </div>
-                        <div className="bg-white my-[20px] py-[20px]">
-                            <div>
+                        <div className="bg-white my-[20px] p-[40px] font-mono flex justify-between">
+                            {mostRatingProducts.map(i => {
 
-                            </div>
-                            <div>
+                               const rating = i.ratings.reduce((acc, cur) => acc + cur.value, 0) / i.ratings.length
 
-                            </div>
+                               return (
+                                   <div
+                                       className="flex"
+                                       onClick={() => navigate(`/product/${i.ID}`)}
+                                   >
+                                       <div className="w-[200px] h-[327px] bg-light-gray mr-[20px]">
+                                           <Image src={'/storage/product/cover_photos/' + i.cover_photo}/>
+                                       </div>
+                                       <div>
+                                           <div className="text-[20px]">{i.title}</div>
+                                           <div className="flex items-center">
+                                               <div className="w-[50px] h-[50px] mr-[10px]">
+                                                   <Rating/>
+                                               </div>
+                                               <span className="text-[24px]">
+                                                   {isNaN(rating) ? 0 : rating}
+                                               </span>
+                                           </div>
+                                           <div>{i.authors.map(j => `${j.surname} ${j.name} ${j.patronymic}`).join(', ')}</div>
+                                       </div>
+                                   </div>
+                               )
+                            })}
                         </div>
                     </Wrapper>
                 </section>
 
+                <footer>
+                    <div className="bg-light-gray">
+                        <Wrapper>
+                            <div className="flex justify-between items-center">
+                                <div>
+                                    <Logo/>
+                                </div>
+                                <div>2024</div>
+                            </div>
+                        </Wrapper>
+                    </div>
+                </footer>
             </MainLayout>
         </>
     )
