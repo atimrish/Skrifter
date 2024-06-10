@@ -37,24 +37,52 @@ export default function MainPage() {
                             <Image src={'./src/assets/images/76087be57431639675763d26656c70a0.svg'}/>
                         </div>
                         <Wrapper>
-                            <div className="w-[100%] h-[100%] flex items-center justify-between pt-[80px]">
+                            <div className="w-[100%] h-[100%] flex items-center justify-between pt-[80px] flex-wrap">
                                 <div>
-                                    <div className="font-mono text-[56px] mb-[20px]">Лучшие новинки<br/>года</div>
+                                    <div className="font-mono md:text-[56px] mb-[20px] text-[32px]">Лучшие новинки <br
+                                        className="hidden md:block"
+                                    />года</div>
                                     <div
-                                        className="w-[170px] h-[50px] bg-black text-white font-mono leading-[50px] text-center"
+                                        className="md:w-[170px] md:h-[50px]
+                                        bg-black text-white font-mono
+                                        md:leading-[50px] text-center
+                                        w-[120px] h-[30px]
+                                        leading-[30px]
+                                        "
                                     >Подробнее</div>
                                 </div>
-                                <div className="flex items-center">
-
-                                    <div className="w-[202px] bg-light-gray h-[263px] rounded-[10px] overflow-hidden shadow-2xl mx-[10px]">
+                                <div className="flex items-center justify-between md:justify-normal mt-[80px] md:mt-[0]">
+                                    <div
+                                        className="xl:w-[202px] bg-light-gray xl:h-[263px] rounded-[10px]
+                                        lg:w-[120px] lg:h-[156px] overflow-hidden shadow-2xl md:mx-[10px]
+                                        md:w-[120px] md:h-[156px]
+                                        w-[100px] h-[120px]
+                                        shrink-0
+                                        mx-0
+                                        "
+                                    >
                                         <Image src={'./src/assets/images/aaa.webp'}/>
                                     </div>
 
-                                    <div className="w-[245px] bg-light-gray h-[319px] rounded-[10px] overflow-hidden shadow-2xl mx-[10px]">
+                                    <div
+                                        className="xl:w-[245px] bg-light-gray xl:h-[319px] rounded-[10px]
+                                        lg:w-[171px] lg:h-[223px] overflow-hidden shadow-2xl mx-[10px]
+                                        md:w-[120px] md:h-[156px]
+                                        w-[100px] h-[120px]
+                                        shrink-0
+                                        ">
                                         <Image src={'./src/assets/images/first.jpg'}/>
                                     </div>
 
-                                    <div className="w-[202px] bg-light-gray h-[263px] rounded-[10px] overflow-hidden shadow-2xl mx-[10px]">
+                                    <div
+                                        className="xl:w-[202px] bg-light-gray xl:h-[263px] rounded-[10px]
+                                         lg:w-[120px] lg:h-[156px] overflow-hidden shadow-2xl md:mx-[10px]
+                                         md:w-[120px] md:h-[156px]
+                                         w-[100px] h-[120px]
+                                        shrink-0
+                                        mx-0
+                                         "
+                                    >
                                         <Image src={'./src/assets/images/sec.jpg'}/>
                                     </div>
 
@@ -66,8 +94,8 @@ export default function MainPage() {
                 <section className="my-[40px]">
                     <Wrapper>
                         <div className={"flex justify-between items-center my-[40px]"}>
-                            <Heading number={2} className={'font-mono text-[30px]'} text={'Популярное'}/>
-                            <div>{'Смотреть все'} &nbsp; {'>>'}</div>
+                            <Heading number={2} className={'font-mono md:text-[30px] text-[20px]'} text={'Популярное'}/>
+                            <div className="font-mono">{'Смотреть все'}&nbsp;{'>>'}</div>
                         </div>
                         <HorizontalSwipe>
                             {
@@ -96,24 +124,24 @@ export default function MainPage() {
                 <section className="bg-[#EBD1AE] py-[50px]">
                     <Wrapper>
                         <div className="flex justify-between items-center">
-                        <Heading number={2} className={'text-[36px] font-mono font-bold'} text={'Вам понравится'}/>
-                            <div>Больше &nbsp; {'>>'}</div>
+                        <Heading number={2} className={'md:text-[36px] text-[20px] font-mono font-bold'} text={'Вам понравится'}/>
+                            <div className="font-mono">Больше&nbsp;{'>>'}</div>
                         </div>
-                        <div className="bg-white my-[20px] p-[40px] font-mono flex justify-between">
+                        <div className="bg-white my-[20px] md:p-[40px] p-[10px] font-mono flex justify-between flex-wrap">
                             {mostRatingProducts.map(i => {
 
                                const rating = i.ratings.reduce((acc, cur) => acc + cur.value, 0) / i.ratings.length
 
                                return (
                                    <div
-                                       className="flex"
+                                       className="flex my-[10px]"
                                        onClick={() => navigate(`/product/${i.ID}`)}
                                    >
                                        <div className="w-[200px] h-[327px] bg-light-gray mr-[20px]">
                                            <Image src={'/storage/product/cover_photos/' + i.cover_photo}/>
                                        </div>
                                        <div>
-                                           <div className="text-[20px]">{i.title}</div>
+                                           <div className="md:text-[20px] text-[16px]">{i.title}</div>
                                            <div className="flex items-center">
                                                <div className="w-[50px] h-[50px] mr-[10px]">
                                                    <Rating/>
@@ -122,7 +150,7 @@ export default function MainPage() {
                                                    {isNaN(rating) ? 0 : rating}
                                                </span>
                                            </div>
-                                           <div>{i.authors.map(j => `${j.surname} ${j.name} ${j.patronymic}`).join(', ')}</div>
+                                           <div className="font-mono text-[14px]">{i.authors.map(j => `${j.surname} ${j.name} ${j.patronymic}`).join(', ')}</div>
                                        </div>
                                    </div>
                                )
@@ -134,7 +162,7 @@ export default function MainPage() {
                 <footer>
                     <div className="bg-light-gray">
                         <Wrapper>
-                            <div className="flex justify-between items-center">
+                            <div className="flex justify-between items-center my-[-10px] py-[10px]">
                                 <div>
                                     <Logo/>
                                 </div>

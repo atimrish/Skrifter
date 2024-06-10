@@ -6,7 +6,7 @@ const ActiveFileInput = (props: FileInputProps) => {
         <>
             <div>
                 <label htmlFor={props.id} className="flex items-center">
-                    <span>Прикрепите файл в формате PDF</span>
+                    <span>{props.label ?? ''}</span>
                     <FileInput
                         className={"hidden"}
                         onChange={props.onChange}

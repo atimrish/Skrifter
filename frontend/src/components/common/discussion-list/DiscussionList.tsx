@@ -7,18 +7,18 @@ const DiscussionList = (props: DiscussionListProps) => {
 
     const [discussions] = useDiscussionsByProductId(props.productId)
 
-    console.log(discussions)
-
     return (
         <>
             <div>
-                <Discussion
-                    title={'Какое-то длинное название обсуждения'}
-                    repliesCount={12}
-                    userName={'texte'}
-                    userPhoto={''}
-                    timeAgo={'5 дней назад'}
-                />
+                {discussions.map(i => (
+                    <Discussion
+                        title={i.text}
+                        repliesCount={12}
+                        userName={i.user.nickname}
+                        userPhoto={i.user.photo}
+                        timeAgo={'5 дней назад'}
+                    />
+                ))}
             </div>
 
             <div className="text-center font-mono mt-[40px] mb-[60px] text-[16px]">

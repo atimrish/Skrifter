@@ -1,8 +1,12 @@
-import {useState} from "react";
 
 const Tabs = (props: TabsProps) => {
 
-    const [selected, setSelected] = useState<string|null>(props.titles[0]);
+    // useEffect(() => {
+    //     console.log(props.titles)
+    //     props.titles?.forEach(i => {
+    //         i.selected = i.id === selected
+    //     })
+    // }, [selected]);
 
     return (
         <>
@@ -12,15 +16,17 @@ const Tabs = (props: TabsProps) => {
                     scrollbarWidth: 'none'
                 }}
             >
-                {props.titles.map((title, i) => (
+                {props.titles.map((i) => (
                     <div
-                        className="font-mono text-[14px] text-nowrap pb-[5px] px-[14px] text-center border-b-[3px] border-transparent "
-                        onClick={() => setSelected(title)}
-                        style={{
-                            borderBottomColor: (selected === title) ? 'black' : 'transparent'
+                        className="font-mono text-[14px] text-nowrap pb-[5px] px-[14px] text-center border-b-[3px] border-transparent transition-all ease-in "
+                        onClick={() => {
+                            props.setSelected(i.id)
                         }}
-                        key={i}
-                    >{title}</div>
+                        style={{
+                            borderBottomColor: i.selected ? 'black' : 'transparent'
+                        }}
+                        key={i.id}
+                    >{i.title}</div>
                 ))}
             </div>
         </>

@@ -2,10 +2,10 @@
 <dataSource name="@localhost">
   <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.52">
     <root id="1">
-      <ServerVersion>7.0.8</ServerVersion>
+      <ServerVersion>7.0.9</ServerVersion>
     </root>
     <schema id="2" parent="1" name="Skrifter">
-      <LastIntrospectionLocalTimestamp>2024-06-01.08:23:52</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-06-08.11:43:51</LastIntrospectionLocalTimestamp>
     </schema>
     <schema id="3" parent="1" name="admin"/>
     <schema id="4" parent="1" name="config"/>
@@ -15,13 +15,17 @@
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>
     </column>
-    <column id="8" parent="6" name="read_time">
+    <column id="8" parent="6" name="count_pages">
       <DasType>String|12s</DasType>
       <Position>2</Position>
     </column>
-    <column id="9" parent="6" name="source">
+    <column id="9" parent="6" name="read_time">
       <DasType>String|12s</DasType>
       <Position>3</Position>
+    </column>
+    <column id="10" parent="6" name="source">
+      <DasType>String|12s</DasType>
+      <Position>4</Position>
     </column>
   </database-model>
 </dataSource>

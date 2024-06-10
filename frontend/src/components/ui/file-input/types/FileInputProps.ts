@@ -4,4 +4,5 @@ type FileInputProps = {
     id: string;
     className?: string;
     accept?: string;
+    label?: string;
 }

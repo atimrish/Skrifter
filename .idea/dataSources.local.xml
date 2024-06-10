@@ -22,7 +22,7 @@
       </schema-mapping>
     </data-source>
     <data-source name="@localhost" uuid="35f6e114-3670-4c4b-abbc-ebf1ba9edb00">
-      <database-info product="Mongo DB" version="7.0.8" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.18" dbms="MONGO" exact-version="7.0.8" exact-driver-version="1.18" />
+      <database-info product="Mongo DB" version="7.0.9" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.18" dbms="MONGO" exact-version="7.0.9" exact-driver-version="1.18" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>

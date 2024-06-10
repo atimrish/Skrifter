@@ -16,6 +16,7 @@ import ActiveModal from "@components/ui/modal/ActiveModal.tsx";
 import {useNavigate} from "react-router-dom";
 import RatingModal from "@components/common/rating-modal/RatingModal.tsx";
 import InfoModal from "@components/common/info-modal/InfoModal.tsx";
+import FavoriteModal from "@components/common/favorite-modal/FavoriteModal.tsx";
 
 const ProductPage = () => {
 
@@ -64,15 +65,17 @@ const ProductPage = () => {
                             onClick={() => {
                                 navigate(`/product/${id}/read`)
                             }}
-                            className={" bg-light-gray "}
+                            className={" bg-light-gray  hover:bg-black hover:text-white transition-all duration-300 "}
                         >Читать</UiButton>
                     </div>
 
                     <div className="my-[20px]">
                         <div className="flex justify-between items-center ">
-                            <UiButton className={" w-[47%] bg-light-gray "}>Главы</UiButton>
+                            <UiButton className={
+                                " w-[47%] bg-light-gray  hover:bg-black hover:text-white transition-all duration-300 "
+                            }>Главы</UiButton>
                             <UiButton
-                                className={" w-[47%] bg-light-gray "}
+                                className={" w-[47%] bg-light-gray hover:bg-black hover:text-white transition-all duration-300 "}
                                 onClick={() => setInfoModal(true)}
                             >Инфо</UiButton>
                         </div>
@@ -163,12 +166,11 @@ const ProductPage = () => {
                     product_id={product.ID}
                 />
 
-                <ActiveModal
+                <FavoriteModal
                     setIsOpen={setFavoriteModal}
                     isOpen={favoriteModal}
-                >
-                    <div>модальное окно добавления в избранное</div>
-                </ActiveModal>
+                    product_id={product.ID}
+                />
 
                 <InfoModal
                     setIsOpen={setInfoModal}

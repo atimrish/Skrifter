@@ -1,53 +1,68 @@
 import ReadLayout from "@components/layouts/read-layout/ReadLayout.tsx";
-import Wrapper from "@components/helpers/wrapper/Wrapper.tsx";
 import useProduct from "../../../hooks/useProduct.ts";
 import {useParams} from "react-router";
 import {useNavigate, useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import parse from 'html-react-parser';
 import './style/read.css';
+import Image from "@components/ui/image/Image.tsx";
 
 const ReadPage = () => {
     const {id} = useParams();
     const [product] = useProduct(+id)
     const [searchParams, setSearchParams] = useSearchParams({p: '1'});
-    const [content, setContent] = useState<string | Element | Element[] | null>(null);
+    const [content, setContent] = useState<string | null>(null);
     const [page, setPage] = useState(+searchParams.get('p'));
     const navigate = useNavigate();
 
     const getPage = async () => {
         if (product) {
+
+            const digits = product.ext.count_pages.length
+
+            const formatPage = (() => {
+                const diff = digits - page.toString().length
+                let res = ''
+                for (let i = 0; i < diff; i++) {
+                    res += '0'
+                }
+                res += page.toString()
+                return res
+            })()
+
             const dir = product.ext.source.split("/")[2]
-            const res = await fetch(`/storage/book-page?dir=${dir}&p=${page}`)
-            const text = await res.text();
-            const parsed = parse(text);
-
-            if (Array.isArray(parsed)) {
-                parsed.forEach(i => {
-                    console.log(i)
-
-                    if (i.type === "img") {
-                        console.log(i.prototype)
-                    }
-
-                })
-            }
-
-            setContent(parsed)
+            const path = `/storage/product/source/${dir}/pages/p-${formatPage}.jpg`
+            setContent(path)
         }
     }
 
+
     useEffect(() => {
-        (async () => {await getPage()})()
+        (async () => {
+            await getPage()
+        })()
+    }, []);
 
+    useEffect(() => {
         if (product) {
-            const dir = product.ext.source.split("/")[2]
-            const content = document.querySelector('#content')
-
-            content.querySelectorAll('img').forEach(i => {
-                i.setAttribute('src', `/storage/product/source/${dir}/pages/${i.getAttribute('src')}`);
-            })
+            (async () => {
+                const dir = product.ext.source.split("/")[2]
+                const path = `/storage/product/source/${dir}/pages/`
+                const res = await fetch('/storage/get-pages-count', {
+                    method: "POST",
+                    headers: {
+                        contentType: "application/json"
+                    },
+                    body: JSON.stringify({path: path})
+                })
+                console.log(await res.text())
+            })()
         }
+    }, []);
+
+    useEffect(() => {
+        (async () => {
+            await getPage()
+        })()
     }, [page]);
 
     const body = document.body
@@ -55,15 +70,19 @@ const ReadPage = () => {
     body.onclick = (e) => {
         const middle = body.clientWidth / 2
 
-        if (e.clientX >  middle) {
-            console.log('right')
-            setPage(page + 1)
-        } else {
-            console.log('left')
-            if (page <= 1) {
-                return
+        if (product) {
+            if (e.clientX > middle) {
+                console.log('right')
+                if (page < product.ext.count_pages) {
+                    setPage(page + 1)
+                }
+            } else {
+                console.log('left')
+                if (page <= 1) {
+                    return
+                }
+                setPage(page - 1)
             }
-            setPage(page - 1)
         }
 
     }
@@ -74,15 +93,16 @@ const ReadPage = () => {
                 title={product?.title}
                 currentPage={page}
                 backAction={() => navigate(`/product/${id}`)}
+                countPages={product?.ext.count_pages}
             >
-                <Wrapper>
-                    <div
-                        className="mx-auto"
-                        id="content"
-                    >
-                        {content}
-                    </div>
-                </Wrapper>
+                <div
+                    className="w-[100%] min-h-[100%] xl:w-[60%] mx-auto"
+                    id="content"
+                >
+                    <Image
+                        src={content}
+                    />
+                </div>
             </ReadLayout>
         </>
     )

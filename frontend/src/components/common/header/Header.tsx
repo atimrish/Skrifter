@@ -51,13 +51,13 @@ export default function Header() {
                                 }}
                             >
                                 <UiButton
-                                    className={" w-[96px] mr-[20px] "}
+                                    className={" w-[96px] mr-[20px] bg-light-gray "}
                                     onClick={() => navigate('/admin')}
                                 >админ</UiButton>
                             </div>
 
                             <UiButton
-                                className={" w-[96px] bg-[#EAEAEA] transition-all duration-300 hover:bg-black hover:text-white ease-out "}
+                                className={" w-[96px] bg-[#EAEAEA] bg-light-gray transition-all duration-300 hover:bg-black hover:text-white ease-out "}
                             >войти</UiButton>
                         </div>
                     </div>

@@ -16,7 +16,7 @@ const SwipeMenu = (props: SwipeMenuProps) => {
     return (
         <>
             <div
-                className="transition-all ease-in duration-100 w-[100vw] h-[100cqh] bg-white z-40 fixed top-0 rounded-tr-[30px]"
+                className="transition-all ease-in duration-100 w-[100vw] h-[100svh] bg-white z-40 fixed top-0 rounded-tr-[30px]"
                 style={props.styles}
             >
                 <div className="border-b">

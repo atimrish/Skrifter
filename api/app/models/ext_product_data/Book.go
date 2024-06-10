@@ -13,9 +13,10 @@ var conf = config.InitConfig()
 const tableName = "book_ext"
 
 type Book struct {
-	ID       primitive.ObjectID `json:"id,omitempty" bson:"_id,omitempty"`
-	ReadTime string             `json:"read_time,omitempty" bson:"read_time"`
-	Source   string             `json:"source,omitempty" bson:"source"`
+	ID         primitive.ObjectID `json:"id,omitempty" bson:"_id,omitempty"`
+	ReadTime   string             `json:"read_time,omitempty" bson:"read_time"`
+	Source     string             `json:"source,omitempty" bson:"source"`
+	CountPages string             `json:"count_pages,omitempty" bson:"count_pages"`
 }
 
 func (b *Book) AddBookExt() {
@@ -26,7 +27,7 @@ func (b *Book) AddBookExt() {
 	b.ID = res.InsertedID.(primitive.ObjectID)
 }
 
-func (b *Book) Get(objId string)  {
+func (b *Book) Get(objId string) {
 	client, context := actions.MongoConnection()
 
 	log.Println("obj_id: " + objId)

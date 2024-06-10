@@ -3,8 +3,6 @@ const app = express()
 const fileUpload = require('express-fileupload');
 const {unlink, mkdir} = require("node:fs");
 const {exec} = require("node:child_process")
-const {parse} = require("node-html-parser");
-const fs = require("node:fs");
 const port = 8000
 
 const addFileHandler = (req, res) => {
@@ -52,7 +50,7 @@ const addBookSource = (req, res) => {
     })
     mkdir(sourcePath + "/pages", () => {})
 
-    const command = `pdftohtml -c ${__dirname + store_path} ${sourcePath}/pages/p.html`
+    const command = `pdftoppm -jpeg ${__dirname + store_path} ${sourcePath}/pages/p`
 
     exec(command, (error, stdout, stderr) => {
         if (error) {
@@ -65,19 +63,15 @@ const addBookSource = (req, res) => {
     res.send('File uploaded!');
 }
 
-const getBookPage = (req, res) => {
-    ///TODO: реализовать получение страницы
-    const dir = req.query.dir
-    const page = req.query.p
+const getPagesCount = (req, res) => {
+    const parsedPath = req.body.path
 
-
-    const path = `/srv/files/product/source/${dir}/pages/p-${page}.html`;
-
-    const file = fs.readFileSync(path)
-    const html = parse(file.toString())
-    const pageSend = html.querySelector(`#page${page}-div`)
-
-    res.send(pageSend.innerHTML)
+    exec(`ls -1 ${parsedPath} | ws -l`, (error, stdout, stderr) => {
+        console.log(error)
+        console.log(stdout)
+        console.log(stderr)
+        res.send(stdout)
+    })
 }
 
 app.use(fileUpload())
@@ -92,8 +86,8 @@ app.delete("/delete-file", deleteFileHandler)
 //запрос на добавление книги
 app.post("/add-book", addBookSource)
 
-//запрос на получение страницы книги
-app.get("/book-page", getBookPage)
+//запрос на кол-во страниц
+app.post("/get-pages-count", getPagesCount)
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)

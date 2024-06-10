@@ -1,7 +1,7 @@
 import MainLayout from "@components/layouts/MainLayout.tsx";
 import Wrapper from "@components/helpers/wrapper/Wrapper.tsx";
 import Heading from "@components/ui/heading/Heading.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Form from "@components/ui/form/Form.tsx";
 import ActiveTextInput from "@components/ui/text-input/ActiveTextInput.tsx";
 import ActiveNumberInput from "@components/ui/number-Input/ActiveNumberInput.tsx";
@@ -82,6 +82,29 @@ const AdminPage = () => {
 
     const [extParams, setExtParams] = useState<any>(null)
 
+    useEffect(() => {
+        switch (selectedProductType.value) {
+            case 1:
+                setExtParams(<BookParams formState={formState} setFormState={setFormState}/>)
+                break
+            case 2:
+                setExtParams(<ComicsParams/>)
+                break
+            case 3:
+                setExtParams(<MangaParams/>)
+                break
+            case 4:
+                setExtParams(<AudiobookParams formState={formState} setFormState={setFormState}/>)
+                break
+            case 5:
+                setExtParams(<PodcastParams/>)
+                break
+            default:
+                setExtParams('доп параметры не выбраны')
+                break
+        }
+    }, [formState, selectedProductType]);
+
     return (
         <>
             <MainLayout>
@@ -95,7 +118,6 @@ const AdminPage = () => {
                         <ImageInput
                             className={"w-[326px] h-[424px] bg-gray rounded-[10px] border-gray overflow-hidden relative mr-[20px] mb-[20px] shrink-0 "}
                             setValue={(file) => {
-                                console.log('sad')
                                 setFormState({
                                     ...formState,
                                     cover_photo: file,
@@ -190,29 +212,6 @@ const AdminPage = () => {
                                     <ActiveSelect
                                         selected={selectedProductType}
                                         setSelected={setSelectedProductType}
-                                        onChange={() => {
-                                            console.log(selectedProductType.value)
-                                            switch (selectedProductType.value) {
-                                                case 1:
-                                                    setExtParams(<BookParams formState={formState} setFormState={setFormState} />)
-                                                    break
-                                                case 2:
-                                                    setExtParams(<ComicsParams/>)
-                                                    break
-                                                case 3:
-                                                    setExtParams(<MangaParams/>)
-                                                    break
-                                                case 4:
-                                                    setExtParams(<AudiobookParams/>)
-                                                    break
-                                                case 5:
-                                                    setExtParams(<PodcastParams/>)
-                                                    break
-                                                default:
-                                                    setExtParams('доп параметры не выбраны')
-                                                    break
-                                            }
-                                        }}
                                     >
                                         {productTypes.map((item) => (
                                             <Option value={item.ID} key={item.ID}>{item.Name}</Option>

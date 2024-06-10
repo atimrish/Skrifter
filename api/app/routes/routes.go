@@ -6,7 +6,9 @@ import (
 	"api/app/controllers/AuthorController"
 	"api/app/controllers/CommentController"
 	"api/app/controllers/DiscussionController"
+	"api/app/controllers/FavoriteController"
 	"api/app/controllers/FavoriteStatusesController"
+	"api/app/controllers/FeedbackController"
 	"api/app/controllers/GenreController"
 	"api/app/controllers/ProductController"
 	"api/app/controllers/ProductTypeController"
@@ -30,6 +32,7 @@ func initRoutes(r *chi.Mux) {
 	r.Get("/roles", Role.GetRoles)
 	r.Post("/roles", Role.AddRole)
 
+	r.Post("/feedback", FeedbackController.Add)
 
 	r.Group(func(r chi.Router) {
 		r.Use(middleware.Authorised)
@@ -48,6 +51,10 @@ func initRoutes(r *chi.Mux) {
 
 		///TODO: рейтинг
 		r.Post("/product/{id}/rating", RatingController.AddRating)
+
+		///TODO: избранные
+		r.Post("/product/{id}/favorite", FavoriteController.AddToFavorite)
+		r.Get("/favorite", FavoriteController.GetByToken)
 	})
 
 	r.Post("/login", Auth.Login)
@@ -77,7 +84,7 @@ func initRoutes(r *chi.Mux) {
 		r.Post("/product", ProductController.AddProduct)
 
 		r.Post("/author", AuthorController.AddAuthor)
-
+		r.Get("/feedback", FeedbackController.Add)
 	})
 
 	r.Get("/author", AuthorController.GetAll)

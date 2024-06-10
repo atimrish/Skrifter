@@ -18,11 +18,7 @@ func UpdatePhoto(w http.ResponseWriter, r *http.Request) {
 	actions.IfLogFatal(err)
 
 	db := actions.GetDb()
-
-	defer func(db *gorm.DB) {
-		sqlDb, _ := db.DB()
-		sqlDb.Close()
-	}(db)
+	defer actions.CloseDb(db)
 
 	cookie, err := r.Cookie("access_token")
 	actions.IfLogFatal(err)

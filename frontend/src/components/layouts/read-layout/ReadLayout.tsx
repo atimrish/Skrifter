@@ -22,15 +22,15 @@ const ReadLayout = (props: ReadLayoutProps) => {
 
             <div
                 style={{
-                    minHeight: "calc(100vh - 64px - 104px - 10px)",
+                    minHeight: "calc(100dvh - 104px - 5px)",
                 }}
             >
                 {Children.map(props.children, (child: ReactNode) => child)}
             </div>
 
-            <div className="h-[104px] w-[100%] bg-light-gray bottom-0 left-0">
+            <div className=" w-[100%] bg-light-gray bottom-0 left-0">
                 <div className="text-center py-[10px]">{props.currentPage ?? 7}/{props.countPages ?? 100}</div>
-                <div className="flex items-center justify-between px-[10px] py-[5px]">
+                <div className="flex items-center justify-between px-[10px] py-[5px] hidden">
                     <div className="w-[40px] h-[40px]">
                         <List/>
                     </div>
