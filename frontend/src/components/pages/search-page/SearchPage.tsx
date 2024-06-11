@@ -20,10 +20,6 @@ const SearchPage = () => {
                     <div className="my-[20px]">
                         <ActiveSearchInput/>
                     </div>
-                    <div className="text-[20px] font-mono flex items-center justify-between p-[10px] font-bold bg-light-gray rounded-[10px]">
-                        <span>Фильтры</span>
-                        <span>...</span>
-                    </div>
                     <div>
                         <Heading
                             text={'Результаты поиска'}

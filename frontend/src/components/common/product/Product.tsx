@@ -5,7 +5,7 @@ import Rating from "@components/icons/rating/Rating.tsx";
 const Product = (props: ProductProps) => {
     return (
         <>
-            <div className="flex font-mono shadow">
+            <div className="flex font-mono">
                 <div className="w-[120px] h-[156px] bg-light-gray rounded-[10px] mr-[15px] overflow-hidden shrink-0">
                     <Image src={props.cover_photo ?? ''}/>
                 </div>
