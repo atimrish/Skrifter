@@ -59,7 +59,7 @@ const SecondRegisterStage = (props : RegisterStageProps) => {
             </div>
 
             <ActiveModal setIsOpen={setPolicy} isOpen={policy}>
-                <div className="h-[70vw] overflow-y-scroll">
+                <div className="h-[70vh] overflow-y-scroll">
                     <Heading
                         number={3}
                         className={' font-mono text-center my-[20px] font-bold '}
