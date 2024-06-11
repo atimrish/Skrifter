@@ -9,5 +9,5 @@ type Discussion struct {
 	Text      string `json:"text"`
 
 	User    User            `json:"user"`
-	Replies DiscussionReply `json:"replies,omitempty"`
+	Replies DiscussionReply `json:"replies"`
 }

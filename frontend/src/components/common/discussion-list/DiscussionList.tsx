@@ -13,7 +13,7 @@ const DiscussionList = (props: DiscussionListProps) => {
                 {discussions.map(i => (
                     <Discussion
                         title={i.text}
-                        repliesCount={12}
+                        repliesCount={i.replies.length}
                         userName={i.user.nickname}
                         userPhoto={'/storage/user/' + i.user.photo}
                         timeAgo={'5 дней назад'}
