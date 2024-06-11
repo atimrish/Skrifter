@@ -72,7 +72,7 @@ const SecondRegisterStage = (props : RegisterStageProps) => {
                         text={'1. Обрабатываемые данные'}
                     />
 
-                    <div className="font-mono text-black">
+                    <div className="font-mono text-black text-nowrap whitespace-nowrap break-words">
                         <p className="my-[10px]">
                             1.1. Мы не осуществляем сбор ваших персональных данных с использованием Сайта.
                         </p>

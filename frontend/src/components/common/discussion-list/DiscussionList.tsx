@@ -15,7 +15,7 @@ const DiscussionList = (props: DiscussionListProps) => {
                         title={i.text}
                         repliesCount={12}
                         userName={i.user.nickname}
-                        userPhoto={i.user.photo}
+                        userPhoto={'/storage/user/' + i.user.photo}
                         timeAgo={'5 дней назад'}
                     />
                 ))}
