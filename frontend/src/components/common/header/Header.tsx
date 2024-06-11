@@ -7,6 +7,7 @@ import {useState} from "react";
 import ActiveSearchInput from "@components/ui/search-input/ActiveSearchInput.tsx";
 import UiButton from "@components/ui/button/UiButton.tsx";
 import useIsAdmin from "../../../hooks/useIsAdmin.ts";
+import search from "@components/icons/search/Search.tsx";
 
 export default function Header() {
 
@@ -22,6 +23,8 @@ export default function Header() {
             left: '-100vw',
         })
     }
+
+    const [searchValue, setSearchValue] = useState('')
 
     return (
         <>
@@ -42,7 +45,11 @@ export default function Header() {
                             </div>
                         </div>
                         <div className="hidden xl:block">
-                            <ActiveSearchInput/>
+                            <ActiveSearchInput
+                                onSearch={() => navigate(`/search?q=${searchValue}`)}
+                                value={searchValue}
+                                onChange={(e) => setSearchValue(e.target.value)}
+                            />
                         </div>
                         <div className="hidden xl:flex">
                             <div
@@ -57,7 +64,8 @@ export default function Header() {
                             </div>
 
                             <UiButton
-                                className={" w-[96px] bg-[#EAEAEA] bg-light-gray transition-all duration-300 hover:bg-black hover:text-white ease-out "}
+                                className={" w-[96px] bg-[#EAEAEA] bg-light-gray transition-all duration-300 " +
+                                    "hover:bg-black hover:text-white ease-out "}
                             >войти</UiButton>
                         </div>
                     </div>

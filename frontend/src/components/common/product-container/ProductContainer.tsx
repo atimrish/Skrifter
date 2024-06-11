@@ -1,8 +1,10 @@
 import Product from "@components/common/product/Product.tsx";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useSearchParams} from "react-router-dom";
 
 const ProductContainer = ({p}: {p: Array<ProductProps> }) => {
     const navigate = useNavigate();
+
+    const [searchParams, setSearchParams] = useSearchParams({});
 
     return (
         <>

@@ -12,7 +12,6 @@ import DiscussionList from "@components/common/discussion-list/DiscussionList.ts
 import {useParams} from "react-router";
 import useProduct from "../../../hooks/useProduct.ts";
 import {useState} from "react";
-import ActiveModal from "@components/ui/modal/ActiveModal.tsx";
 import {useNavigate} from "react-router-dom";
 import RatingModal from "@components/common/rating-modal/RatingModal.tsx";
 import InfoModal from "@components/common/info-modal/InfoModal.tsx";
@@ -32,7 +31,6 @@ const ProductPage = () => {
         return 404;
     }
 
-
     const rating = {
         count: product.ratings.length,
         value: product.ratings.reduce((acc, cur) => acc + cur.value, 0) / product.ratings.length,
@@ -41,6 +39,8 @@ const ProductPage = () => {
     const download = () => {
         window.open('/storage/' + product.ext.source, "_blank");
     }
+
+    const readable = [1,2,3].includes(product.product_type_id)
 
     return (
         <>
@@ -61,23 +61,52 @@ const ProductPage = () => {
                     </div>
 
                     <div className="my-[20px]">
-                        <UiButton
-                            onClick={() => {
-                                navigate(`/product/${id}/read`)
-                            }}
-                            className={" bg-light-gray  hover:bg-black hover:text-white transition-all duration-300 "}
-                        >Читать</UiButton>
+                        {
+                            readable ?
+                                (
+                                    <UiButton
+                                        onClick={() => {
+                                            navigate(`/product/${id}/read`)
+                                        }}
+                                        className={" bg-light-gray  hover:bg-black hover:text-white transition-all duration-300 "}
+                                    >Читать</UiButton>
+                                ) :
+                                (
+                                    <UiButton
+                                        onClick={() => {
+                                            navigate(`/product/${id}/read`)
+                                        }}
+                                        className={" bg-light-gray  hover:bg-black hover:text-white transition-all duration-300 "}
+                                    >Слушать</UiButton>
+                                )
+                        }
                     </div>
 
                     <div className="my-[20px]">
                         <div className="flex justify-between items-center ">
-                            <UiButton className={
-                                " w-[47%] bg-light-gray  hover:bg-black hover:text-white transition-all duration-300 "
-                            }>Главы</UiButton>
-                            <UiButton
-                                className={" w-[47%] bg-light-gray hover:bg-black hover:text-white transition-all duration-300 "}
-                                onClick={() => setInfoModal(true)}
-                            >Инфо</UiButton>
+                            {
+                                readable && (
+                                    <div
+                                        style={{
+                                            width: readable ? "47%" : "100%"
+                                        }}
+                                    >
+                                        <UiButton className={
+                                            " w-[100%] bg-light-gray  hover:bg-black hover:text-white transition-all duration-300 "
+                                        }>Главы</UiButton>
+                                    </div>
+                                )
+                            }
+                            <div
+                                style={{
+                                    width: readable ? "47%" : "100%",
+                                }}
+                            >
+                                <UiButton
+                                    className={" w-[100%] bg-light-gray hover:bg-black hover:text-white transition-all duration-300 "}
+                                    onClick={() => setInfoModal(true)}
+                                >Инфо</UiButton>
+                            </div>
                         </div>
                     </div>
 
@@ -136,7 +165,7 @@ const ProductPage = () => {
                         text={"Рейтинг"}
                     />
                     <RatingBlock
-                        value={rating.value}
+                        value={isNaN(rating.value) ? 0 : rating.value}
                         count={rating.count}
                     />
                     <Heading

@@ -23,7 +23,6 @@ const Product = (props: ProductProps) => {
                             </div>
                         </div>
                     </div>
-                    <UiButton className={' w-[181px] bg-yellow text-black !text-[14px] py-[5px] '}>В избранное</UiButton>
                 </div>
             </div>
         </>

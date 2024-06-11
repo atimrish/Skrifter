@@ -85,7 +85,8 @@ func AddProduct(w http.ResponseWriter, r *http.Request) {
 	case MANGA:
 
 	case AUDIO:
-
+		product.MongoId = storeAudio(r)
+		break
 	case PODCAST:
 
 	}
@@ -171,6 +172,9 @@ func GetById(w http.ResponseWriter, r *http.Request) {
 	case MANGA:
 		break
 	case AUDIO:
+		var audioExt ext_product_data.Audio
+		audioExt.Get(product.MongoId)
+		product.Ext = audioExt
 		break
 	case PODCAST:
 		break
@@ -211,4 +215,21 @@ func storeBook(r *http.Request) string {
 	bookExt.AddBookExt()
 
 	return bookExt.ID.Hex()
+}
+
+func storeAudio(r *http.Request) string {
+	file, header, err := r.FormFile("audio_file")
+	actions.IfLogFatal(err)
+
+	nowString := strconv.FormatInt(time.Now().Unix(), 10)
+
+	filename := "source" + filepath.Ext(header.Filename)
+	path := "product/source/" + nowString + "/" + filename
+	actions.AddToStorage(file, path, filename, "add-audio")
+
+	var audioExt ext_product_data.Audio
+	audioExt.Source = path
+	audioExt.AddAudioExt()
+
+	return audioExt.ID.Hex()
 }

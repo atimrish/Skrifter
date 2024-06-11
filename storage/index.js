@@ -74,6 +74,21 @@ const getPagesCount = (req, res) => {
     })
 }
 
+const addAudio = (req, res) => {
+    const parsedPath = req.body.path.split('/')
+    const sourcePath = __dirname + "/files/" + parsedPath.slice(0, 3).join('/')
+    mkdir(sourcePath, () => {})
+
+    const file = req.files.file
+    const store_path = `/files/${req.body.path}`
+
+    file.mv(__dirname + store_path, function(err) {
+        if (err)
+            return res.status(500).send(err);
+    })
+    res.send('ok')
+}
+
 app.use(fileUpload())
 app.use(express.static('files'))
 app.use(express.urlencoded({limit:'100mb'}))
@@ -85,6 +100,9 @@ app.delete("/delete-file", deleteFileHandler)
 
 //запрос на добавление книги
 app.post("/add-book", addBookSource)
+
+//запрос на добавление аудиокниги
+app.post("/add-audio", addAudio)
 
 //запрос на кол-во страниц
 app.post("/get-pages-count", getPagesCount)

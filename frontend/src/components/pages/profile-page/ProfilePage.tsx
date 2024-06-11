@@ -47,6 +47,7 @@ const ProfilePage = () => {
                     </div>
 
                     <UiButton
+                        className={" bg-light-gray hover:text-white hover:bg-black transition-all duration-300 "}
                         onClick={logOut}
                     >Выйти</UiButton>
 

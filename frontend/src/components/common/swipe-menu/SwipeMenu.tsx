@@ -74,7 +74,7 @@ const SwipeMenu = (props: SwipeMenuProps) => {
                             </div>
 
                             <div className="my-[15px]">
-                                <Link to={'/search?type=aubio'} className="text-[24px] font-mono font-bold">Аудиокниги</Link>
+                                <Link to={'/search?type=audio'} className="text-[24px] font-mono font-bold">Аудиокниги</Link>
                             </div>
 
                             <div className="my-[15px]">
