@@ -45,7 +45,7 @@ const SecondRegisterStage = (props : RegisterStageProps) => {
 
             <FormButton
                 type={"submit"}
-                className="mt-10 bg-gray"
+                className="mt-10 bg-light-gray"
             >{'Зарегистрироваться'}</FormButton>
 
             <div className="mt-[20px] cursor-pointer">

@@ -132,7 +132,7 @@ const FirstRegisterStage = (props : RegisterStageProps) => {
 
             <FormButton
                 type={"button"}
-                className="mt-10 bg-gray"
+                className="mt-10 bg-light-gray"
                 onClick={firstStageHandler}
             >{'Далее >>'}</FormButton>
         </>

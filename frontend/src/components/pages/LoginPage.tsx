@@ -115,7 +115,7 @@ export default function LoginPage() {
 
                                 <FormButton
                                     type="submit"
-                                    className="mt-10 bg-gray"
+                                    className="mt-10 bg-light-gray"
                                 >Войти</FormButton>
 
                                 <div
