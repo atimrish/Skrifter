@@ -32,7 +32,7 @@ const Notify = (props: NotifyProps) => {
                 >
                     <div className="flex">
                         <div
-                            className="w-[28px] h-[28px] bg-[#E9E9E9] rounded-[10px] mr-[5px] text-[12px] overflow-hidden ">
+                            className="w-[28px] h-[28px] bg-[#E9E9E9] rounded-[10px] mr-[5px] text-[12px] overflow-hidden shrink-0 ">
                             {props.icon}
                         </div>
                         <div>
@@ -41,6 +41,7 @@ const Notify = (props: NotifyProps) => {
                         </div>
                     </div>
                     <div
+                        className="shrink-0"
                         onClick={props.onClose}
                     >
                         <CloseNotify/>

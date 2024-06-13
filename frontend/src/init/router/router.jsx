@@ -3,7 +3,7 @@ import {
 } from "react-router-dom";
 
 import MainPage from "@pages/main-page/MainPage.tsx";
-import LoginPage from "@pages/LoginPage.tsx";
+import LoginPage from "@pages/login-page/LoginPage.tsx";
 import RegisterPage from "@pages/register-page/RegisterPage.tsx";
 import ProfilePage from "@pages/profile-page/ProfilePage.tsx";
 import ProfileEditPage from "@pages/profile-edit-page/ProfileEditPage.tsx";
@@ -17,6 +17,7 @@ import FeedbackPage from "@pages/feedback-page/FeedbackPage.tsx";
 import FavoritePage from "@pages/favorite-page/FavoritePage.tsx";
 import ReadPage from "@pages/read-page/ReadPage.tsx";
 import AuthorPage from "@pages/author-page/AuthorPage.tsx";
+import CreateGenre from "@pages/admin-page/CreateGenre.tsx";
 
 const router = createBrowserRouter([
     {
@@ -76,8 +77,12 @@ const router = createBrowserRouter([
         element: <ReadPage/>,
     },
     {
-        path: "/author",
+        path: "/author/:id",
         element: <AuthorPage/>,
+    },
+    {
+        path: "/admin/genre",
+        element: <CreateGenre/>,
     }
 ])
 

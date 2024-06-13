@@ -22,6 +22,7 @@ import ComicsParams from "@pages/admin-page/additional-params/comics-params/Comi
 import MangaParams from "@pages/admin-page/additional-params/manga-params/MangaParams.tsx";
 import AudiobookParams from "@pages/admin-page/additional-params/audiobook-params/AudiobookParams.tsx";
 import PodcastParams from "@pages/admin-page/additional-params/podcast-params/PodcastParams.tsx";
+import AdminLinks from "@pages/admin-page/helper/AdminLinks.tsx";
 
 const AdminPage = () => {
     const [ageRating] = useAgeRating()
@@ -109,6 +110,7 @@ const AdminPage = () => {
         <>
             <MainLayout>
                 <Wrapper>
+                    <AdminLinks/>
                     <Heading
                         number={2}
                         className={" text-[24px] font-mono my-[40px]"}
@@ -188,7 +190,6 @@ const AdminPage = () => {
                                     </div>
                                 </div>
 
-
                                 <div className="xl:ml-[20px] w-[328px]">
                                     <Heading
                                         number={3}
@@ -218,7 +219,6 @@ const AdminPage = () => {
                                         ))}
                                     </ActiveSelect>
                                 </div>
-
 
                                 <div>
                                     <Heading

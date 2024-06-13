@@ -4,6 +4,7 @@ import (
 	"api/app/actions"
 	"api/app/models"
 	"encoding/json"
+	"github.com/go-chi/chi/v5"
 	"gorm.io/gorm"
 	"net/http"
 	"path/filepath"
@@ -61,16 +62,27 @@ func GetAll(w http.ResponseWriter, r *http.Request)  {
 	var authors []models.Author
 
 	db := actions.GetDb()
-
-	defer func(db *gorm.DB) {
-		sqlDb, _ := db.DB()
-		sqlDb.Close()
-	}(db)
+	defer actions.CloseDb(db)
 
 	db.Find(&authors)
 
+	w.Header().Set("Content-Type", "application/json")
 	err := json.NewEncoder(w).Encode(authors)
 	actions.IfLogFatal(err)
-	w.Header().Set("Content-Type", "application/json")
 	return
+}
+
+func GetById(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	var author models.Author
+	db := actions.GetDb()
+	defer actions.CloseDb(db)
+
+	db.Model(&models.Author{}).
+		Preload("Products").
+		Find(&author, "id = ?", id)
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(author)
 }

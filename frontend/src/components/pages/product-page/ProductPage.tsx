@@ -57,7 +57,15 @@ const ProductPage = () => {
                     <div
                         className="font-mono text-center text-[16px] text-dark-gray my-[10px] text-ellipsis overflow-x-hidden"
                     >
-                        {product.authors.map(i => `${i.surname} ${i.name} ${i.patronymic}`).join(', ')}
+                        {product.authors.map(i => (
+                            <span
+                                onClick={() => navigate(`/author/${i.ID}`)}
+                                className="cursor-pointer"
+                            >
+                                {i.surname} {i.name} {i.patronymic}
+                            </span>
+                            )
+                        )}
                     </div>
 
                     <div className="my-[20px]">

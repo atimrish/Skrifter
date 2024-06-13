@@ -1,8 +1,12 @@
 import Reply from "@components/icons/reply/Reply.tsx";
 import Image from "@components/ui/image/Image.tsx";
 import ActiveLink from "@components/ui/link/ActiveLink.tsx";
+import useIsAdmin from "../../../hooks/useIsAdmin.ts";
 
 const Discussion = (props: DiscussionProps) => {
+
+    const [isAdmin] = useIsAdmin()
+
     return (
         <>
             <div>
@@ -27,6 +31,7 @@ const Discussion = (props: DiscussionProps) => {
 
                 <div className="flex justify-end">
                     <ActiveLink className={"font-mono"}>{'перейти >>'}</ActiveLink>
+                    {isAdmin && <div className="ml-[20px] text-red font-mono">удалить</div>}
                 </div>
 
             </div>

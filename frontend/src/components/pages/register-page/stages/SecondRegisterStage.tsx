@@ -10,6 +10,13 @@ const SecondRegisterStage = (props : RegisterStageProps) => {
 
     const [policy, setPolicy] = useState(false)
 
+    const [error, setError] = useState<
+        {
+            title: '',
+            description: ''
+        } | null
+    >(null)
+
     return (
         <>
             <ActiveTextInput
@@ -45,7 +52,7 @@ const SecondRegisterStage = (props : RegisterStageProps) => {
 
             <FormButton
                 type={"submit"}
-                className="mt-10 bg-light-gray"
+                className="mt-10 bg-light-gray hover:bg-black hover:text-white transition-all duration-300"
             >{'Зарегистрироваться'}</FormButton>
 
             <div className="mt-[20px] cursor-pointer">
@@ -126,6 +133,8 @@ const SecondRegisterStage = (props : RegisterStageProps) => {
 
                 </div>
             </ActiveModal>
+
+
 
         </>
     )

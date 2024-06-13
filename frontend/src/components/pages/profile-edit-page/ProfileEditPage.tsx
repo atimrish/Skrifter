@@ -13,6 +13,7 @@ import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
 import {useNavigate} from "react-router-dom";
 import useUserInfo from "../../../hooks/useUserInfo.ts";
 import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
+import ChangePasswordForm from "@pages/profile-edit-page/helper/ChangePasswordForm.tsx";
 
 const ProfileEditPage = () => {
 
@@ -87,7 +88,7 @@ const ProfileEditPage = () => {
                 method: "PUT",
                 action: "/users/update-description",
                 body: JSON.stringify({
-                    description: userData.description,
+                    description: e.target.value,
                 }),
                 headers: {
                     contentType: "application/json"
@@ -106,7 +107,7 @@ const ProfileEditPage = () => {
             method: "PUT",
             action: "/users/update-nickname",
             body: JSON.stringify({
-                nickname: userData.nickname
+                nickname: e.target.value
             }),
             headers: {
                 contentType: "application/json"
@@ -114,6 +115,16 @@ const ProfileEditPage = () => {
         })
     }
 
+    const changePassword = async (e) => {
+        const res = await MakeAuthRequest({
+            method: "PUT",
+            action: "/users/change-password",
+            body: JSON.stringify({}),
+            headers: {
+                contentType: "application/json"
+            }
+        })
+    }
 
     return (
         <>
@@ -184,32 +195,7 @@ const ProfileEditPage = () => {
                         text={'Изменение пароля'}
                     />
 
-                    <Form
-                        onSubmit={async () => {
-                        }}
-                        action={''}
-                        method={"POST"}
-                    >
-                        <ActiveTextInput
-                            value={''}
-                            placeholder={'Старый пароль'}
-                        />
-
-                        <ActiveTextInput
-                            value={''}
-                            placeholder={'Новый пароль'}
-                        />
-
-                        <ActiveTextInput
-                            value={''}
-                            placeholder={'Подтвердите пароль'}
-                        />
-
-                        <FormButton
-                            className="h-[48px] bg-gray py-[5px] "
-                        >Изменить</FormButton>
-
-                    </Form>
+                    <ChangePasswordForm/>
 
                     <Heading
                         number={2}

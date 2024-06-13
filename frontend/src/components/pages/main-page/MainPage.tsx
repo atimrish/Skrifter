@@ -8,6 +8,7 @@ import useProducts from "../../../hooks/useProducts.ts";
 import {useNavigate} from "react-router-dom";
 import Rating from "@components/icons/rating/Rating.tsx";
 import Logo from "@components/icons/logo/Logo.tsx";
+import MainProduct from "@pages/main-page/helper/MainProduct.tsx";
 
 export default function MainPage() {
 
@@ -155,6 +156,29 @@ export default function MainPage() {
                                    </div>
                                )
                             })}
+                        </div>
+                    </Wrapper>
+                </section>
+
+                <section>
+                    <Wrapper>
+                        <Heading
+                            number={2}
+                            className={' font-mono md:text-[30px] text-[20px] text-center my-[40px] '}
+                            text={'Особые книги'}
+                        />
+                        <div className="grid grid-cols-4">
+                            {products.map(i => (
+                                <div
+                                    onClick={() => navigate(`/product/${i.ID}`)}
+                                >
+                                    <MainProduct
+                                        title={i.title}
+                                        author={i.authors.map(j => `${j.surname} ${j.name} ${j.patronymic}`).join(', ')}
+                                        photo={`/storage/product/cover_photos/${i.cover_photo}`}
+                                    />
+                                </div>
+                            ))}
                         </div>
                     </Wrapper>
                 </section>

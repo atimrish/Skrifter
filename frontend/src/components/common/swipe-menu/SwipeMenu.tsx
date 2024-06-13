@@ -86,10 +86,6 @@ const SwipeMenu = (props: SwipeMenuProps) => {
                             </div>
 
                             <div className="my-[15px]">
-                                <Link to={'/'} className="text-[24px] font-mono font-bold">Подписки</Link>
-                            </div>
-
-                            <div className="my-[15px]">
                                 <Link to={'/search'} className="text-[24px] font-mono font-bold">Поиск</Link>
                             </div>
                         </div>

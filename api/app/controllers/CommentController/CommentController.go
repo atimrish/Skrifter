@@ -76,3 +76,16 @@ func Add(w http.ResponseWriter, r *http.Request) {
 		"status": "true",
 	})
 }
+
+func Delete(w http.ResponseWriter, r *http.Request) {
+	id := chi.URLParam(r, "id")
+
+	db := actions.GetDb()
+	defer actions.CloseDb(db)
+	db.Delete(models.Comment{}, id)
+	w.WriteHeader(204)
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"message": "коммент удален",
+	})
+}

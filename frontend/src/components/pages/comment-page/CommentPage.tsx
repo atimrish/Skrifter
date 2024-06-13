@@ -69,11 +69,12 @@ const CommentPage = () => {
                             action={`/product/${id}/comment`}
                             method={'POST'}
                         >
-                            <div>
+                            <div className="mx-auto">
                                 <ActiveTextarea
                                     onChange={(e) => {
                                         setText(e.target.value);
                                     }}
+                                    className="w-[100%] mx-auto"
                                     value={text}
                                     placeholder={'Введите что-нибудь...'}
                                 />

@@ -9,6 +9,7 @@ import {useState} from "react";
 import FormButton from "@components/ui/button/FormButton.tsx";
 import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
 import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
+import AdminLinks from "@pages/admin-page/helper/AdminLinks.tsx";
 
 const CreateAuthor = () => {
     const [notify, setNotify] = useState<boolean>(false)
@@ -43,12 +44,12 @@ const CreateAuthor = () => {
         <>
             <MainLayout>
                 <Wrapper>
+                    <AdminLinks/>
                     <Heading
                         number={2}
                         text={'Добавление автора'}
                         className={'text-[24px] font-mono my-[40px]'}
                     />
-
 
                     <Form
                         onSubmit={onSubmit}

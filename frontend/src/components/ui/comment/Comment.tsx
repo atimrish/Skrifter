@@ -1,10 +1,14 @@
 import Image from "@components/ui/image/Image.tsx";
 import ActiveLink from "@components/ui/link/ActiveLink.tsx";
+import useIsAdmin from "../../../hooks/useIsAdmin.ts";
 
 const Comment = (props: CommentProps) => {
+
+    const [isAdmin] = useIsAdmin()
+
     return (
         <>
-            <div className="w-[328px]">
+            <div className="w-[100%]">
                 <div className="flex items-start justify-between">
                     <div className="flex items-start">
                         <div className="w-[48px] h-[48px] rounded-[10px] bg-gray overflow-hidden mr-[15px]">
@@ -24,6 +28,7 @@ const Comment = (props: CommentProps) => {
 
                 <div className="flex justify-end">
                     <ActiveLink className={"font-mono"}>ответить</ActiveLink>
+                    {isAdmin && <div className="ml-[20px] text-red font-mono">удалить</div>}
                 </div>
 
             </div>

@@ -44,6 +44,7 @@ func initRoutes(r *chi.Mux) {
 		r.Put("/users/update-nickname", UserController.UpdateNickname)
 		r.Get("/users/me", UserController.GetUserInfoByToken)
 		r.Delete("/users/delete-photo", UserController.DeletePhoto)
+		r.Put("/user/change-password", Auth.ChangePassword)
 
 		r.Post("/product/{id}/comment", CommentController.Add)
 		r.Post("/product/{id}/discussion", DiscussionController.Add)
@@ -85,9 +86,14 @@ func initRoutes(r *chi.Mux) {
 
 		r.Post("/author", AuthorController.AddAuthor)
 		r.Get("/feedback", FeedbackController.Add)
+		r.Post("/genre", GenreController.Create)
+
+		r.Delete("/discussion/{id}", DiscussionController.Delete)
+		r.Delete("/comment/{id}", CommentController.Delete)
 	})
 
 	r.Get("/author", AuthorController.GetAll)
+	r.Get("/author/{id}", AuthorController.GetById)
 
 	r.Get("/product", ProductController.GetAll)
 	r.Get("/product/{id}", ProductController.GetById)

@@ -47,3 +47,28 @@ func GetById(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(genre)
 }
+
+func Create(w http.ResponseWriter, r *http.Request) {
+	db := actions.GetDb()
+	defer actions.CloseDb(db)
+
+	var genre models.Genre
+	body := actions.ReadRequestBody(r)
+
+	type AddGenreRequest struct {
+		Name string `json:"name"`
+	}
+
+	var req AddGenreRequest
+	err := json.Unmarshal(body, &req)
+	actions.IfLogFatal(err)
+
+	genre.Name = req.Name
+	db.Create(&genre)
+
+	w.WriteHeader(http.StatusCreated)
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"message": "жанр создан",
+	})
+}

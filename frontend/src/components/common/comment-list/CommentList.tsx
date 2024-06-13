@@ -13,7 +13,7 @@ const CommentList = (props: CommentListProps) => {
             <div>
                 {sliced.map(i =>
                     <div
-                        className="my-[40px]"
+                        className="my-[40px] mx-auto"
                     >
                         <Comment
                             userPhoto={'/storage/' + i.user.photo}

@@ -6,8 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	JWT "github.com/golang-jwt/jwt/v5"
-	"gorm.io/gorm"
-	"log"
 	"math/rand"
 	"net/http"
 	"time"
@@ -123,11 +121,7 @@ func Register(w http.ResponseWriter, r *http.Request) {
 	}
 
 	db := actions.GetDb()
-
-	defer func(db *gorm.DB) {
-		sqlDb, _ := db.DB()
-		sqlDb.Close()
-	}(db)
+	defer actions.CloseDb(db)
 
 	db.Create(&user)
 
@@ -239,25 +233,18 @@ func RefreshToken(w http.ResponseWriter, r *http.Request) {
 }
 
 func CheckUserExists(w http.ResponseWriter, r *http.Request) {
-
 	type CheckUserExistsForm struct {
 		Field string `json:"field"`
 		Value string `json:"value"`
 	}
 
 	body := actions.ReadRequestBody(r)
-
 	var form CheckUserExistsForm
-
 	err := json.Unmarshal(body, &form)
 	actions.IfLogFatal(err)
 
 	db := actions.GetDb()
-
-	defer func(db *gorm.DB) {
-		sqlDb, _ := db.DB()
-		sqlDb.Close()
-	}(db)
+	defer actions.CloseDb(db)
 
 	var user models.User
 	query := fmt.Sprintf("%s = '%s'", form.Field, form.Value)
@@ -279,18 +266,51 @@ func CheckAdmin(w http.ResponseWriter, r *http.Request) {
 	cookie, err := r.Cookie("access_token")
 	actions.IfLogFatal(err)
 	payload, err := actions.GetPayloadJWT(cookie.Value)
-	log.Println("test")
 	actions.IfLogFatal(err)
 
 	var res bool
-
-	if payload.RoleId == 3 {
-		res = true
-	} else {
-		res = false
-	}
+	res = payload.RoleId == 3
 
 	json.NewEncoder(w).Encode(map[string]any{
 		"result": res,
+	})
+}
+
+func ChangePassword(w http.ResponseWriter, r *http.Request) {
+	cookie, err := r.Cookie("access_token")
+	actions.IfLogFatal(err)
+	payload, err := actions.GetPayloadJWT(cookie.Value)
+	actions.IfLogFatal(err)
+
+	type ChangePasswordForm struct {
+		OldPassword string `json:"old_password"`
+		NewPassword string `json:"new_password"`
+	}
+
+	body := actions.ReadRequestBody(r)
+	var form ChangePasswordForm
+	err = json.Unmarshal(body, &form)
+	actions.IfLogFatal(err)
+
+	var user models.User
+	db := actions.GetDb()
+	defer actions.CloseDb(db)
+
+	db.First(&user, "id = ?", payload.UserId)
+
+	w.Header().Set("Content-Type", "application/json")
+	if actions.CheckPassword(form.OldPassword, user.Password) {
+		w.WriteHeader(422)
+		json.NewEncoder(w).Encode(map[string]string{
+			"message": "старый пароль неверен",
+		})
+		return
+	}
+
+	user.Password = actions.HashPassword(form.NewPassword)
+	db.Save(&user)
+
+	json.NewEncoder(w).Encode(map[string]string{
+		"message": "пароль изменен",
 	})
 }
