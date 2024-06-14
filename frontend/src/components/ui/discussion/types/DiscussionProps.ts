@@ -4,4 +4,5 @@ type DiscussionProps = {
     userName: string;
     userPhoto: string;
     timeAgo: string;
+    id: number
 }

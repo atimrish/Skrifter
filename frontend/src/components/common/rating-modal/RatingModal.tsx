@@ -3,14 +3,18 @@ import Rating from "@components/icons/rating/Rating.tsx";
 import ActiveModal from "@components/ui/modal/ActiveModal.tsx";
 import {useState} from "react";
 import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
+import useUserInfo from "../../../hooks/useUserInfo.ts";
+import UnauthorizedModal from "@pages/product-page/helper/UnauthorizedModal.tsx";
 
 const RatingModal = (props: RatingModalProps) => {
+
+    const [userInfo] = useUserInfo()
 
     const stars = []
     for (let i = 1; i <= 5; i++) {
         stars.push(
             <div
-                className="w-[32px] h-[32px]"
+                className="w-[32px] h-[32px] xl:w-[48px] xl:h-[48px]"
                 onClick={() => onClick(i)}
             >
                 <Rating/>
@@ -18,7 +22,7 @@ const RatingModal = (props: RatingModalProps) => {
         )
     }
 
-     const [value, setValue] = useState<number>(0)
+    const [value, setValue] = useState<number>(0)
 
     const valueBlock = (
         <div className="mt-[20px] font-mono">
@@ -46,20 +50,27 @@ const RatingModal = (props: RatingModalProps) => {
                 setIsOpen={props.setIsOpen}
                 isOpen={props.isOpen}
             >
-                <div className="py-[10px]">
-                    <Heading
-                        number={2}
-                        className={'text-center font-mono text-[24px] my-[30px] '}
-                        text={'Выберите оценку'}
-                    />
+                {
+                    userInfo.nickname ? (
+                            <div className="py-[10px]">
+                                <Heading
+                                    number={2}
+                                    className={'text-center font-mono text-[24px] my-[30px] '}
+                                    text={'Выберите оценку'}
+                                />
 
-                    <div className="flex w-[100%] justify-between">
-                        {stars}
-                    </div>
+                                <div className="flex w-[100%] justify-between">
+                                    {stars}
+                                </div>
 
-                    {Boolean(value) && valueBlock}
+                                {Boolean(value) && valueBlock}
+                            </div>
+                        ) :
+                        (
+                            <UnauthorizedModal/>
+                        )
+                }
 
-                </div>
             </ActiveModal>
         </>
     )

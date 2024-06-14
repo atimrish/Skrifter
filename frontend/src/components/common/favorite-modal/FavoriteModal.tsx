@@ -4,11 +4,13 @@ import UiButton from "@components/ui/button/UiButton.tsx";
 import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
 import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
 import {useState} from "react";
+import useUserInfo from "../../../hooks/useUserInfo.ts";
+import UnauthorizedModal from "@pages/product-page/helper/UnauthorizedModal.tsx";
 
 const FavoriteModal = (props: FavoriteModalProps) => {
 
+    const [userInfo] = useUserInfo()
     const [status] = useFavoriteStatuses()
-
     const [notify, setNotify] = useState<boolean>(false)
 
     const addToFavorite = async (id: number) => {
@@ -25,7 +27,9 @@ const FavoriteModal = (props: FavoriteModalProps) => {
 
         setNotify(true)
 
-        setTimeout(() => { setNotify(false) }, 5000)
+        setTimeout(() => {
+            setNotify(false)
+        }, 5000)
 
     }
 
@@ -36,16 +40,21 @@ const FavoriteModal = (props: FavoriteModalProps) => {
                 isOpen={props.isOpen}
             >
                 {
-                    status.map(i =>
-                        <div className="my-[10px]">
-                            <UiButton
-                                className={" bg-light-gray hover:bg-black hover:text-white transition-all duration-300 "}
-                                onClick={async () => {
-                                    await addToFavorite(i.ID)
-                                }}
-                            >{i.Name}</UiButton>
-                        </div>
-                    )
+                    userInfo.nickname ? (
+                            status.map(i =>
+                                <div className="my-[10px]">
+                                    <UiButton
+                                        className={" bg-light-gray hover:bg-black hover:text-white transition-all duration-300 "}
+                                        onClick={async () => {
+                                            await addToFavorite(i.ID)
+                                        }}
+                                    >{i.Name}</UiButton>
+                                </div>
+                            )
+                        ) :
+                        (
+                            <UnauthorizedModal/>
+                        )
                 }
             </ActiveModal>
             {notify && <SuccessNotify title={'Успешно'} description={'Продукт добавлен в избранное'}/>}

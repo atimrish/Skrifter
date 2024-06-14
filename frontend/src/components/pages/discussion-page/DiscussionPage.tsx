@@ -11,8 +11,11 @@ import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
 import useDiscussionsByProductId from "../../../hooks/useDiscussionsByProductId.ts";
 import Discussion from "@components/ui/discussion/Discussion.tsx";
 import ActiveTextInput from "@components/ui/text-input/ActiveTextInput.tsx";
+import useUserInfo from "../../../hooks/useUserInfo.ts";
+import UnauthorizedModal from "@pages/product-page/helper/UnauthorizedModal.tsx";
 
 const DiscussionPage = () => {
+    const [userInfo] = useUserInfo()
 
     const navigate = useNavigate();
     const {id} = useParams();
@@ -51,31 +54,40 @@ const DiscussionPage = () => {
                         isOpen={modal}
                         setIsOpen={setModal}
                     >
-                        <Heading
-                            number={2}
-                            className={' text-[20px] font-mono my-[20px] text-center '}
-                            text={'Создать обсуждение'}
-                        />
-
-                        <Form
-                            onSubmit={onDiscussionAdd}
-                            action={`/product/${id}/discussion`}
-                            method={'POST'}
-                        >
+                    {
+                        userInfo.nickname ? (
                             <div>
-                                <ActiveTextInput
-                                    onChange={(e) => {
-                                        setText(e.target.value);
-                                    }}
-                                    value={text}
-                                    placeholder={'Введите что-нибудь...'}
+                                <Heading
+                                    number={2}
+                                    className={' text-[20px] font-mono my-[20px] text-center '}
+                                    text={'Создать обсуждение'}
                                 />
-                            </div>
 
-                            <FormButton>
-                                <span className="text-[20px]">Добавить</span>
-                            </FormButton>
-                        </Form>
+                                <Form
+                                    onSubmit={onDiscussionAdd}
+                                    action={`/product/${id}/discussion`}
+                                    method={'POST'}
+                                >
+                                    <div>
+                                        <ActiveTextInput
+                                            onChange={(e) => {
+                                                setText(e.target.value);
+                                            }}
+                                            value={text}
+                                            placeholder={'Введите что-нибудь...'}
+                                        />
+                                    </div>
+
+                                    <FormButton>
+                                        <span className="text-[20px]">Добавить</span>
+                                    </FormButton>
+                                </Form>
+                            </div>
+                        ) :
+                        (
+                            <UnauthorizedModal/>
+                        )
+                    }
                     </ActiveModal>
 
                     <div className="font-mono text-[14px]">
@@ -94,6 +106,7 @@ const DiscussionPage = () => {
                                     timeAgo={'5 дней назад'}
                                     title={i.text}
                                     repliesCount={0}
+                                    id={i.ID}
                                 />
                             </div>
                         )

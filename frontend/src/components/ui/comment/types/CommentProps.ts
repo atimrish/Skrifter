@@ -3,5 +3,6 @@ type CommentProps = {
     userName: string,
     dateCreate: string,
     text: string,
-    replies?: []
+    replies?: [],
+    id: number
 }

@@ -20,6 +20,7 @@ const CommentList = (props: CommentListProps) => {
                             userName={i.user.nickname}
                             dateCreate={(new Date(Date.parse(i.CreatedAt))).toLocaleDateString()}
                             text={i.text}
+                            id={i.ID}
                         />
                     </div>
                 )

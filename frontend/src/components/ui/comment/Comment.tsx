@@ -1,10 +1,18 @@
 import Image from "@components/ui/image/Image.tsx";
 import ActiveLink from "@components/ui/link/ActiveLink.tsx";
 import useIsAdmin from "../../../hooks/useIsAdmin.ts";
+import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
 
 const Comment = (props: CommentProps) => {
 
     const [isAdmin] = useIsAdmin()
+
+    const deleteComment = async () => {
+        await MakeAuthRequest({
+            action: `/comment/${props.id}`,
+            method: 'DELETE'
+        })
+    }
 
     return (
         <>
@@ -28,7 +36,10 @@ const Comment = (props: CommentProps) => {
 
                 <div className="flex justify-end">
                     <ActiveLink className={"font-mono"}>ответить</ActiveLink>
-                    {isAdmin && <div className="ml-[20px] text-red font-mono">удалить</div>}
+                    {isAdmin && <div
+                        className="ml-[20px] text-red font-mono"
+                        onClick={deleteComment}
+                    >удалить</div>}
                 </div>
 
             </div>

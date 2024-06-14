@@ -12,8 +12,13 @@ import MakeAuthRequest from "@components/ui/form/libs/MakeAuthRequest.ts";
 import useCommentsByProductId from "../../../hooks/useCommentsByProductId.ts";
 import Comment from "@components/ui/comment/Comment.tsx";
 import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
+import useUserInfo from "../../../hooks/useUserInfo.ts";
+import UnauthorizedModal from "@pages/product-page/helper/UnauthorizedModal.tsx";
 
 const CommentPage = () => {
+
+    const [userInfo] = useUserInfo()
+
     const {id} = useParams();
 
     const navigate = useNavigate();
@@ -58,32 +63,40 @@ const CommentPage = () => {
                         isOpen={modal}
                         setIsOpen={setModal}
                     >
-                        <Heading
-                            number={2}
-                            className={' text-[20px] font-mono my-[20px] text-center '}
-                            text={'Добавить комментарий'}
-                        />
+                        {
+                            userInfo.nickname ? (
+                                <div>
+                                    <Heading
+                                        number={2}
+                                        className={' text-[20px] font-mono my-[20px] text-center '}
+                                        text={'Добавить комментарий'}
+                                    />
+                                    <Form
+                                        onSubmit={onCommentAdd}
+                                        action={`/product/${id}/comment`}
+                                        method={'POST'}
+                                    >
+                                        <div className="mx-auto">
+                                            <ActiveTextarea
+                                                onChange={(e) => {
+                                                    setText(e.target.value);
+                                                }}
+                                                className="w-[100%] mx-auto"
+                                                value={text}
+                                                placeholder={'Введите что-нибудь...'}
+                                            />
+                                        </div>
+                                        <FormButton>
+                                            <span className="text-[20px]">Добавить</span>
+                                        </FormButton>
+                                    </Form>
+                                </div>
+                            ) :
+                            (
+                                <UnauthorizedModal/>
+                            )
+                        }
 
-                        <Form
-                            onSubmit={onCommentAdd}
-                            action={`/product/${id}/comment`}
-                            method={'POST'}
-                        >
-                            <div className="mx-auto">
-                                <ActiveTextarea
-                                    onChange={(e) => {
-                                        setText(e.target.value);
-                                    }}
-                                    className="w-[100%] mx-auto"
-                                    value={text}
-                                    placeholder={'Введите что-нибудь...'}
-                                />
-                            </div>
-
-                         <FormButton>
-                             <span className="text-[20px]">Добавить</span>
-                         </FormButton>
-                        </Form>
                     </ActiveModal>
 
                     <div className="font-mono text-[14px]">
@@ -101,6 +114,7 @@ const CommentPage = () => {
                                     userName={i.user.nickname}
                                     dateCreate={(new Date(Date.parse(i.CreatedAt))).toLocaleDateString()}
                                     text={i.text}
+                                    id={i.ID}
                                 />
                             </div>
                             )

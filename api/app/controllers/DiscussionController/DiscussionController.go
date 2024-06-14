@@ -70,7 +70,7 @@ func Delete(w http.ResponseWriter, r *http.Request) {
 
 	db := actions.GetDb()
 	defer actions.CloseDb(db)
-	db.Delete(models.Discussion{}, id)
+	db.Unscoped().Delete(models.Discussion{}, id)
 	w.WriteHeader(204)
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]string{
