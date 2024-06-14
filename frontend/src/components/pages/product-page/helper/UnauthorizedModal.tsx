@@ -7,7 +7,7 @@ const UnauthorizedModal = () => {
     return (
         <>
             <div className="font-mono my-[20px]">
-                Для выполянения этого действия ниобходимо&nbsp;
+                Для выполянения этого действия необходимо&nbsp;
                 <span
                     className="text-blue"
                     onClick={() => navigate('/login')}
