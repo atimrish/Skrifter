@@ -85,7 +85,7 @@ func initRoutes(r *chi.Mux) {
 		r.Post("/product", ProductController.AddProduct)
 
 		r.Post("/author", AuthorController.AddAuthor)
-		r.Get("/feedback", FeedbackController.Add)
+		r.Get("/feedback", FeedbackController.GetAll)
 		r.Post("/genre", GenreController.Create)
 
 		r.Delete("/discussion/{id}", DiscussionController.Delete)

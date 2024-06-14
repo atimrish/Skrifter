@@ -17,6 +17,10 @@ const AdminLinks = () => {
         {
             name: 'Автор',
             link: '/admin/author',
+        },
+        {
+            name: 'Обращения',
+            link: '/admin/feedback',
         }
     ]
 

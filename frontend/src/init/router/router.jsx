@@ -18,6 +18,7 @@ import FavoritePage from "@pages/favorite-page/FavoritePage.tsx";
 import ReadPage from "@pages/read-page/ReadPage.tsx";
 import AuthorPage from "@pages/author-page/AuthorPage.tsx";
 import CreateGenre from "@pages/admin-page/CreateGenre.tsx";
+import GetFeedbacksPage from "@pages/admin-page/GetFeedbacksPage.tsx";
 
 const router = createBrowserRouter([
     {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
     {
         path: "/admin/genre",
         element: <CreateGenre/>,
+    },
+    {
+        path: "/admin/feedback",
+        element: <GetFeedbacksPage/>,
     }
 ])
 

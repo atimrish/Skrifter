@@ -6,6 +6,7 @@ import {useState} from "react";
 import Form from "@components/ui/form/Form.tsx";
 import FormButton from "@components/ui/button/FormButton.tsx";
 import SuccessNotify from "@components/ui/notify/SuccessNotify.tsx";
+import MakeRequest from "@components/ui/form/libs/MakeRequest.ts";
 
 const FeedbackPage = () => {
 
@@ -25,6 +26,14 @@ const FeedbackPage = () => {
                         action={'/feedback'}
                         method={'POST'}
                         onSubmit={async () => {
+                            await MakeRequest({
+                                action: '/feedback',
+                                method: 'POST',
+                                body: JSON.stringify({
+                                    description: text,
+                                })
+                            })
+
                             setNotify(true)
 
                             setTimeout(() => {
