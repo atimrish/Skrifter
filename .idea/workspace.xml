@@ -5,18 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5a3bf19-5b02-493b-8ee3-6dfa65f58a45" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/pages/product-page/helper/UnauthorizedModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/comment-list/CommentList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/comment-list/CommentList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/discussion-list/DiscussionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/discussion-list/DiscussionList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/favorite-modal/FavoriteModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/favorite-modal/FavoriteModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/rating-modal/RatingModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/rating-modal/RatingModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/comment-page/CommentPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/comment-page/CommentPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/pages/discussion-page/DiscussionPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/pages/discussion-page/DiscussionPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/comment/Comment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/comment/Comment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/comment/types/CommentProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/comment/types/CommentProps.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/discussion/Discussion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/discussion/Discussion.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ui/discussion/types/DiscussionProps.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ui/discussion/types/DiscussionProps.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/cmd/test/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/cmd/test/test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
